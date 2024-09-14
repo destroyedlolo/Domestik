@@ -10,8 +10,6 @@ function PublishLoad( section_name )
 
 	local topic = 'Load/' .. Marcel.Hostname() ..'/'
 
-print(">>>>", topic)
-
 	Marcel.MQTTPublish( topic .. '1', r1)
 	Marcel.MQTTPublish( topic .. '5', r5)
 	Marcel.MQTTPublish( topic .. '10', r10)

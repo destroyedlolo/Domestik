@@ -1,0 +1,15 @@
+# Call a function 'Every' seconds
+# Uid of the section is passed as argument to the called function
+# (may be overwriten by 'Topic=' but some bytes are lost in this case)
+
+Needs=mod_every
+Needs=mod_Lua
+
+UserFuncScript=scripts/PublishMemory.lua
+
+*Every=Publish memory
+	Sample=15
+	Func=PublishMemory
+	Immediate
+#	Disabled
+	DoNotSimulate
