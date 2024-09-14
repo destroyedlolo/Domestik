@@ -2,7 +2,7 @@
 #
 # Add Lua's user function to Marcel
 
-LoadModule=mod_Lua.so
+Needs=mod_Lua
 
 # Where the Lua script is located
 # Only one UserFuncScript directive can be present. As a workaround,

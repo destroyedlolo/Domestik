@@ -3,15 +3,8 @@
 
 require'lfs'
 
-for entry in lfs.dir(MARCEL_SCRIPT_DIR) do
-    if lfs.attributes(MARCEL_SCRIPT_DIR .. '/' .. entry,"mode") == "directory" and 
-		file:sub(1, 1) ~= '.'
-	then
-		if MARCEL_DEBUG then
-			print("Reading ", entry)
-		end
-
---[[
+for file in lfs.dir(MARCEL_SCRIPT_DIR) do
+    if lfs.attributes(MARCEL_SCRIPT_DIR .. '/' .. file,"mode") == "directory" and 
 		file ~= MARCEL_SCRIPT and
 		file ~= "README.md" and
 		file:sub(1, 1) ~= '.'
@@ -20,7 +13,6 @@ for entry in lfs.dir(MARCEL_SCRIPT_DIR) do
 			print("*Lua* Running ", file)
 		end
 		dofile(MARCEL_SCRIPT_DIR .. '/' .. file)
---]]
 	end
 end
 

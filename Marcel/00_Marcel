@@ -13,4 +13,4 @@ ClientID=%Hostname%.Domestik
 # MQTT Broker's URL
 #Broker=tcp://localhost:1883
 #Broker=tcp://actif.chez.moi:1883
-#Broker=tcp://torchwood.chez.moi:1883
+Broker=tcp://torchwood.chez.moi:1883
