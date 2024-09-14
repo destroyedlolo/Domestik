@@ -4,7 +4,7 @@
 require'lfs'
 
 for file in lfs.dir(MARCEL_SCRIPT_DIR) do
-    if lfs.attributes(MARCEL_SCRIPT_DIR .. '/' .. file,"mode") == "directory" and 
+    if lfs.attributes(MARCEL_SCRIPT_DIR .. '/' .. file,"mode") == "file" and 
 		file ~= MARCEL_SCRIPT and
 		file ~= "README.md" and
 		file:sub(1, 1) ~= '.'

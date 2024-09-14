@@ -3,6 +3,9 @@
 # (may be overwriten by 'Topic=' but some bytes are lost in this case)
 
 Needs=mod_every
+Needs=mod_Lua
+
+UserFuncScript=scripts/PublishLoad.lua
 
 *Every=Publish system load
 	Sample=15
