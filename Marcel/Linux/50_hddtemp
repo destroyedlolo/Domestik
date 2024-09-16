@@ -1,0 +1,13 @@
+# Publish disks temperature
+
+Needs=mod_every
+Needs=mod_Lua
+
+UserFuncScript=scripts/PublishHDDTemp.lua
+
+*Every=Publish disk temperature
+	Sample=60
+	Func=PublishHDDTemp
+	Immediate
+#	Disabled
+	DoNotSimulate
