@@ -1,6 +1,4 @@
-# Call a function 'Every' seconds
-# Uid of the section is passed as argument to the called function
-# (may be overwriten by 'Topic=' but some bytes are lost in this case)
+# Publish system load
 
 Needs=mod_every
 Needs=mod_Lua
