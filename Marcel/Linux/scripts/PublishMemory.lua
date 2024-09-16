@@ -25,7 +25,7 @@ function PublishMemory( section_name )
 		end
 	end
 
-	local topic = 'Memory/' .. Marcel.Hostname() ..'/'
+	local topic = 'Machines/' .. Marcel.Hostname() ..'/Memory/'
 
 	Marcel.MQTTPublish( topic .. 'Memory', mfree ..'/'.. mtotal)
 	Marcel.MQTTPublish( topic .. 'Swap', sfree ..'/'.. stotal)
