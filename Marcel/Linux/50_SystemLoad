@@ -1,4 +1,8 @@
 # Publish system load
+# Target topics : 
+# Machines/PSet/Load/1
+# Machines/PSet/Load/5
+# Machines/PSet/Load/10
 
 Needs=mod_every
 Needs=mod_Lua
