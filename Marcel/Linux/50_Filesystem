@@ -1,0 +1,15 @@
+# Publish file systems usage
+# Target topics : 
+# Machines/<host>/Filesystem/<disk>
+
+Needs=mod_every
+Needs=mod_Lua
+
+UserFuncScript=scripts/Filesystem.lua
+
+*Every=Publish disk usage
+	Sample=60
+	Func=Filesystem
+	Immediate
+#	Disabled
+	DoNotSimulate
