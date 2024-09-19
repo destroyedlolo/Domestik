@@ -1,5 +1,7 @@
 -- Publish disks temperature
 -- 
+-- Example :
+-- Machines/PSet/HDDTemp//dev/sda	53
 --
 
 function PublishHDDTemp( section_name )
