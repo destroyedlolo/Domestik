@@ -1,6 +1,9 @@
 # Publish file systems usage
 # Target topics : 
 # Machines/<host>/Filesystem/<disk>
+# Example :
+# Machines/PSet/Filesystem//tmp	509165/514522
+# Machines/PSet/Filesystem//var/tmp	257701/257707
 
 Needs=mod_every
 Needs=mod_Lua
