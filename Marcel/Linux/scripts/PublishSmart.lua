@@ -7,7 +7,6 @@ function PublishSmart( section_name )
 	local f = io.open('/tmp/smartd.msg','r')
 
 	if f then
-print "ok"
 		local msg = f:read('*all')
 		f:close()
 

@@ -1,0 +1,21 @@
+# Process Tracking
+# Publish process' figures
+#
+# Topic : Machines/<host>/process/<process> -> <data size>/<stack>
+#
+
+Needs=mod_every
+Needs=mod_Lua
+
+UserFuncScript=scripts/PublishProcessTracking.lua
+
+*Every=Publish Process Tracking
+	Sample=60
+	Func=PublishProcessTracking
+	Immediate
+#	Disabled
+	DoNotSimulate
+
+# list of process to track
+# Causion, it could be a security leak
+	Arg=dmkcheckd;gerbera;firefox;Marcel
