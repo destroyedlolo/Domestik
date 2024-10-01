@@ -4,14 +4,12 @@
 -->> need_topic=HomeTemperatures
 
 -- PostgreSQL access
--- package.path = MAJORDOME_CONFIGURATION_DIRECTORY .. "/conf/?.lua;" .. package.path
+package.path = MAJORDOME_CONFIGURATION_DIRECTORY .. "/conf/?.lua;" .. package.path
 
 local pgmoon = require "pgmoon"
-local db = pgmoon.new( {
-	database = "www",
---	user= "toto"
-})
-
+local db = pgmoon.new(
+	require("DB")
+)
 assert(db:connect())
 
 -- Extract probe name
@@ -52,3 +50,4 @@ if not tbl[nlevel+2] then
 		print("failed", err)
 	end
 end
+
