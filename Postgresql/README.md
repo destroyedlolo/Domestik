@@ -8,6 +8,8 @@ All configuration have to be made in **Configuration.sql** script. It's strongly
 
 Before anything else, execute **Common.sql** to create Domestik2's environment.
 
+`psql -f Common.sql www`
+
 > [!CAUTION]
 > This script will **erase** every existing objects in Domestik2's schema.
 > Use it only once (or to clean previous install).
