@@ -16,13 +16,12 @@
 \qecho Drop potential existing environment
 \qecho -----------------------------------
 \unset ON_ERROR_STOP
-DROP SCHEMA IF EXISTS :Domestik_Schema CASCADE;
+DROP SCHEMA IF EXISTS :Domestik_User CASCADE;
 
 \qecho Create the schema
 \qecho -----------------
 \set ON_ERROR_STOP
-CREATE SCHEMA :Domestik_Schema;
-GRANT ALL PRIVILEGES ON SCHEMA :Domestik_Schema TO :Domestik_User;
-COMMENT ON SCHEMA :Domestik_Schema IS 'Domestik monitoring tool own database';
-
+CREATE USER :Domestik_User;
+-- GRANT ALL PRIVILEGES ON SCHEMA :Domestik_Schema TO :Domestik_User;
+-- COMMENT ON SCHEMA :Domestik_Schema IS 'Domestik monitoring tool own database';
 

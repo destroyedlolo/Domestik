@@ -10,11 +10,12 @@
 -- ---------
 --
 --	19/10/2024 - LF : Creation for Domestik2
+--	23/10/2024 - LF : use dedicated user (easier for grafana)
 --
 
 -- Postgresql's user
-\set Domestik_User 'www'
+\set Domestik_User 'domestik2'
 
 -- Domestik dedicated schema
-\set Domestik_Schema 'domestik2'
+-- \set Domestik_Schema 'domestik2'
 
