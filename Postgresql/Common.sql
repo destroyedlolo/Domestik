@@ -15,13 +15,19 @@
 
 \qecho Drop potential existing environment
 \qecho -----------------------------------
-\unset ON_ERROR_STOP
-DROP SCHEMA IF EXISTS :Domestik_User CASCADE;
+DROP SCHEMA IF EXISTS :Domestik_Schema CASCADE;
+DROP USER IF EXISTS :Domestik_User;
 
-\qecho Create the schema
-\qecho -----------------
+\qecho Create the environment
+\qecho ----------------------
 \set ON_ERROR_STOP
 CREATE USER :Domestik_User;
--- GRANT ALL PRIVILEGES ON SCHEMA :Domestik_Schema TO :Domestik_User;
--- COMMENT ON SCHEMA :Domestik_Schema IS 'Domestik monitoring tool own database';
+CREATE SCHEMA :Domestik_Schema;
+
+GRANT ALL PRIVILEGES ON SCHEMA :Domestik_Schema TO :Domestik_User;
+COMMENT ON SCHEMA :Domestik_Schema IS 'Domestik monitoring tool own database';
+
+-- It's a hack to make easier the access for Grafana to let
+-- its autocompletion will find out our tables.
+ALTER USER :Domestik_User SET SEARCH_PATH TO :Domestik_Schema;
 

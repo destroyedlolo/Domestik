@@ -17,5 +17,5 @@
 \set Domestik_User 'domestik2'
 
 -- Domestik dedicated schema
--- \set Domestik_Schema 'domestik2'
+\set Domestik_Schema 'domestik2'
 

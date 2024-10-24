@@ -12,6 +12,8 @@
 -- externalize configuration
 \i Configuration.sql
 
+SET ROLE :Domestik_User;
+
 \qecho Drop potential existing environment
 \qecho -----------------------------------
 DROP TABLE IF EXISTS :Domestik_Schema.electricity_counter CASCADE;
