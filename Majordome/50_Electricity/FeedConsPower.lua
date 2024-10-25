@@ -27,7 +27,7 @@ if ans_val then
 		SelSharedVar.Set("ConsPowerMax", MAJORDOME_PAYLOAD);
 	end
 
-	if dt >= ans_time + 1 then	-- 5 minutes have passed
+	if dt >= ans_time + 5 then	-- 5 minutes have passed
 		local req = string.format("INSERT INTO ".. DB.schema ..".electricity_power VALUES ('Consommation', %f, now() );", db:escape_literal(tonumber(MAJORDOME_PAYLOAD)));
 
 		local status, err = db:query(req)
