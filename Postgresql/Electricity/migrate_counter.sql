@@ -18,8 +18,8 @@ INSERT INTO :Domestik_Schema.electricity_counter
 	FROM domestik.probe_counter
 	WHERE probe LIKE 'consomation_%';
 
-\qecho Migrate Consommation
-\qecho --------------------
+\qecho Migrate Production
+\qecho ------------------
 
 INSERT INTO :Domestik_Schema.electricity_counter
 	SELECT 'Production', regexp_replace(probe, '^production_', ''), value, sample_time
