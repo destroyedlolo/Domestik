@@ -4,5 +4,6 @@
 
 return {
 	database = "www",
-	user= "domestik2"
+	user = "domestik2",
+	schema = "domestik2"
 }
