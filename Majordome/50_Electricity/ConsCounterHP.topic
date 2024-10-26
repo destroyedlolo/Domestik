@@ -1,0 +1,4 @@
+# Retrieve "Heure Plaine" counter
+
+topic=TeleInfo/Consommation/values/HCHP
+store

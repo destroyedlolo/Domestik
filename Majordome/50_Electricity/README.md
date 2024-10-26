@@ -1,4 +1,3 @@
-Store my home figures in Domestik's database.
+Store my electricity's in Domestik's database.
 
-* `HomeTemperatures` defines the root of incoming topics tree
-* `FeedHomeTemperatures` feeds Domestic's table with incoming data.
+At least `*.topic` needs to be customized as per your own installation.
