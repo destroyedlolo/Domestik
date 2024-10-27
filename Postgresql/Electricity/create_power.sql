@@ -18,8 +18,8 @@ SET ROLE :Domestik_User;
 \qecho -----------------------------------
 DROP TABLE IF EXISTS :Domestik_Schema.electricity_power CASCADE;
 
-\qecho Create electricity_counter schema
-\qecho ---------------------------------
+\qecho Create electricity_power schema
+\qecho -------------------------------
 
 CREATE TABLE :Domestik_Schema.electricity_power (
 	figure TEXT NOT NULL,
