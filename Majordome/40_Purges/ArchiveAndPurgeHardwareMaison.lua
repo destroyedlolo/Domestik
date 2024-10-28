@@ -1,5 +1,7 @@
 -- Archive and purge old hardware data
 -->> when=MidnightOrAtLaunch
+--
+-->> disabled
 
 -- PostgreSQL access
 package.path = MAJORDOME_CONFIGURATION_DIRECTORY .. "/conf/?.lua;" .. package.path

@@ -2,6 +2,7 @@
 --
 -->> listen=HomeTemperatures
 -->> need_topic=HomeTemperatures
+-->> disabled
 
 -- PostgreSQL access
 package.path = MAJORDOME_CONFIGURATION_DIRECTORY .. "/conf/?.lua;" .. package.path
