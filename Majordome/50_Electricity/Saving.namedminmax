@@ -1,0 +1,14 @@
+-- Simulate the saving due to the production (if we where in autoproduction)
+-- Notez-bien : it will not work if we are REALLY doing autoproduction.
+--
+-->> listen=ConsPower
+-->> require_topic=ProdPower
+
+local diff = MAJORDOME_PAYLOAD - ProdPower:getVal()
+
+if diff > 0 then	-- The consumption is higher
+	return "AutoProduction", ProdPower:getVal()
+else -- We are producing more vs our consumption
+	return "AutoProduction", MAJORDOME_PAYLOAD
+end
+
