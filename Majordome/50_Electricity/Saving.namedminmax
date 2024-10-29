@@ -7,8 +7,8 @@
 local diff = MAJORDOME_PAYLOAD - ProdPower:getVal()
 
 if diff > 0 then	-- The consumption is higher
-	return "AutoProduction", ProdPower:getVal()
+	return "Saving", ProdPower:getVal()
 else -- We are producing more vs our consumption
-	return "AutoProduction", MAJORDOME_PAYLOAD
+	return "Saving", MAJORDOME_PAYLOAD
 end
 

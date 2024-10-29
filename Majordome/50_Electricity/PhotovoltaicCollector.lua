@@ -6,7 +6,7 @@
 --
 -- Indicate the Timer(s) to wait for
 -- (more than one "when" can be present)
--->> when=10s
+-->> when=5minutes
 --
 --	MinMaxes
 -->> need_namedminmax=Saving
@@ -34,7 +34,7 @@ for _,v in ipairs( table.pack(Saving:FiguresNames()) ) do
 	print( "Sum :", Saving:getSum(v) )
 
 	-- Clear storage : restart a new series
-	Saving:Clear(v)
+--	Saving:Clear(v)
 end
 
 for _,v in ipairs( table.pack(Injection:FiguresNames()) ) do
@@ -48,5 +48,32 @@ for _,v in ipairs( table.pack(Injection:FiguresNames()) ) do
 	print( "Sum :", Injection:getSum(v) )
 
 	-- Clear storage : restart a new series
-	Injection:Clear(v)
+--	Injection:Clear(v)
 end
+
+-- PostgreSQL access
+package.path = MAJORDOME_CONFIGURATION_DIRECTORY .. "/conf/?.lua;" .. package.path
+
+local pgmoon = require "pgmoon"
+local DB = require("DB")
+local db = pgmoon.new(
+	DB
+)
+assert(db:connect())
+
+local req = string.format("INSERT INTO ".. DB.schema ..".electricity_powersaving VALUES ('Saving', %f, now() );", db:escape_literal(Saving:getSum("Saving")));
+
+local status, err = db:query(req)
+if not status then
+	print("failed", err)
+end
+Saving:Clear("Saving");
+
+req = string.format("INSERT INTO ".. DB.schema ..".electricity_powersaving VALUES ('Injection', %f, now() );", db:escape_literal(Injection:getSum("Injection")));
+
+local status, err = db:query(req)
+if not status then
+	print("failed", err)
+end
+Injection:Clear("Injection");
+
