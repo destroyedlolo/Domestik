@@ -8,4 +8,6 @@ local diff = MAJORDOME_PAYLOAD - ProdPower:getVal()
 
 if diff<0 then
 	return "Injection", -diff
+else
+	return "Injection", 0
 end
