@@ -1,0 +1,3 @@
+-- Generate statistics on real time consumer power
+--
+-->> listen=ProdPower
