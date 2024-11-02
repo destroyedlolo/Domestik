@@ -39,7 +39,7 @@ if not status then
 end
 
 -- Publish collected average
-DomestikAvgConsPower:Publish( ConsPower:getAverage() )
+DomestikAvgConsPower:Publish( ConsPower:getAverage()/12 )
 
 -- Clear the statistics
 ConsPower:Reset()

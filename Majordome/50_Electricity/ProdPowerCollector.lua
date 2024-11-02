@@ -39,7 +39,7 @@ if not status then
 end
 
 -- Publish collected average
-DomestikAvgProdPower:Publish( ProdPower:getAverage() )
+DomestikAvgProdPower:Publish( ProdPower:getAverage()/12 )
 
 -- Clear the statistics
 ProdPower:Reset()

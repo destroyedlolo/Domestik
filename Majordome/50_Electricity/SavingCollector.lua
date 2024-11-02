@@ -69,6 +69,19 @@ if diff > 0 then
 		print("failed", err)
 	end
 
+	-- Injection
+	req = string.format("INSERT INTO ".. DB.schema ..".electricity_powersaving VALUES ('Injection', %f, now() );", 0);
+	status, err = db:query(req)
+	if not status then
+		print("failed", err)
+	end
+
+	req = string.format("INSERT INTO ".. DB.schema ..".electricity_billing VALUES ('Injection', %f, now() );", 0);
+	status, err = db:query(req)
+	if not status then
+		print("failed", err)
+	end
+
 	if MAJORDOME_VERBOSE then
 		print('Economie :', prod*billing)
 	end
@@ -95,7 +108,6 @@ else
 	end
 
 	req = string.format("INSERT INTO ".. DB.schema ..".electricity_billing VALUES ('Injection', %f, now() );", -diff*TREVENTE);
-
 	status, err = db:query(req)
 	if not status then
 		print("failed", err)
