@@ -30,6 +30,11 @@
 ### Todo
 - `ConsOptTarif.topic` Actual Consumer pricing contract
 
+
+listen les 2 topics
+require_topic sur les 2 topics
+A la fin, les mettre à NIL pour les invalidées.
+
 - the Linky sent every seconds the power in VA
 - we take the average 5 minutes
 - So Sum (VA/5m) / 12 = VAh 
