@@ -56,13 +56,13 @@ if diff > 0 then
 	-- Not enough production
 	-- So we are reducing the consumption billing by our production
 
-	req = string.format("INSERT INTO ".. DB.schema ..".electricity_powersaving VALUES ('Saving', %f, now() );", db:escape_literal(prod));
+	req = string.format("INSERT INTO ".. DB.schema ..".electricity_powersaving VALUES ('Saving', %f, now() );", prod);
 	status, err = db:query(req)
 	if not status then
 		print("failed", err)
 	end
 
-	req = string.format("INSERT INTO ".. DB.schema ..".electricity_billing VALUES ('Saving', %f, now() );", db:escape_literal(prod*billing));
+	req = string.format("INSERT INTO ".. DB.schema ..".electricity_billing VALUES ('Saving', %f, now() );", prod*billing);
 
 	status, err = db:query(req)
 	if not status then
@@ -70,7 +70,7 @@ if diff > 0 then
 	end
 
 	if MAJORDOME_VERBOSE then
-		print('Economie :', db:escape_literal(prod*billing))
+		print('Economie :', prod*billing)
 	end
 else
 	-- We are producing more
