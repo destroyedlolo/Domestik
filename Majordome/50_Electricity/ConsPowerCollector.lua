@@ -3,6 +3,7 @@
 --
 -- Frequency of data collection
 -->> when=5minutes
+--->> when=10s
 --
 -->> need_minmax=ConsPower
 -->> need_topic=DomestikAvgConsPower
