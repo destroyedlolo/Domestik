@@ -1,4 +1,4 @@
 # Retrieve power consumed
 
-topic=TeleInfo/Consommation/values/PAPP
+topic=TeleInfo/LinkyConsommation/SINSTS
 #store

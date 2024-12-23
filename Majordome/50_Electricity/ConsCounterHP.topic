@@ -1,4 +1,4 @@
 # Retrieve "Heure Plaine" counter
 
-topic=TeleInfo/Consommation/values/HCHP
+topic=TeleInfo/LinkyConsommation/EASF02
 store

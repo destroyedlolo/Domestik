@@ -1,4 +1,4 @@
 # Retrieve power consumed
 
-topic=TeleInfo/LinkyProduction/values/SINSTI
+topic=TeleInfo/LinkyProduction/SINSTI
 store

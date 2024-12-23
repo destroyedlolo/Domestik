@@ -19,20 +19,21 @@
 --->> disabled
 --
 
+package.path = MAJORDOME_CONFIGURATION_DIRECTORY .. "/conf/?.lua;" .. package.path
 -- Tarifs
-local THP=0.27/1000
-local THC=0.2068/1000
-local TREVENTE=0.1269/1000
+local tarifs = require("Tarif")
 
 local billing
-if ConsOptTarif:getVal() == 'HP..' then
-	billing = THP
+if ConsOptTarif:getVal() == '1' then
+	billing = tarifs.THP
+print("**** HP")
 else
-	billing = THC
+	billing = tarifs.THC
+print("**** HC")
 end	
 
 	-- Get the values
-local cons, prod = DomestikAvgConsPower:getVal(), DomestikAvgProdPower:getVal()
+local cons, prod = tonumber(DomestikAvgConsPower:getVal()), tonumber(DomestikAvgProdPower:getVal())
 local diff = cons - prod
 
 	-- Clear topics to ensure actual values for next run
@@ -40,7 +41,6 @@ SelSharedVar.Set('DomestikAvgProdPower')
 SelSharedVar.Set('DomestikAvgConsPower')
 
 -- PostgreSQL access
-package.path = MAJORDOME_CONFIGURATION_DIRECTORY .. "/conf/?.lua;" .. package.path
 
 local req, status, err
 local pgmoon = require "pgmoon"
@@ -107,13 +107,13 @@ else
 		print("failed", err)
 	end
 
-	req = string.format("INSERT INTO ".. DB.schema ..".electricity_billing VALUES ('Injection', %f, now() );", -diff*TREVENTE);
+	req = string.format("INSERT INTO ".. DB.schema ..".electricity_billing VALUES ('Injection', %f, now() );", -diff*tarifs.TREVENTE);
 	status, err = db:query(req)
 	if not status then
 		print("failed", err)
 	end
 
 	if MAJORDOME_VERBOSE then
-		print('Economie :', cons*billing, 'Revente :', -diff*TREVENTE)
+		print('Economie :', cons*billing, 'Revente :', -diff*tarifs.TREVENTE)
 	end
 end

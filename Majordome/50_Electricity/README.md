@@ -28,5 +28,5 @@
 - `ProdPowerCollector.lua` Collect producer power statistic every 5 minutes
 
 ### Billing
-- `ConsOptTarif.topic` Actual Consumer pricing contract
+- `ConsOptTarif.topic` Actual Consumer pricing contract (as of Linky standard, we got only an index to the counter to use ; anything different to 1 is considered as "*Heure Creuse*")
 - `SavingCollector.lua` Calculate and feed the database with power saving
