@@ -22,9 +22,9 @@ DROP TABLE IF EXISTS :Domestik_Schema.electricity_power CASCADE;
 \qecho -------------------------------
 
 CREATE TABLE :Domestik_Schema.electricity_power (
+	sample_time TIMESTAMP WITH TIME ZONE,
 	figure TEXT NOT NULL,
-	value INTEGER,
-	sample_time TIMESTAMP WITH TIME ZONE
+	value INTEGER
 );
 
 GRANT ALL PRIVILEGES ON TABLE :Domestik_Schema.electricity_power TO :Domestik_User;
