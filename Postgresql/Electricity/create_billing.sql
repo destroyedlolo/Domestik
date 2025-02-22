@@ -20,9 +20,9 @@ DROP TABLE IF EXISTS :Domestik_Schema.electricity_billing CASCADE;
 \qecho -------------------------------------
 
 CREATE TABLE :Domestik_Schema.electricity_billing (
+	sample_time TIMESTAMP WITH TIME ZONE,
 	figure TEXT NOT NULL,
-	value float,
-	sample_time TIMESTAMP WITH TIME ZONE
+	value float
 );
 
 GRANT ALL PRIVILEGES ON TABLE :Domestik_Schema.electricity_billing TO :Domestik_User;
