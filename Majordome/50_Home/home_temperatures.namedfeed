@@ -3,7 +3,7 @@
 -->> listen=HomeTemperatures
 -->> need_topic=HomeTemperatures
 -->> Database=domestik2
--->> table=home_figures
+--->> table=home_temperatures
 
 -- Extract probe name
 local _, nlevel=HomeTemperatures:getTopic():gsub("/","")	-- amount of level
