@@ -1,12 +1,24 @@
 -- Collect consumer power statistics
--- Store in the database the maximum collected
+-- - Store in the database the maximum collected
+-- - Publish the average value
 --
 -- Frequency of data collection
 -->> when=5minutes
 --->> when=10s
 --
+-- Database to connect to
+-->> Database=domestik2
+--
+-- Table to feed
+-->> table=electricity_power
+--
+-- Dependancies : objects needed by the code
 -->> need_minmax=ConsPower
 -->> need_topic=DomestikAvgConsPower
+--
+
+--
+-- Display statistics
 --
 
 if MAJORDOME_VERBOSE then
@@ -20,26 +32,10 @@ if MAJORDOME_VERBOSE then
 	print( "Sum :", ConsPower:getSum() )
 end
 
--- PostgreSQL access
-package.path = MAJORDOME_CONFIGURATION_DIRECTORY .. "/conf/?.lua;" .. package.path
-
-local pgmoon = require "pgmoon"
-local DB = require("DB")
-local db = pgmoon.new(
-	DB
-)
-assert(db:connect())
-
--- Store in database
-local req = string.format("INSERT INTO ".. DB.schema ..".electricity_power VALUES ('Consommation', %f, now() );", db:escape_literal(ConsPower:getMax(v)))
-
-local status, err = db:query(req)
-if not status then
-	print("failed", err)
-end
-
 -- Publish collected average
 DomestikAvgConsPower:Publish( ConsPower:getAverage()/12 )
 
 -- Clear the statistics
 ConsPower:Reset()
+
+return "Consommation", ConsPower:getMax()
