@@ -1,0 +1,23 @@
+-- Store counter for production in Domestik's database
+--
+--->> when=5minutes
+-->> when=10s
+--
+-->> require_topic=ProdCounter
+-->> need_pgSQL=domestik2
+--
+-->> table=electricity_counter
+
+if SelSharedVar.Get('ProdCounter') ~= SelSharedVar.Get('ansProdCounter') then
+
+	-- Build the request
+	local req = "INSERT INTO ".. MAJORDOME_Myself:getDatabase():EscapeIdentifier(MAJORDOME_Myself:getTable())  .." VALUES (now(), 'Production', 'BASE', ".. SelSharedVar.Get('ProdCounter') .." );"
+
+	domestik2:doSQL(req)
+end
+
+	-- Store previous value
+SelSharedVar.Set('ansProdCounter', SelSharedVar.Get('ProdCounter'))
+
+-- Already stored
+return false
