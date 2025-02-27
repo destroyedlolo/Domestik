@@ -1,5 +1,0 @@
--- Generate statistics on real time consumer power
---
--->> listen=ConsPower
-
-return true;
