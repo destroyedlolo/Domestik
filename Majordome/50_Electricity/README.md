@@ -14,7 +14,7 @@
 
 #### Producer
 - `ProdCounter.topic` Production counter
-- `ProdCounter.lua` Every 5 minutes, feed the database if the counters changed
+- `ProdCounter.lua` Every 5 minutes, feed the database if the counters changed. As we need to insert 2 keys, we need to run the SQL query ourself.
 
 ### Consumer Power's
 
