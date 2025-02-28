@@ -4,7 +4,7 @@
 -->> when=10s
 --
 -->> require_topic=ProdCounter
--->> need_pgSQL=domestik2
+-->> Database=domestik2
 --
 -->> table=electricity_counter
 
@@ -13,7 +13,7 @@ if SelSharedVar.Get('ProdCounter') ~= SelSharedVar.Get('ansProdCounter') then
 	-- Build the request
 	local req = "INSERT INTO ".. MAJORDOME_Myself:getDatabase():EscapeIdentifier(MAJORDOME_Myself:getTable())  .." VALUES (now(), 'Production', 'BASE', ".. SelSharedVar.Get('ProdCounter') .." );"
 
-	domestik2:doSQL(req)
+	MAJORDOME_Myself:getDatabase():doSQL(req)
 end
 
 	-- Store previous value
