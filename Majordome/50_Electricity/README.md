@@ -30,5 +30,23 @@
 - `ProdPowerCollector.namefeed` Collect producer power statistic every 5 minutes
 
 ### Billing
+#### Storage
+- `electricity_powersaving` VA produced by the photovoltaic
+  - `Saving` how many VA saved by the photovoltaic
+  - `Injection` production not consumed, re-injected to the network, surplus.
+- `electricity_billing` how many € were saved
+  - `Saving` cost saved by the *self production*
+  - `Injection` billing to the energy producer
+
+#### Objects
+##### Balance
+- `ElectricityBalance.topic`
+- `CalcBalance.lua` publishes balance between consumption and production
+
 - `ConsOptTarif.topic` Actual Consumer pricing contract (as of Linky standard, we got only an index to the counter to use ; anything different to 1 is considered as "*Heure Creuse*")
+
+- `ProdSaving.topic' how many VA saved by the photovoltaic
+- `ProdInjection.topic` production not consumed, re-injected to the network, surplus
+- `ProdSaving.namedfeed` feed the database with production saving
+  
 - `SavingCollector.lua` Calculate and feed the database with power saving
