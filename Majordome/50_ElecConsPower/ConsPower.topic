@@ -1,0 +1,5 @@
+-- Retrieve power consumed
+--
+-->> topic=TeleInfo/LinkyConsommation/SINSTS
+--->> store
+-->> quiet

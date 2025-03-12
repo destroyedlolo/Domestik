@@ -1,0 +1,7 @@
+-- Collected average consumer power
+--
+-->> topic=Domestik/ConsumerPower
+-->> store
+--
+-- Ensure it is cleared before a new arrival
+-->> ttl=2
