@@ -36,6 +36,7 @@ end
 DomestikAvgConsPower:Publish( ConsPower:getAverage()/12 )
 
 -- Clear the statistics
+local max = ConsPower:getMax()
 ConsPower:Reset()
 
-return "Consommation", ConsPower:getMax()
+return "Consommation", max
