@@ -1,0 +1,43 @@
+-- Collect producer power statistics
+-- - Store in the database the maximum collected
+-- - Publish the average value
+--
+-- Frequency of data collection
+-->> when=5minutes
+--->> when=10s
+--
+--
+-- Database to connect to
+-->> Database=domestik2
+--
+-- Table to feed
+-->> table=electricity_power
+--
+-- Dependancies : objects needed by the code
+-->> need_minmax=ProdPower
+-->> need_topic=DomestikAvgProdPower
+--
+
+--
+-- Display statistics
+--
+
+if MAJORDOME_VERBOSE then
+	print ""
+	print "Prod Power"
+	print "----------"
+	print( "Number of samples :", ProdPower:getSamplesNumber() )
+	print( "Min value :", ProdPower:getMin() )
+	print( "Max value :", ProdPower:getMax() )
+	print( "Average :", ProdPower:getAverage() )
+	print( "Sum :", ProdPower:getSum() )
+end
+
+-- Publish collected average
+DomestikAvgProdPower:Publish( ProdPower:getAverage()/12 )
+
+-- Clear the statistics
+local max = ProdPower:getMax()
+ProdPower:Reset()
+
+return "Production", max

@@ -9,7 +9,7 @@
 
 ### Counters
 
-- `ConsPower.topic` power consumer (VA)
+- `ConsPower.topic` Consumer power (VA)
 - `DomestikAvgConsPower.topic` Topic to publish average consumer power
 
 ### Injectors
