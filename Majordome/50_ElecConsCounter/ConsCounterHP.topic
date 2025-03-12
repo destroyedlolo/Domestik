@@ -1,0 +1,5 @@
+-- Retrieve "Heure Plaine" counter
+--
+-->> topic=TeleInfo/LinkyConsommation/EASF02
+-->> store
+-->> quiet
