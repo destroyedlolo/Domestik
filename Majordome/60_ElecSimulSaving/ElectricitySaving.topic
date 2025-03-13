@@ -1,0 +1,5 @@
+-- Electricity saving
+--
+-->> topic=%ClientID%/ElectricitySaving
+-->> store
+-->> quiet

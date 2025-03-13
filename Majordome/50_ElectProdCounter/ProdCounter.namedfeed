@@ -7,6 +7,9 @@
 -->> Database=domestik2
 --
 -->> table=electricity_counter
+--
+-- Avoid the "data rejected" message (as we are always rejecting)
+-->> quiet
 
 if SelSharedVar.Get('ProdCounter') ~= SelSharedVar.Get('ansProdCounter') then
 	-- Build the request

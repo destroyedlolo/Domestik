@@ -7,6 +7,10 @@
 
 ## Principles
 
+### Database tables
+
+`electricity_power`
+
 ### Counters
 
 - `ConsPower.topic` Consumer power (VA)

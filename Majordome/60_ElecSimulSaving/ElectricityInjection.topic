@@ -1,0 +1,5 @@
+-- Electricity injection
+--
+-->> topic=%ClientID%/ElectricityInjection
+-->> store
+-->> quiet

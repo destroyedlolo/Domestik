@@ -7,6 +7,10 @@
 
 ## Principles
 
+### Database tables
+
+`electricity_counter`
+
 ### Counters
 
 - `ConsCounterHC.topic` Consumer *Heures Creuses* counter

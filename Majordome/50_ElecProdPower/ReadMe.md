@@ -7,6 +7,10 @@
 
 ## Principles
 
+### Database tables
+
+`electricity_power`
+
 ### Counters
 
 - `ProdPower.topic` producer power (VA)
@@ -15,4 +19,4 @@
 ### Injectors
 
 - `ProdPower.minmax` Generates statistics on real time producer power
-- `ProdPowerCollector.namefeed` Collect producer power statistic every 5 minutes
+- `ProdPowerCollector.namefeed` Collects producer power statistic every 5 minutes
