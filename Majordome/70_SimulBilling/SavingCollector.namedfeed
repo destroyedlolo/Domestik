@@ -1,0 +1,24 @@
+-- Calculate billing saving
+--
+-->> listen=ElectricitySaving
+-->> require_topic=ConsOptTarif
+--
+-->> Database=domestik2
+-->> table=electricity_billing
+
+local billing
+
+-- Determing billing
+if ConsOptTarif:getVal() == '2' then
+	billing = SelSharedVar.Get("THP")
+	if MAJORDOME_VERBOSE then
+		SelLog.Log('D', "Billing HP : ".. billing)
+	end
+else
+	billing = SelSharedVar.Get("THC")
+	if MAJORDOME_VERBOSE then
+		SelLog.Log('D', "Billing HC : ".. billing)
+	end
+end	
+
+return "Saving", MAJORDOME_PAYLOAD * billing
