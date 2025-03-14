@@ -7,7 +7,7 @@
 -->> table=electricity_powersaving
 --
 -- waiting for values
--->> listen=ElectricitySaving
+-->> listen=ElectricityInjection
 --
 
 return "Injection"
