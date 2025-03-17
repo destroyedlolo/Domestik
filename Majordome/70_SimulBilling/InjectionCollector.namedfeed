@@ -6,4 +6,4 @@
 -->> Database=domestik2
 -->> table=electricity_billing
 
-return "Saving", MAJORDOME_PAYLOAD * SelSharedVar.Get("TREVENTE")
+return "Injection", MAJORDOME_PAYLOAD * SelSharedVar.Get("TREVENTE")
