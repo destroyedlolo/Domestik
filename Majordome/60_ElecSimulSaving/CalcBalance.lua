@@ -26,8 +26,8 @@ if MAJORDOME_VERBOSE then
 	if MAJORDOME_DEBUG then
 		SelLog.Log('D', "cons : ".. cons ..", prod :".. prod)
 	end
-	SelLog.Log('D', "Electricity Balance : ".. diff)
-	SelLog.Log('D', "Saving : ".. saving ..", Injection : " .. injection)
+	SelLog.Log('I', "Electricity Balance : ".. diff)
+	SelLog.Log('I', "Saving : ".. saving ..", Injection : " .. injection)
 end
 
 ElectricityBalance:Publish(diff)

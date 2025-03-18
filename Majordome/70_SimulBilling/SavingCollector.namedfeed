@@ -9,15 +9,15 @@
 local billing
 
 -- Determing billing
-if ConsOptTarif:getVal() == '2' then
+if ConsOptTarif:getVal() == '1' then
 	billing = SelSharedVar.Get("THP")
 	if MAJORDOME_VERBOSE then
-		SelLog.Log('D', "Billing HP : ".. billing)
+		SelLog.Log('I', "Billing HP : ".. billing)
 	end
 else
 	billing = SelSharedVar.Get("THC")
 	if MAJORDOME_VERBOSE then
-		SelLog.Log('D', "Billing HC : ".. billing)
+		SelLog.Log('I', "Billing HC : ".. billing)
 	end
 end	
 
