@@ -1,6 +1,6 @@
 -- Collected average producer power
 --
--->> topic=Domestik/ProducerPower
+-->> topic=%ClientID%/ProducerPower
 -->> store
 --
 -- Ensure it is cleared before a new arrival

@@ -1,6 +1,6 @@
 -- Collected average consumer power
 --
--->> topic=Domestik/ConsumerPower
+-->> topic=%ClientID%/ConsumerPower
 -->> store
 --
 -- Ensure it is cleared before a new arrival
