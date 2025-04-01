@@ -1,12 +1,12 @@
 --
--- Create table for electricity counter
+-- Create table for electricity counter archiving
 --
 --	History :
 --	---------
 --
 -- 26/10/2014 - LF : First version
--- 12/08/2015 - LF : Simplify archive table
--- 19/10/2024 - LF : recreation for V2
+-- 12/08/2015 - Simplify archive table
+-- 24/03/2025 - LF : recreation for V2
 --
 
 -- externalize configuration
@@ -25,7 +25,8 @@ CREATE TABLE :Domestik_Schema.electricity_counter_archive (
 	sample_time TIMESTAMP WITH TIME ZONE,
 	counter TEXT NOT NULL,
 	figure TEXT NOT NULL,
-	increase INTEGER
+	increase INTEGER,
+	UNIQUE(sample_time, counter, figure)
 );
 
 GRANT ALL PRIVILEGES ON TABLE :Domestik_Schema.electricity_counter_archive TO :Domestik_User;
