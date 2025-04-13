@@ -1,0 +1,4 @@
+-- Timer to trigger electricity power archiving
+--
+-->> at=0040
+-->> runifover
