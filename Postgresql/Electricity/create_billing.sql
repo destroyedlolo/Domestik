@@ -29,7 +29,7 @@ GRANT ALL PRIVILEGES ON TABLE :Domestik_Schema.electricity_billing TO :Domestik_
 
 COMMENT ON TABLE :Domestik_Schema.electricity_billing IS 'Electricity billing history';
 COMMENT ON COLUMN :Domestik_Schema.electricity_billing.figure IS 'Billing''s name';
-COMMENT ON COLUMN :Domestik_Schema.electricity_billing.value IS 'Power''s value';
+COMMENT ON COLUMN :Domestik_Schema.electricity_billing.value IS 'Billing''s value';
 COMMENT ON COLUMN :Domestik_Schema.electricity_billing.sample_time IS 'When the data sampled';
 
 CREATE INDEX dmkbhp ON :Domestik_Schema.electricity_billing (figure);
