@@ -1,4 +1,4 @@
--- Store coutner for consumed 'HeureCreuse' in Domestik's database
+-- Store counter for consumed 'HeureCreuse' in Domestik's database
 --
 -->> when=5minutes
 --->> when=10s

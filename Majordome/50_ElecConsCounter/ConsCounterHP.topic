@@ -1,4 +1,6 @@
 -- Retrieve "Heure Plaine" counter
+-->> ecom=Wh
+-->> desc=Heure Plaine
 --
 -->> topic=TeleInfo/LinkyConsommation/EASF02
 -->> store

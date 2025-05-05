@@ -1,4 +1,4 @@
--- Defines Electricity's prices
+-->> desc=Defines Electricity's prices
 -->> RunAtStartup
 
 SelSharedVar.Set("THP", 0.27/1000)

@@ -1,4 +1,4 @@
--- Delete older logs
+-->> desc=Delete older logs
 -->> when=MidnightOrAtLaunch
 
 require 'lfs'

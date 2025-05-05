@@ -1,4 +1,5 @@
 -- Electricity injection
+-->> ecom=VA
 --
 -->> topic=%ClientID%/ElectricityInjection
 -->> store

@@ -1,4 +1,6 @@
 -- Collected average producer power
+-->> ecom=VA
+-->> desc=Moyenne produite sur 5 minutes
 --
 -->> topic=%ClientID%/ProducerPower
 -->> store
