@@ -7,6 +7,7 @@
 -->> Database=domestik2
 --
 -->> table=electricity_counter
+-->> desc=electricity_counter
 --
 -- Avoid the "data rejected" message (as we are always rejecting)
 -->> quiet
