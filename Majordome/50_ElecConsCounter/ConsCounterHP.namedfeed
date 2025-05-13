@@ -7,7 +7,7 @@
 -->> Database=domestik2
 --
 -->> table=electricity_counter
-
+-->> desc=electricity_counter
 
 if SelSharedVar.Get('ConsCounterHP') ~= SelSharedVar.Get('ansConsCounterHP') then
 	-- Build the request
