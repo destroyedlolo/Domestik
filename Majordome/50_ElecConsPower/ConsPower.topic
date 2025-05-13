@@ -1,0 +1,6 @@
+-- Retrieve power consumed
+-->> ecom=VA
+--
+-->> topic=TeleInfo/LinkyConsommation/SINSTS
+--->> store
+-->> quiet

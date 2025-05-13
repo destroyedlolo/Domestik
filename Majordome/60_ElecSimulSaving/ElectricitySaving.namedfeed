@@ -1,0 +1,13 @@
+-- Store electricity saving
+--
+-- Database to connect to
+-->> Database=domestik2
+--
+-- Table to feed
+-->> table=electricity_powersaving
+--
+-- waiting for values
+-->> listen=ElectricitySaving
+--
+
+return "Saving"
