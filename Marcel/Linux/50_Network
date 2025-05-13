@@ -1,0 +1,18 @@
+# Publish network usage
+# Target topics : 
+# Machines/<host>/network/<adapter>
+# Example :
+# Machines/PSet/Filesystem//tmp	509165/514522
+# Machines/PSet/Filesystem//var/tmp	257701/257707
+
+Needs=mod_every
+Needs=mod_Lua
+
+UserFuncScript=scripts/Network.lua
+
+*Every=Publish Network usage
+	Sample=15
+	Func=Network
+	Immediate
+#	Disabled
+	DoNotSimulate
