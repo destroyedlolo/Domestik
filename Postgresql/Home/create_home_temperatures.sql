@@ -25,7 +25,7 @@ DROP TABLE IF EXISTS :Domestik_Schema.home_temperatures CASCADE;
 CREATE TABLE :Domestik_Schema.home_temperatures (
 	sample_time TIMESTAMP WITH TIME ZONE,
 	figure TEXT NOT NULL,
-	value INTEGER
+	value REAL
 );
 
 GRANT ALL PRIVILEGES ON TABLE :Domestik_Schema.home_temperatures TO :Domestik_User;
