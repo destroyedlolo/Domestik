@@ -1,4 +1,5 @@
 -- Timer to trigger electricity power archiving
+-->> group=Electricité
 --
 -->> at=0050
 --->> runifover

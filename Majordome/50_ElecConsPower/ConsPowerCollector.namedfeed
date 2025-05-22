@@ -1,4 +1,5 @@
 -- Collect consumer power statistics
+-->> group=Electricité
 -- - Store in the database the maximum collected
 -- - Publish the average value
 --
