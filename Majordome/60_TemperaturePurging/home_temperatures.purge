@@ -1,5 +1,6 @@
 -->> desc=Purge older hot data
 -->> ecom=keep a week
+-->> group=Températures
 --
 --------------------
 -- Database related

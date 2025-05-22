@@ -6,6 +6,9 @@
 -- if not set, takes the filename
 --->> name=toto
 --
+-- D2 grouping
+-->> group=Températures
+--
 -- Remove some tracing messages
 --->> quiet
 --

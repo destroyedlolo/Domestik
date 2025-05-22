@@ -1,4 +1,5 @@
 -->> desc=Store home temperatures
+-->> group=Températures
 --
 -- Samples periode
 -->> when=Periode

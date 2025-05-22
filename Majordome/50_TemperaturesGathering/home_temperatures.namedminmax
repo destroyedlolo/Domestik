@@ -1,5 +1,6 @@
 -->> desc=Aggregate values to save disc space.
 --
+-->> group=Températures
 -->> listen=HomeTemperatures
 -->> need_topic=HomeTemperatures
 -->> quiet
