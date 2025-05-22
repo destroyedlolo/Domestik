@@ -1,4 +1,5 @@
 -- Archive electricity counter
+-->> group=Electricité
 --
 -- Remove some tracing messages
 --->> quiet

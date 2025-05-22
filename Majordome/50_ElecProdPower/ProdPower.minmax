@@ -1,3 +1,4 @@
 -- Generate statistics on real time consumer power
+-->> group=Electricité
 --
 -->> listen=ProdPower

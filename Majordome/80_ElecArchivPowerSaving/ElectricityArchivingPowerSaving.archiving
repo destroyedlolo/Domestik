@@ -1,4 +1,5 @@
 -- Archive electricity power saving
+-->> group=Electricité
 --
 -- Remove some tracing messages
 --->> quiet

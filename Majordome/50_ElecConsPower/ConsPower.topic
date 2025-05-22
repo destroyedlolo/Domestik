@@ -1,4 +1,5 @@
 -- Retrieve power consumed
+-->> group=Electricité
 -->> ecom=VA
 --
 -->> topic=TeleInfo/LinkyConsommation/SINSTS

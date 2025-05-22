@@ -1,4 +1,5 @@
 -- Calculate billing saving
+-->> group=Electricité
 --
 -->> listen=ElectricitySaving
 -->> require_topic=ConsOptTarif

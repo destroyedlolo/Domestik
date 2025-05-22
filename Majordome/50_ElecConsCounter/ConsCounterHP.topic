@@ -1,4 +1,5 @@
 -- Retrieve "Heure Plaine" counter
+-->> group=Electricité
 -->> ecom=Wh
 -->> desc=Heure Plaine
 --
