@@ -1,9 +1,0 @@
--- Timer to launch an action every 10 seconds (test only)
--->> every=10
---
--- as any hour is after midnight, it will trigger also when Majordome is launched
---->> runifover
---
---->> immediate
---->> disabled
--->> quiet
