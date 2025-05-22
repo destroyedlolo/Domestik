@@ -2,6 +2,7 @@
 --
 -->> at=0330
 --
+-->> group=Températures
 --->> immediate
 --->> runifover
 --->> disabled

@@ -4,6 +4,7 @@
 --ignored if null
 -->> every=600
 --
+-->> group=Températures
 --->> immediate
 --->> runifover
 --->> disabled
