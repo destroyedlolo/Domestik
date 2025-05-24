@@ -1,5 +1,5 @@
 -- Calculate the balance b/w electricity consumption and production
--->> group=Electricité
+-->> group=Electricité.Economie
 --
 -->> listen=DomestikAvgProdPower
 -->> listen=DomestikAvgConsPower

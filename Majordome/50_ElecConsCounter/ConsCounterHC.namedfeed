@@ -1,5 +1,5 @@
 -- Store counter for consumed 'HeureCreuse' in Domestik's database
--->> group=Electricité
+-->> group=Electricité.Compteurs
 --
 -->> when=5minutes
 --->> when=10s

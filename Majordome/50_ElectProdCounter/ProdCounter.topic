@@ -1,5 +1,5 @@
 -- Production counter
--->> group=Electricité
+-->> group=Electricité.Compteurs
 -->> ecom=Wh
 --
 -->> topic=TeleInfo/LinkyProduction/EAIT

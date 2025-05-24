@@ -1,5 +1,5 @@
 -- Current billing contract
--->> group=Electricité
+-->> group=Electricité.Facture
 --
 -->> topic=TeleInfo/LinkyProduction/NTARF
 -->> store

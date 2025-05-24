@@ -1,5 +1,5 @@
 -- Collected average producer power
--->> group=Electricité
+-->> group=Electricité.Puissance
 -->> ecom=VA
 -->> desc=Moyenne produite sur 5 minutes
 --

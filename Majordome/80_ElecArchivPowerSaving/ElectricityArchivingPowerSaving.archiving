@@ -1,5 +1,5 @@
 -- Archive electricity power saving
--->> group=Electricité
+-->> group=Electricité.Economie
 --
 -- Remove some tracing messages
 --->> quiet

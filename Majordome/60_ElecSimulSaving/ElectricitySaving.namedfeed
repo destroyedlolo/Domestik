@@ -1,5 +1,5 @@
 -- Store electricity saving
--->> group=Electricité
+-->> group=Electricité.Economie
 --
 -- Database to connect to
 -->> Database=domestik2

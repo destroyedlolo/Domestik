@@ -1,5 +1,5 @@
 -- Timer to trigger electricity counter archiving
--->> group=Electricité
+-->> group=Electricité.Compteurs
 --
 -->> at=0030
 --->> runifover
