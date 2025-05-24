@@ -1,5 +1,5 @@
 -- Collect consumer power statistics
--->> group=Electricité
+-->> group=Electricité.Puissance
 -- - Store in the database the maximum collected
 -- - Publish the average value
 --

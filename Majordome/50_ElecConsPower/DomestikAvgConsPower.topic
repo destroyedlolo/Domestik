@@ -1,5 +1,5 @@
 -- Collected average consumer power
--->> group=Electricité
+-->> group=Electricité.Puissance
 -->> ecom=VA
 -->> desc=Moyenne consommée sur 5 minutes
 --

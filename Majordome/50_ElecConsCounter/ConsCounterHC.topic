@@ -1,5 +1,5 @@
 -- "Heure Creuse" counter
--->> group=Electricité
+-->> group=Electricité.Compteurs
 -->> ecom=Wh
 -->> desc=Heure Creuse
 --

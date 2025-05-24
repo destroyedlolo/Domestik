@@ -1,5 +1,5 @@
 -- Retrieve power consumed
--->> group=Electricité
+-->> group=Electricité.Puissance
 --
 -->> topic=TeleInfo/LinkyProduction/SINSTI
 -->> store

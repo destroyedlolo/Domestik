@@ -1,5 +1,5 @@
 -- Electricity injection
--->> group=Electricité
+-->> group=Electricité.Economie
 -->> ecom=VA
 --
 -->> topic=%ClientID%/ElectricityInjection

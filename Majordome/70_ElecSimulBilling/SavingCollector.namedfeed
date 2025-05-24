@@ -1,5 +1,5 @@
 -- Calculate billing saving
--->> group=Electricité
+-->> group=Electricité.Facture
 --
 -->> listen=ElectricitySaving
 -->> require_topic=ConsOptTarif
