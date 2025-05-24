@@ -1,3 +1,3 @@
-# Gestion des Temperatures
+# Tous les automatismes
 
 ![Diagramme des automatismes](Global.svg)
