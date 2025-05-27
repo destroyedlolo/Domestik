@@ -18,5 +18,5 @@
 
 ### Injectors
 
-- `ProdPower.minmax` Generates statistics on real time producer power
+- `ProdPower.namedminmax` Generates statistics on real time producer power (it's a named as electricity_power stores both consumption and production)
 - `ProdPowerCollector.namefeed` Collects producer power statistic every 5 minutes

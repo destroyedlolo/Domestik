@@ -18,5 +18,5 @@
 
 ### Injectors
 
-- `ConsPower.minmax` Generates statistics on real time consumer power
+- `ConsPower.namedminmax` Generates statistics on real time consumer power (it's a named as electricity_power stores both consumption and production)
 - `ConsPowerCollector.namefeed` Collect consumer power statistic every 5 minutes
