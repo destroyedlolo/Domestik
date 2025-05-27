@@ -4,5 +4,5 @@
 --
 -->> topic=TeleInfo/LinkyProduction/SINSTI
 -->> store
--->> ttl=1
+-->> ttl=2
 -->> quiet

@@ -4,5 +4,5 @@
 --
 -->> topic=TeleInfo/LinkyConsommation/SINSTS
 -->> store
--->> ttl=1
+-->> ttl=2
 -->> quiet
