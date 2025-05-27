@@ -5,7 +5,7 @@
 -->> when=5minutes
 --
 -- Where data come
--->> from MinMax=ProdPower
+-->> from NamedMinMax=ProdPower
 --->> figure=Max
 --
 -- Database to connect to

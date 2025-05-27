@@ -1,4 +1,6 @@
 -- Generate statistics on real time consumer power
 -->> group=Electricité.Puissance
 --
--->> listen=ProdPower
+-->> listen=ConsPower
+
+return "Consommation"
