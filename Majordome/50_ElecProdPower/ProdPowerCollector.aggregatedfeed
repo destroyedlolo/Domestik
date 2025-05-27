@@ -1,0 +1,17 @@
+-->> desc=Collect producer power statistics
+-->> group=Electricité.Puissance
+--
+-- Frequency of data collection
+-->> when=5minutes
+--
+-- Where data come
+-->> from MinMax=ProdPower
+--->> figure=Max
+--
+-- Database to connect to
+-->> Database=domestik2
+--
+-- Table to feed
+-->> table=electricity_power
+--
+

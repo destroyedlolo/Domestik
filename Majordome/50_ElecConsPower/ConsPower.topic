@@ -3,5 +3,6 @@
 -->> ecom=VA
 --
 -->> topic=TeleInfo/LinkyConsommation/SINSTS
---->> store
+-->> store
+-->> ttl=1
 -->> quiet

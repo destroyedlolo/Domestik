@@ -1,0 +1,21 @@
+-->> desc=Collect consumer power statistics
+-->> group=Electricité.Puissance
+--
+-- Frequency of data collection
+-->> when=5minutes
+-->> when=10s
+--
+-- Where data come
+-->> from MinMax=ConsPower
+--->> figure=Max
+--
+-- Database to connect to
+-->> Database=domestik2
+--
+-- Table to feed
+-->> table=electricity_power
+--
+
+if MAJORDOME_VERBOSE then
+	print "feed Consumption"
+end
