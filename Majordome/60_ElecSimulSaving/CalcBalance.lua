@@ -5,8 +5,7 @@
 -->> need_topic=ConsPower
 -->> require_topic=ProdPower
 --
--->> need_minmax=Saving
--->> need_minmax=Injection
+-->> need_namedminmax=ElectPowerSavingStatistics
 
 local cons, prod = tonumber(ConsPower:getVal()), tonumber(ProdPower:getVal())
 local diff = prod - cons
@@ -20,5 +19,5 @@ else
 	injection = 0
 end
 
-SavingCollector:Push(saving)
-InjectionCollector:Push(injection)
+ElectPowerSavingStatistics:Push("Saving", saving)
+ElectPowerSavingStatistics:Push("Injection", injection)
