@@ -1,0 +1,23 @@
+-->> desc=Store aggregated statistics into electricity_powersaving table
+-->> group=Electricité.Economie
+--
+--	Data management
+-->> when=10s
+--
+-->> from NamedMinMax=ElectPowerSavingStatistics
+-->> figure=Sum
+--
+-->> Database=domestik2
+-->> table=electricity_powersaving
+--
+-- Publish values for billing simulation
+-->> need_namedminmax=ElectPowerSavingStatistics
+--->> need_topic=ElectricityBalance
+-->> need_topic=ElectricitySaving
+-->> need_topic=ElectricityInjection
+--
+-->> verbose
+
+ElectricitySaving:Publish( ElectPowerSavingStatistics:getSum("Saving") )
+ElectricityInjection:Publish( ElectPowerSavingStatistics:getSum("Injection") )
+
