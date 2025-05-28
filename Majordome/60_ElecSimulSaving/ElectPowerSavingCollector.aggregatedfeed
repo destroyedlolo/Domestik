@@ -2,7 +2,7 @@
 -->> group=Electricité.Economie
 --
 --	Data management
--->> when=10s
+-->> when=5minutes
 --
 -->> from NamedMinMax=ElectPowerSavingStatistics
 -->> figure=Sum
