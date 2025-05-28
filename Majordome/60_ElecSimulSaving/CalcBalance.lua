@@ -5,8 +5,8 @@
 -->> need_topic=ConsPower
 -->> require_topic=ProdPower
 --
--->> need_minmax=SavingCollector
--->> need_minmax=InjectionCollector
+-->> need_minmax=Saving
+-->> need_minmax=Injection
 
 local cons, prod = tonumber(ConsPower:getVal()), tonumber(ProdPower:getVal())
 local diff = prod - cons
@@ -21,3 +21,4 @@ else
 end
 
 SavingCollector:Push(saving)
+InjectionCollector:Push(injection)
