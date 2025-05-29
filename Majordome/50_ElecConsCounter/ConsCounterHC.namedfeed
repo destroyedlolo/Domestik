@@ -9,6 +9,7 @@
 --
 -->> table=electricity_counter
 -->> desc=electricity_counter
+-->> quiet
 
 if SelSharedVar.Get('ConsCounterHC') ~= SelSharedVar.Get('ansConsCounterHC') then
 	-- Build the request

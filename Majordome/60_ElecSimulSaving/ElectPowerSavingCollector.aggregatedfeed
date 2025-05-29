@@ -2,11 +2,11 @@
 -->> group=Electricité.Economie
 --
 --	Data management
---->> when=5minutes
--->> when=10s
+-->> when=SavingAggregation
 --
 -->> from NamedMinMax=ElectPowerSavingStatistics
--->> figure=Sum
+-->> figure=AVG
+-->> preprocess=toWh
 --
 -->> Database=domestik2
 -->> table=electricity_powersaving
@@ -16,8 +16,15 @@
 -->> need_topic=ElectricitySamples
 -->> need_topic=ElectricitySaving
 -->> need_topic=ElectricityInjection
+-->> need_timer=SavingAggregation
 --
 -->> verbose
+
+-- Comvert aggregated value to Wh
+function toWh( name, val )
+	val = val * (SavingAggregation:getEvery() / 3600)
+	return val
+end
 
 ElectricitySamples:Publish( ElectPowerSavingStatistics:getSamplesNumber("Saving") )
 ElectricitySaving:Publish( ElectPowerSavingStatistics:getSum("Saving") )
