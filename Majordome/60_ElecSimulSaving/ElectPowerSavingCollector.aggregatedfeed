@@ -2,7 +2,8 @@
 -->> group=Electricité.Economie
 --
 --	Data management
--->> when=5minutes
+--->> when=5minutes
+-->> when=10s
 --
 -->> from NamedMinMax=ElectPowerSavingStatistics
 -->> figure=Sum
@@ -12,12 +13,13 @@
 --
 -- Publish values for billing simulation
 -->> need_namedminmax=ElectPowerSavingStatistics
---->> need_topic=ElectricityBalance
+-->> need_topic=ElectricitySamples
 -->> need_topic=ElectricitySaving
 -->> need_topic=ElectricityInjection
 --
 -->> verbose
 
+ElectricitySamples:Publish( ElectPowerSavingStatistics:getSamplesNumber("Saving") )
 ElectricitySaving:Publish( ElectPowerSavingStatistics:getSum("Saving") )
 ElectricityInjection:Publish( ElectPowerSavingStatistics:getSum("Injection") )
 
