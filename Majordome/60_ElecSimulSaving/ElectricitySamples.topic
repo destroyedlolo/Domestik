@@ -1,0 +1,7 @@
+-- Electricity saving
+-->> group=Electricité.Economie
+-->> ecom=VA
+--
+-->> topic=%ClientID%/ElectricitySample
+-->> store
+-->> quiet

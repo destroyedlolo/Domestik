@@ -2,5 +2,6 @@
 -->> group=Electricité.Puissance
 --
 -->> listen=ConsPower
+-->> quiet
 
 return "Consommation"
