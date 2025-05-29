@@ -25,8 +25,7 @@ else
 end	
 
 if MAJORDOME_VERBOSE then
-	SelLog.Log('I', "Saving : ".. MAJORDOME_PAYLOAD .." * ".. billing .." * ".. (10/3600) .. "€")
-	SelLog.Log('I', "Saving : ".. MAJORDOME_PAYLOAD * billing * (300/3600) .. "€")
+	SelLog.Log('I', "Saving : ".. MAJORDOME_PAYLOAD .." * ".. billing .."€")
+	SelLog.Log('I', "Saving : ".. MAJORDOME_PAYLOAD * billing .. "€")
 end
-return false
--- return "Saving", MAJORDOME_PAYLOAD * billing / (5/3600)
+return "Saving", MAJORDOME_PAYLOAD * billing

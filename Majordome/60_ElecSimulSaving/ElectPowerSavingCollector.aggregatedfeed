@@ -21,12 +21,12 @@
 -->> verbose
 
 -- Comvert aggregated value to Wh
-function toWh( name, val )
+function toWh( val, name )
 	val = val * (SavingAggregation:getEvery() / 3600)
 	return val
 end
 
 ElectricitySamples:Publish( ElectPowerSavingStatistics:getSamplesNumber("Saving") )
-ElectricitySaving:Publish( ElectPowerSavingStatistics:getSum("Saving") )
-ElectricityInjection:Publish( ElectPowerSavingStatistics:getSum("Injection") )
+ElectricitySaving:Publish( ElectPowerSavingStatistics:getAverage("Saving") )
+ElectricityInjection:Publish( ElectPowerSavingStatistics:getAverage("Injection") )
 
