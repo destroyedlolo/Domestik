@@ -1,7 +1,0 @@
--- Production counter
--->> group=Electricité.Compteurs
--->> ecom=Wh
---
--->> topic=TeleInfo/LinkyProduction/EAIT
--->> store
--->> quiet

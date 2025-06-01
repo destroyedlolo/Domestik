@@ -1,5 +1,0 @@
--- Timer to trigger electricity power archiving
--->> group=Electricité.Puissance
---
--->> at=0040
---->> runifover

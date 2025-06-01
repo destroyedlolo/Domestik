@@ -1,7 +1,0 @@
--- Generate statistics on real time consumer power
--->> group=Electricité.Puissance
---
--->> listen=ProdPower
--->> quiet
-
-return "Production"

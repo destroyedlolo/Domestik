@@ -1,8 +1,0 @@
--- Retrieve power consumed
--->> group=Electricité.Puissance
--->> ecom=VA
---
--->> topic=TeleInfo/LinkyProduction/SINSTI
--->> store
--->> ttl=2
--->> quiet
