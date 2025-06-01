@@ -209,7 +209,7 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
+        "h": 5,
         "w": 12,
         "x": 12,
         "y": 0
@@ -236,7 +236,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT value AS \"Economie\", sample_time FROM electricity_powersaving WHERE figure='Saving'",
+          "rawSql": "SELECT \n  value AS \"Economie\", sample_time\nFROM electricity_powersaving\nWHERE\n  figure='Saving'\n  AND sample_time >= $__timeFrom() AND sample_time <= $__timeTo()",
           "refId": "A",
           "sql": {
             "columns": [
@@ -265,7 +265,7 @@
           "format": "table",
           "hide": false,
           "rawQuery": true,
-          "rawSql": "SELECT value AS \"Injection\", sample_time FROM electricity_powersaving WHERE figure='Injection'",
+          "rawSql": "SELECT \n  value AS \"Injection\", sample_time\nFROM electricity_powersaving\nWHERE\n  figure='Injection'\n  AND sample_time >= $__timeFrom() AND sample_time <= $__timeTo()",
           "refId": "B",
           "sql": {
             "columns": [
@@ -356,7 +356,7 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
+        "h": 7,
         "w": 12,
         "x": 0,
         "y": 4
@@ -385,7 +385,7 @@
           "format": "table",
           "hide": false,
           "rawQuery": true,
-          "rawSql": "SELECT value - LAG(value) OVER (ORDER BY sample_time) AS Production,sample_time FROM electricity_counter WHERE counter='Production' ORDER BY sample_time ASC \n",
+          "rawSql": "SELECT \n  value - LAG(value) OVER (ORDER BY sample_time) AS Production,sample_time\nFROM electricity_counter \nWHERE\n  counter='Production' \n  AND sample_time >= $__timeFrom() AND sample_time <= $__timeTo() \nORDER BY sample_time ASC ",
           "refId": "A",
           "sql": {
             "columns": [
@@ -420,7 +420,7 @@
           "format": "table",
           "hide": false,
           "rawQuery": true,
-          "rawSql": "SELECT value - LAG(value) OVER (ORDER BY sample_time) AS \"Consommation HP\",sample_time FROM electricity_counter WHERE counter='Consommation' AND figure='HP' ORDER BY sample_time ASC \n",
+          "rawSql": "SELECT\n  value - LAG(value) OVER (ORDER BY sample_time) AS \"Consommation HP\",sample_time\nFROM electricity_counter \nWHERE \n  counter='Consommation' AND figure='HP' \n  AND sample_time >= $__timeFrom() AND sample_time <= $__timeTo() \nORDER BY sample_time ",
           "refId": "B",
           "sql": {
             "columns": [
@@ -449,7 +449,7 @@
           "format": "table",
           "hide": false,
           "rawQuery": true,
-          "rawSql": "SELECT value - LAG(value) OVER (ORDER BY sample_time) AS \"Consommation HC\",sample_time FROM electricity_counter WHERE counter='Consommation' AND figure='HC' ORDER BY sample_time ASC \n",
+          "rawSql": "SELECT \n  value - LAG(value) OVER (ORDER BY sample_time) AS \"Consommation HC\",sample_time \nFROM electricity_counter \nWHERE \n  counter='Consommation' AND figure='HC' \n  AND sample_time >= $__timeFrom() AND sample_time <= $__timeTo() \nORDER BY sample_time",
           "refId": "C",
           "sql": {
             "columns": [
@@ -537,10 +537,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
+        "h": 6,
         "w": 12,
         "x": 12,
-        "y": 8
+        "y": 5
       },
       "id": 5,
       "options": {
@@ -564,7 +564,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT value/100 AS \"Economie\", sample_time FROM electricity_billing WHERE figure='Saving'",
+          "rawSql": "SELECT \n  value/100 AS \"Economie\", sample_time\nFROM domestik2.electricity_billing\nWHERE\n  figure='Saving'\n  AND sample_time >= $__timeFrom() AND sample_time <= $__timeTo()",
           "refId": "A",
           "sql": {
             "columns": [
@@ -593,7 +593,7 @@
           "format": "table",
           "hide": false,
           "rawQuery": true,
-          "rawSql": "SELECT value/100 AS \"Revente\", sample_time FROM electricity_billing WHERE figure='Injection'",
+          "rawSql": "SELECT \n  value/100 AS \"Revente\", sample_time\nFROM domestik2.electricity_billing\nWHERE\n  figure='Injection'\n  AND sample_time >= $__timeFrom() AND sample_time <= $__timeTo()",
           "refId": "B",
           "sql": {
             "columns": [
@@ -638,7 +638,7 @@
             "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 0,
-            "gradientMode": "none",
+            "gradientMode": "hue",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
@@ -681,13 +681,44 @@
           },
           "unit": "voltamp"
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "consommation"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "production"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "green",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
-        "h": 8,
+        "h": 10,
         "w": 12,
         "x": 0,
-        "y": 12
+        "y": 11
       },
       "id": 2,
       "options": {
@@ -712,7 +743,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT value as Consommation,sample_time FROM electricity_power where figure='Consommation' ORDER BY sample_time ASC \n",
+          "rawSql": "SELECT \n  value as Consommation,sample_time \nFROM electricity_power \nWHERE \n  figure='Consommation'\n  AND sample_time >= $__timeFrom() AND sample_time <= $__timeTo()\nORDER BY sample_time\n",
           "refId": "A",
           "sql": {
             "columns": [
@@ -742,7 +773,7 @@
           "format": "table",
           "hide": false,
           "rawQuery": true,
-          "rawSql": "SELECT value as Production,sample_time FROM electricity_power where figure='Production' ORDER BY sample_time ASC \n",
+          "rawSql": "SELECT\n  value as Production,sample_time \nFROM electricity_power\nWHERE\n  figure='Production'\n  AND sample_time >= $__timeFrom() AND sample_time <= $__timeTo()\nORDER BY sample_time",
           "refId": "B",
           "sql": {
             "columns": [
@@ -763,7 +794,197 @@
           }
         }
       ],
-      "title": "Puissance",
+      "title": "Puissances maximales",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-postgresql-datasource",
+        "uid": "fe1vfeqghvlkwe"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMin": 0,
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "currencyEUR"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Economie"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 12,
+        "x": 12,
+        "y": 11
+      },
+      "id": 7,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "fe1vfeqghvlkwe"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "select sum(value) as \"Economie\", date(sample_time) as \"date\"\nfrom electricity_billing \nwhere\n  figure='Saving'\n  AND sample_time >= $__timeFrom() AND sample_time <= $__timeTo()\n group by date",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        },
+        {
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "fe1vfeqghvlkwe"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "hide": false,
+          "rawQuery": true,
+          "rawSql": "select\n  sum(value) as \"Economie + revente\", date(sample_time) as \"date\"\nfrom domestik2.electricity_billing\nWHERE\n  sample_time >= $__timeFrom() AND sample_time <= $__timeTo() \ngroup by date order by date;",
+          "refId": "B",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        },
+        {
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "fe1vfeqghvlkwe"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "hide": false,
+          "rawQuery": true,
+          "rawSql": "SELECT \n        DATE(sample_time) AS \"date\",\n        (MAX(value) - MIN(value))*68.355 / 1000 / 100 AS \"Revente Totale\"\nFROM domestik2.electricity_counter\nWHERE\n        counter='Production'\n        AND sample_time >= $__timeFrom() AND sample_time <= $__timeTo()\nGROUP BY date\n",
+          "refId": "D",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "timeFrom": "now-90d",
+      "title": "Historique des gains",
       "type": "timeseries"
     },
     {
@@ -799,7 +1020,7 @@
         "h": 4,
         "w": 12,
         "x": 12,
-        "y": 16
+        "y": 17
       },
       "id": 6,
       "options": {
@@ -908,24 +1129,24 @@
           }
         }
       ],
-      "title": "Panel Title",
+      "title": "Revenus de la journée",
       "type": "stat"
     }
   ],
-  "refresh": "1m",
+  "refresh": "5m",
   "schemaVersion": 39,
   "tags": [],
   "templating": {
     "list": []
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-2d",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "browser",
   "title": "Electricité",
   "uid": "de1vhrxiplrlsb",
-  "version": 33,
+  "version": 60,
   "weekStart": ""
 }

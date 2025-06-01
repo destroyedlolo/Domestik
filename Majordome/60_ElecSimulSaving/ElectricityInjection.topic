@@ -1,4 +1,6 @@
 -- Electricity injection
+-->> group=Electricité.Economie
+-->> ecom=VA
 --
 -->> topic=%ClientID%/ElectricityInjection
 -->> store

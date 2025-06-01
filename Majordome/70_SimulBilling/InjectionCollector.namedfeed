@@ -1,9 +1,0 @@
--- Calculate billing saving
---
--->> listen=ElectricityInjection
--->> require_topic=ConsOptTarif
---
--->> Database=domestik2
--->> table=electricity_billing
-
-return "Injection", MAJORDOME_PAYLOAD * SelSharedVar.Get("TREVENTE")

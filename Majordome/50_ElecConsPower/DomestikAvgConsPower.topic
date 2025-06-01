@@ -1,4 +1,7 @@
 -- Collected average consumer power
+-->> group=Electricité.Puissance
+-->> ecom=VA
+-->> desc=Moyenne consommée sur 5 minutes
 --
 -->> topic=%ClientID%/ConsumerPower
 -->> store

@@ -1,4 +1,7 @@
 -- "Heure Creuse" counter
+-->> group=Electricité.Compteurs
+-->> ecom=Wh
+-->> desc=Heure Creuse
 --
 -->> topic=TeleInfo/LinkyConsommation/EASF01
 -->> store

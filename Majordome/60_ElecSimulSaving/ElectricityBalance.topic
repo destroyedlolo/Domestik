@@ -1,4 +1,6 @@
 -- Balance between consumption and production
+-->> group=Electricité.Economie
+-->> ecom=VA
 --
 -->> topic=%ClientID%/ElectricityBalance
 -->> store

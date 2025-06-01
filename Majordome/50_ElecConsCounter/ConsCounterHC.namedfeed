@@ -1,4 +1,5 @@
--- Store coutner for consumed 'HeureCreuse' in Domestik's database
+-- Store counter for consumed 'HeureCreuse' in Domestik's database
+-->> group=Electricité.Compteurs
 --
 -->> when=5minutes
 --->> when=10s
@@ -7,6 +8,7 @@
 -->> Database=domestik2
 --
 -->> table=electricity_counter
+-->> desc=electricity_counter
 
 if SelSharedVar.Get('ConsCounterHC') ~= SelSharedVar.Get('ansConsCounterHC') then
 	-- Build the request

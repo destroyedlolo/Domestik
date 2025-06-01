@@ -1,4 +1,6 @@
 -- Electricity saving
+-->> group=Electricité.Economie
+-->> ecom=VA
 --
 -->> topic=%ClientID%/ElectricitySaving
 -->> store

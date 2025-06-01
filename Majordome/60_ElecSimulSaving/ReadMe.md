@@ -1,4 +1,8 @@
-# Store Consumption counter
+# Simulate energy savings if we were to self-consume
+
+Based on real-time power figures as provided by Linky smart counters. As I'm currently selling all my production :
+- my 1st Linky provides the real power consumption, without needing to cheat
+- my 2nd Linky provides the real production
 
 > [!WARNING]  
 > Use this code only as example.<br>

@@ -1,5 +1,5 @@
 --
--- Create table for electricity counter
+-- Create table for electricity power figure
 --
 --	History :
 --	---------
