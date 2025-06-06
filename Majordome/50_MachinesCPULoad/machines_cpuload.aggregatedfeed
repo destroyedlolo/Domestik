@@ -1,0 +1,9 @@
+-->> desc=Store cpu load
+--
+-->> group=Machines
+-->> when=10s
+-->> from NamedMinMax=machines_cpuload
+--
+-->> Database=domestik2
+--->> quiet
+

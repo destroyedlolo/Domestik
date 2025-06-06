@@ -1,0 +1,11 @@
+-->> desc=Aggregate values to save cpu load
+--
+-->> group=Machines
+-->> listen=machines_cpuload
+--->> quiet
+
+local name = MAJORDOME_TOPIC:match("^Machines/(.-)/")
+
+print(name, MAJORDOME_PAYLOAD)
+
+return name
