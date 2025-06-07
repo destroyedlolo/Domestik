@@ -1,0 +1,11 @@
+-->> desc=Aggregate values for swap useage
+--
+-->> group=Machines
+-->> listen=machines_swap
+--->> quiet
+
+local name = MAJORDOME_TOPIC:match("^Machines/(.-)/")
+
+-- print(name, MAJORDOME_PAYLOAD)
+
+return name
