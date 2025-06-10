@@ -1,4 +1,6 @@
 -->> desc=Root of the machines' CPU figures
---
 -->> group=Machines
--->> topic=Machines/+/Load/1
+--
+-->> topic=Machines/#
+--
+-->> quiet

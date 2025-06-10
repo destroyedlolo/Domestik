@@ -1,0 +1,46 @@
+-->> desc=Generate statistics about machines' figures
+-->> group=Machines
+--
+-- In the header of the script (comment bloc at the very beginning of
+-- the script), each line starting with -->> are Majordome's commands.
+-- Consequently, '--->>' are commented out commands.
+--
+-- remove some trace
+-- This option is useful to avoid logging of very noisy topics
+--->> quiet
+--
+-- Disable this trigger
+--->> disabled
+--
+-- Indicate MQTT topic(s) to listen to
+-->> listen=Machines
+--
+-- Number of keys
+-->> NumberOfKeys=2
+
+-- The function bellow has to return an array of keys
+-- (or nothing/false if the data has to be rejected)
+-- As a second (optional) argument, it can force the value
+
+-- Determine which data is it
+local machine,figure = MAJORDOME_TOPIC:match("Machines/(.-)/(.+)")
+
+-- List of accepted figures
+local accepted = {
+	["Load/1"] =  "CPULoad",	-- The figure's name changed
+	memoryPRC = true,
+	swapPRC = true,
+	PMUTemp = true
+}
+
+if not accepted[figure] then
+	return false;
+elseif(type(accepted[figure]) == "string") then
+	figure = accepted[figure]
+end
+
+if MAJORDOME_VERBOSE then
+	SelLog.Log("I", "Got figure ".. machine .."/".. figure)
+end
+
+return {machine,figure}
