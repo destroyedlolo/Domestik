@@ -1,0 +1,8 @@
+--desc=When machines' figures have to be archived
+-->> group=Machines
+--
+-->> at=0345
+--
+-->> immediate
+--->> runifover
+--->> disabled

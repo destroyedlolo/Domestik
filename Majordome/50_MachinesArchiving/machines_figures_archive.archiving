@@ -1,0 +1,73 @@
+-->> desc=Machines' figures archiving
+-->> group=Machines
+--
+---------
+-- Misc
+---------
+-- Expected verbosity
+--->> quiet
+-->> verbose
+--
+-- Disable this archiving
+--->> disabled
+--
+--------------------
+-- Database related
+--------------------
+--
+--- The database to connect to
+-->> Database=domestik2
+--
+-- The source table
+-->> source=machines_figures
+--
+-- The table where data will be inserted
+-- if not set, the same as "name"
+--->> table=
+--
+-- The field to consider
+-- (default is "value")
+-->> field=average
+--
+--------------------
+-- Selection related
+--------------------
+--
+-- Aggregation rule
+-- Can be any range supported by SQL's DATE_TRUNC()
+-- likes hour, day (default), week, month, year ...
+-- Notez-bien : check is done at database level. If an unsupported range
+-- is provided, it will create an SQL error.
+--> AggregateBy=Hours
+--
+-- Archiving kind
+-- Allowed are :
+--	MinMax : Min / Max / Average statistics (default value)
+--	Delta : Delta between the first and the last value
+-->> Kind=MinMax
+--
+-- For table feed by namedfeed, indicate the field(s) to group by.
+-- If more than one are provided, they are separated by a comma
+-->> Keys=name,figure
+--
+-- Up to when, following SQL syntax.
+-- Will be executed by an SQL sentence like this one :
+-- ... where sample_time::date > current_date - interval 'arg'
+-- Consequently, argument should be :
+-- "1 day" to ignore last 1 days (default)
+-- "3 months" to ignore 3 last months
+-->> UpTo=1 day
+--
+------------
+-- Launching
+------------
+--
+-->> when=ArchiveMachines
+--
+---------------
+-- Notification
+---------------
+--
+--->> SuccessRDV=ArchivingDone
+--->> FailRDV=ArchivingFailed
+
