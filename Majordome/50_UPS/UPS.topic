@@ -1,0 +1,7 @@
+-->> desc=Root of the UPS topic tree
+-->> group=UPS
+--
+-->> topic=onduleur/#
+--
+-->> quiet
+--->> disabled
