@@ -1,0 +1,14 @@
+-->> desc=Collect and aggregate data
+-->> group=UPS
+--
+-->> listen=UPS
+--
+-->> quiet
+
+local figure = MAJORDOME_TOPIC:match("onduleur/(.+)")
+
+if MAJORDOME_VERBOSE then
+	SelLog.Log("I", "Got figure ".. figure)
+end
+
+return {figure}
