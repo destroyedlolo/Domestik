@@ -25,20 +25,30 @@
 -- Determine which data is it
 local machine,figure = MAJORDOME_TOPIC:match("Machines/(.-)/(.+)")
 
--- List of accepted figures
-local accepted = {
+-- List of transcoded figures
+local transcode = {
 	["Load/1"] =  "CPULoad",	-- The figure's name changed
-	memoryPRC = true,
-	swapPRC = true,
-	PMUTemp = true
+	userPRC = "User memory",
+	memoryPRC = "Global memory",
+	swapPRC = "Swap"
 }
 
-if not accepted[figure] then
-	return false;
-elseif(type(accepted[figure]) == "string") then
-	figure = accepted[figure]
+-- list of rejected figures
+local rejected = {
+	["Load/5"] = true,
+	["Load/10"] = true,
+	["memory"] = true,
+	["swap"] = true,
+}
+
+if rejected[figure] then
+	return false
 end
 
+if transcode[figure] then
+	figure = transcode[figure]
+end
+	
 if MAJORDOME_VERBOSE then
 	SelLog.Log("I", "Got figure ".. machine .."/".. figure)
 end
