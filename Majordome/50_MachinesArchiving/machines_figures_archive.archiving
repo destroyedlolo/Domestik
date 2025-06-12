@@ -68,6 +68,6 @@
 -- Notification
 ---------------
 --
---->> SuccessRDV=ArchivingDone
+-->> SuccessRDV=MachinesFiguresArchivingDone
 --->> FailRDV=ArchivingFailed
 
