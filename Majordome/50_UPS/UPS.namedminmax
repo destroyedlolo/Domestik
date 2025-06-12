@@ -1,14 +1,16 @@
--->> desc=Collect and aggregate data
+-->> desc=Aggregate data
 -->> group=UPS
 --
 -->> listen=UPS
 --
 -->> quiet
 
+
+-- Extract the figure's name
 local figure = MAJORDOME_TOPIC:match("onduleur/(.+)")
 
 if MAJORDOME_VERBOSE then
 	SelLog.Log("I", "Got figure ".. figure)
 end
 
-return {figure}
+return figure
