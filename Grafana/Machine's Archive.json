@@ -18,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 15,
+  "id": 17,
   "links": [],
   "panels": [
     {
@@ -155,7 +155,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT\n  sample_time,\n  minimum, average, maximum\nFROM machines_figures \nWHERE \n  name = '$machine' AND figure = $figure\n  AND sample_time BETWEEN $__timeFrom() AND $__timeTo() ",
+          "rawSql": "SELECT\n  sample_time,\n  minimum, average, maximum\nFROM machines_figures_archive\nWHERE \n  name = '$machine' AND figure = $figure\n  AND sample_time BETWEEN $__timeFrom() AND $__timeTo() ",
           "refId": "A",
           "sql": {
             "columns": [
@@ -194,8 +194,8 @@
       {
         "current": {
           "selected": false,
-          "text": "Galactica",
-          "value": "Galactica"
+          "text": "bPI",
+          "value": "bPI"
         },
         "hide": 0,
         "name": "machine",
@@ -206,7 +206,7 @@
             "value": ""
           }
         ],
-        "query": "Galactica",
+        "query": "bPI",
         "skipUrlSync": false,
         "type": "textbox"
       },
@@ -224,13 +224,13 @@
           "type": "grafana-postgresql-datasource",
           "uid": "fe1vfeqghvlkwe"
         },
-        "definition": "SELECT DISTINCT figure FROM machines_figures where name='$machine' order by figure asc",
+        "definition": "SELECT DISTINCT figure FROM machines_figures_archive where name='$machine' order by figure asc",
         "hide": 0,
         "includeAll": true,
         "multi": true,
         "name": "figure",
         "options": [],
-        "query": "SELECT DISTINCT figure FROM machines_figures where name='$machine' order by figure asc",
+        "query": "SELECT DISTINCT figure FROM machines_figures_archive where name='$machine' order by figure asc",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -240,13 +240,13 @@
     ]
   },
   "time": {
-    "from": "now-12h",
+    "from": "now-7d",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "browser",
-  "title": "Machine's details",
-  "uid": "feo8vzafxlm2oa",
-  "version": 20,
+  "title": "Machine's Archive",
+  "uid": "eeonlagg2je2of",
+  "version": 5,
   "weekStart": ""
 }

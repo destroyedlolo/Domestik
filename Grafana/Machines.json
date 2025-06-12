@@ -30,6 +30,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
+            "fixedColor": "purple",
             "mode": "thresholds"
           },
           "custom": {
@@ -50,10 +51,11 @@
               },
               {
                 "color": "red",
-                "value": 15
+                "value": ""
               }
             ]
-          }
+          },
+          "unit": "m"
         },
         "overrides": [
           {
@@ -73,12 +75,30 @@
                 ]
               }
             ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "archive"
+            },
+            "properties": [
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "Achived figures",
+                    "url": "/d/eeonlagg2je2of/machine-s-details?var-machine=${__data.fields[\"name\"]}"
+                  }
+                ]
+              }
+            ]
           }
         ]
       },
       "gridPos": {
-        "h": 9,
-        "w": 13,
+        "h": 12,
+        "w": 14,
         "x": 0,
         "y": 0
       },
@@ -111,7 +131,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT DISTINCT name,  \nEXTRACT(EPOCH FROM (now() - MAX(sample_time))) / 60 as \"last sampled\" \nFROM domestik2.machines_figures GROUP BY name\n",
+          "rawSql": "SELECT DISTINCT name,  \n'Archive' As Archive,\nEXTRACT(EPOCH FROM (now() - MAX(sample_time))) / 60 as \"last sampled\" \nFROM domestik2.machines_figures \nWHERE sample_time BETWEEN $__timeFrom() AND $__timeTo() \nGROUP BY name",
           "refId": "A",
           "sql": {
             "columns": [
@@ -150,6 +170,6 @@
   "timezone": "browser",
   "title": "Machines",
   "uid": "ceo8vv5i025fkb",
-  "version": 6,
+  "version": 14,
   "weekStart": ""
 }
