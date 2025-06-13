@@ -1,0 +1,175 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 14,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-postgresql-datasource",
+        "uid": "fe1vfeqghvlkwe"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "purple",
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": false,
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": ""
+              }
+            ]
+          },
+          "unit": "m"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "name"
+            },
+            "properties": [
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "Détails pour ${__value.text}",
+                    "url": "/d/feo8vzafxlm2oa/machine-s-details?var-machine=${__value.text}"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "archive"
+            },
+            "properties": [
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "Achived figures",
+                    "url": "/d/eeonlagg2je2of/machine-s-details?var-machine=${__data.fields[\"name\"]}"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 14,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": false,
+            "displayName": "last sampled"
+          }
+        ]
+      },
+      "pluginVersion": "11.2.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "fe1vfeqghvlkwe"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT DISTINCT name,  \n'Archive' As Archive,\nEXTRACT(EPOCH FROM (now() - MAX(sample_time))) / 60 as \"last sampled\" \nFROM domestik2.machines_figures \nWHERE sample_time BETWEEN $__timeFrom() AND $__timeTo() \nGROUP BY name",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Machines",
+      "type": "table"
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 39,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Machines",
+  "uid": "ceo8vv5i025fkb",
+  "version": 14,
+  "weekStart": ""
+}

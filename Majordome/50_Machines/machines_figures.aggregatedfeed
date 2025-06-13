@@ -1,0 +1,36 @@
+-- desc=Store data in the databse
+-->> group=Machines
+--
+--
+-----------------
+-- Data source
+-----------------
+--
+-->> from MultiKeysMinMax=genstat
+-->> figure=MMA
+-->> Database=domestik2
+--->> table=
+-->> ignore empty
+--
+-----------------
+-- Processing
+-----------------
+--
+-- Indicate the Timer(s) to wait for
+-- (more than one "when" can be present)
+-->> when=5minutes
+--
+--->> preprocess=changeValues
+--->> need_multikeysminmax=genstat
+--
+-----------------
+-- Misc
+-----------------
+--
+-- remove some trace
+-- This option is useful to avoid logging of very noisy topics
+--->> quiet
+--
+-- Disable this script
+--->> disabled
+--
