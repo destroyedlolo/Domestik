@@ -1,0 +1,14 @@
+-->> desc=Store UPS figures in the database
+-->> group=UPS
+--
+-->> when=5minutes
+--
+-->> from NamedMinMax=UPS
+-->> figure=MMA
+--
+-- Where to store
+-->> Database=domestik2
+-->> table=ups
+--
+--->> quiet
+--->> disabled
