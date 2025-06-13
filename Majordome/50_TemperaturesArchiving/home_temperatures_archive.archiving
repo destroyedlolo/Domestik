@@ -1,13 +1,11 @@
--- Archive temperatures
---	Notez-bien : this object aims to handle day based windows.
--- If you need to archive on plain month basis, write a custom SQL instead.
+-->> desc=Archive temperatures
+--
+-- D2 grouping
+-->> group=Températures
 --
 -- name of this archiving
 -- if not set, takes the filename
 --->> name=toto
---
--- D2 grouping
--->> group=Températures
 --
 -- Remove some tracing messages
 --->> quiet
