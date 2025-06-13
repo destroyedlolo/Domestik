@@ -39,6 +39,7 @@ local rejected = {
 	["Load/10"] = true,
 	["memory"] = true,
 	["swap"] = true,
+	["ncpu"] = true
 }
 
 if rejected[figure] then
