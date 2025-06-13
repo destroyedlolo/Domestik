@@ -24,7 +24,7 @@ CREATE TABLE :Domestik_Schema.UPS (
 	figure TEXT NOT NULL,
 	minimum INTEGER,
 	maximum INTEGER,
-	average INTEGER
+	average FLOAT
 );
 
 GRANT ALL PRIVILEGES ON TABLE :Domestik_Schema.UPS TO :Domestik_User;
