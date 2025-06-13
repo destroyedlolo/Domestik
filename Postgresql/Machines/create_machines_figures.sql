@@ -30,7 +30,7 @@ CREATE TABLE :Domestik_Schema.machines_figures (
 
 GRANT ALL PRIVILEGES ON TABLE :Domestik_Schema.machines_figures TO :Domestik_User;
 
-COMMENT ON TABLE :Domestik_Schema.machines_figures IS 'Computers'' cpu load';
+COMMENT ON TABLE :Domestik_Schema.machines_figures IS 'Machines'' figures';
 COMMENT ON COLUMN :Domestik_Schema.machines_figures.name IS 'Machine''s name';
 COMMENT ON COLUMN :Domestik_Schema.machines_figures.sample_time IS 'When the data sampled';
 
