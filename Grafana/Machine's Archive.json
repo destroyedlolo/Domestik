@@ -194,8 +194,8 @@
       {
         "current": {
           "selected": false,
-          "text": "bPI",
-          "value": "bPI"
+          "text": "PSet",
+          "value": "PSet"
         },
         "hide": 0,
         "name": "machine",
@@ -206,7 +206,7 @@
             "value": ""
           }
         ],
-        "query": "bPI",
+        "query": "PSet",
         "skipUrlSync": false,
         "type": "textbox"
       },

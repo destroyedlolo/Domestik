@@ -194,8 +194,8 @@
       {
         "current": {
           "selected": false,
-          "text": "Galactica",
-          "value": "Galactica"
+          "text": "TestArch",
+          "value": "TestArch"
         },
         "hide": 0,
         "name": "machine",
@@ -206,7 +206,7 @@
             "value": ""
           }
         ],
-        "query": "Galactica",
+        "query": "TestArch",
         "skipUrlSync": false,
         "type": "textbox"
       },
