@@ -1,0 +1,8 @@
+-->> desc=When UPS figures will be archived
+-->> group=UPS
+-->> at=0400
+--
+--->> runifover
+-->> immediate
+--->> disabled
+
