@@ -1,0 +1,29 @@
+-->> desc=Archive old UPS figures
+-->> group=UPS
+--
+-->> when=UPSArchive
+--
+--->> quiet
+--
+------------
+-- Database related
+------------
+--
+-->> Database=domestik2
+-->> source=ups
+-->> table=ups_archive
+-->> Keys=figure
+--
+------------
+-- Data selection
+------------
+--
+-->> AggregateBy=Day
+-->> Kind=MMA2
+-->> UpTo=1 day
+--
+---------------
+-- Notification
+---------------
+--
+-->> SuccessRDV=UPSArchivingDone
