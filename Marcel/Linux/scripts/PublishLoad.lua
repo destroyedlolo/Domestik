@@ -8,10 +8,10 @@ function PublishLoad( section_name )
 	local r1, r5, r10 = f:read('*n'), f:read('*n'), f:read('*n')
 	f:close()
 
-	local topic = 'Load/' .. Marcel.Hostname() ..'/'
+	local topic = 'Machines/' .. Marcel.Hostname() ..'/'
 
-	Marcel.MQTTPublish( topic .. '1', r1)
-	Marcel.MQTTPublish( topic .. '5', r5)
-	Marcel.MQTTPublish( topic .. '10', r10)
+	Marcel.MQTTPublish( topic .. 'Load/1', r1)
+	Marcel.MQTTPublish( topic .. 'Load/5', r5)
+	Marcel.MQTTPublish( topic .. 'Load/10', r10)
 
 end
