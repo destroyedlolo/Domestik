@@ -1,0 +1,10 @@
+-- Collected average producer power
+-->> group=Electricité.Puissance
+-->> ecom=VA
+-->> desc=Moyenne produite sur 5 minutes
+--
+-->> topic=%ClientID%/ProducerPower
+-->> store
+--
+-- Ensure it is cleared before a new arrival
+-->> ttl=2

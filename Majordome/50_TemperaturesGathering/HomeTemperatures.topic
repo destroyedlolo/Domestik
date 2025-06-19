@@ -1,0 +1,5 @@
+-->> desc=Root of home temperatures topics.
+--
+-->> group=Températures
+-->> topic=maison/Temperature/#
+--->> store

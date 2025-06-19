@@ -1,8 +1,9 @@
--- Timer to launch an action every 5 minutes
--->> every=300
+-- Timer to launch an action every 10 seconds (test only)
+-->> every=60
 --
 -- as any hour is after midnight, it will trigger also when Majordome is launched
 --->> runifover
 --
 --->> immediate
 --->> disabled
+-->> quiet

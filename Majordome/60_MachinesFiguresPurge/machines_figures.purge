@@ -1,0 +1,23 @@
+-->> desc=Machines' figures archiving old data
+-->> ecom=keep 2 days
+-->> group=Machines
+--
+--------------------
+-- Database related
+--------------------
+--
+--- The database to connect to
+-->> Database=domestik2
+--
+--------------------
+-- Selection related
+--------------------
+--
+-- data to keep
+-->> Keep=2 days
+--
+------------
+-- Launching
+------------
+--
+-->> waitfor=MachinesFiguresArchivingDone

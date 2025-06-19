@@ -1,0 +1,27 @@
+-- Store counter for production in Domestik's database
+-->> group=Electricité.Compteurs
+--
+-->> when=5minutes
+--->> when=10s
+--
+-->> require_topic=ProdCounter
+-->> Database=domestik2
+--
+-->> table=electricity_counter
+-->> desc=electricity_counter
+--
+-- Avoid the "data rejected" message (as we are always rejecting)
+-->> quiet
+
+if SelSharedVar.Get('ProdCounter') ~= SelSharedVar.Get('ansProdCounter') then
+	-- Build the request
+	local req = "INSERT INTO ".. MAJORDOME_Myself:getDatabase():EscapeIdentifier(MAJORDOME_Myself:getTable())  .." VALUES (now(), 'Production', 'BASE', ".. SelSharedVar.Get('ProdCounter') .." );"
+
+	MAJORDOME_Myself:getDatabase():doSQL(req)
+end
+
+	-- Store previous value
+SelSharedVar.Set('ansProdCounter', SelSharedVar.Get('ProdCounter'))
+
+-- Already stored
+return false

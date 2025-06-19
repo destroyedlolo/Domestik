@@ -1,0 +1,28 @@
+-->> desc=Aggregate data
+-->> group=UPS
+--
+-->> listen=UPS
+--
+-->> quiet
+
+-- Extract the figure's name
+local figure = MAJORDOME_TOPIC:match("onduleur/(.+)")
+
+-- list of rejected figures
+local rejected = {
+	["battery.charge.warning"] = true,
+	["input.transfer.high"] = true,
+	["input.transfer.low"] = true,
+	["ups.realpower.nominal"] = true,
+}
+
+if rejected[figure] then
+	return false
+end
+
+
+if MAJORDOME_VERBOSE then
+	SelLog.Log("I", "Got figure ".. figure)
+end
+
+return figure

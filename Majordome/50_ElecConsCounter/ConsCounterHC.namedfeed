@@ -1,0 +1,24 @@
+-- Store counter for consumed 'HeureCreuse' in Domestik's database
+-->> group=Electricité.Compteurs
+--
+-->> when=5minutes
+--->> when=10s
+--
+-->> require_topic=ConsCounterHC
+-->> Database=domestik2
+--
+-->> table=electricity_counter
+-->> desc=electricity_counter
+
+if SelSharedVar.Get('ConsCounterHC') ~= SelSharedVar.Get('ansConsCounterHC') then
+	-- Build the request
+	local req = "INSERT INTO ".. MAJORDOME_Myself:getDatabase():EscapeIdentifier(MAJORDOME_Myself:getTable())  .." VALUES (now(), 'Consommation', 'HC', ".. SelSharedVar.Get('ConsCounterHC') .." );"
+
+	MAJORDOME_Myself:getDatabase():doSQL(req)
+end
+
+	-- Store previous value
+SelSharedVar.Set('ansConsCounterHC', SelSharedVar.Get('ConsCounterHC'))
+
+-- Already stored
+return false

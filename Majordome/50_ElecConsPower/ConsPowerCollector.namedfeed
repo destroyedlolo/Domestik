@@ -1,0 +1,43 @@
+-- Collect consumer power statistics
+-->> group=Electricité.Puissance
+-- - Store in the database the maximum collected
+-- - Publish the average value
+--
+-- Frequency of data collection
+-->> when=5minutes
+--->> when=10s
+--
+-- Database to connect to
+-->> Database=domestik2
+--
+-- Table to feed
+-->> table=electricity_power
+--
+-- Dependancies : objects needed by the code
+-->> need_minmax=ConsPower
+-->> need_topic=DomestikAvgConsPower
+--
+
+--
+-- Display statistics
+--
+
+if MAJORDOME_VERBOSE then
+	print ""
+	print "Cons Power"
+	print "----------"
+	print( "Number of samples :", ConsPower:getSamplesNumber() )
+	print( "Min value :", ConsPower:getMin() )
+	print( "Max value :", ConsPower:getMax() )
+	print( "Average :", ConsPower:getAverage() )
+	print( "Sum :", ConsPower:getSum() )
+end
+
+-- Publish collected average
+DomestikAvgConsPower:Publish( ConsPower:getAverage()/12 )
+
+-- Clear the statistics
+local max = ConsPower:getMax()
+ConsPower:Reset()
+
+return "Consommation", max
