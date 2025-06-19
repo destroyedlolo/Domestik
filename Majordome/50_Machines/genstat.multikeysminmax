@@ -30,7 +30,9 @@ local transcode = {
 	["Load/1"] =  "CPULoad",	-- The figure's name changed
 	userPRC = "User memory",
 	memoryPRC = "Global memory",
-	swapPRC = "Swap"
+	swapPRC = "Swap",
+	BufferPRC = "Buffer",
+	CachedPRC= "Cached"
 }
 
 -- list of rejected figures
@@ -39,7 +41,9 @@ local rejected = {
 	["Load/10"] = true,
 	["memory"] = true,
 	["swap"] = true,
-	["ncpu"] = true
+	["ncpu"] = true,
+	["Buffer"] = true,
+	["Cached"] = true
 }
 
 if rejected[figure] then
