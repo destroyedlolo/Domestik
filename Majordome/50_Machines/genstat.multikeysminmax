@@ -31,7 +31,7 @@ local transcode = {
 	userPRC = "User memory",
 	memoryPRC = "Global memory",
 	swapPRC = "Swap",
-	BufferPRC = "Buffer",
+	BuffersPRC = "Buffers",
 	CachedPRC= "Cached"
 }
 
@@ -42,7 +42,7 @@ local rejected = {
 	["memory"] = true,
 	["swap"] = true,
 	["ncpu"] = true,
-	["Buffer"] = true,
+	["Buffers"] = true,
 	["Cached"] = true
 }
 
