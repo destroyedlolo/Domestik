@@ -18,28 +18,52 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 14,
+  "id": 3,
   "links": [],
   "panels": [
     {
       "datasource": {
-        "default": false,
-        "type": "grafana-postgresql-datasource",
-        "uid": "fe1vfeqghvlkwe"
+        "default": true,
+        "type": "grafana-mqtt-datasource",
+        "uid": "ae2h6ocbbulmod"
       },
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "purple",
-            "mode": "thresholds"
+            "mode": "palette-classic"
           },
           "custom": {
-            "align": "auto",
-            "cellOptions": {
-              "type": "auto"
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
             },
-            "filterable": false,
-            "inspect": false
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
           },
           "mappings": [],
           "thresholds": {
@@ -51,109 +75,397 @@
               },
               {
                 "color": "red",
-                "value": ""
-              }
-            ]
-          },
-          "unit": "m"
-        },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "name"
-            },
-            "properties": [
-              {
-                "id": "links",
-                "value": [
-                  {
-                    "targetBlank": true,
-                    "title": "Détails pour ${__value.text}",
-                    "url": "/d/feo8vzafxlm2oa/machine-s-details?var-machine=${__value.text}"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "archive"
-            },
-            "properties": [
-              {
-                "id": "links",
-                "value": [
-                  {
-                    "targetBlank": true,
-                    "title": "Achived figures",
-                    "url": "/d/eeonlagg2je2of/machine-s-details?var-machine=${__data.fields[\"name\"]}"
-                  }
-                ]
+                "value": 80
               }
             ]
           }
-        ]
+        },
+        "overrides": []
       },
       "gridPos": {
-        "h": 12,
-        "w": 14,
+        "h": 8,
+        "w": 12,
         "x": 0,
         "y": 0
       },
-      "id": 1,
+      "id": 2,
       "options": {
-        "cellHeight": "sm",
-        "footer": {
-          "countRows": false,
-          "fields": "",
-          "reducer": [
-            "sum"
-          ],
-          "show": false
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
         },
-        "showHeader": true,
-        "sortBy": [
-          {
-            "desc": false,
-            "displayName": "last sampled"
-          }
-        ]
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
       },
-      "pluginVersion": "11.2.3",
       "targets": [
         {
           "datasource": {
-            "type": "grafana-postgresql-datasource",
-            "uid": "fe1vfeqghvlkwe"
+            "type": "grafana-mqtt-datasource",
+            "uid": "ae2h6ocbbulmod"
           },
-          "editorMode": "code",
-          "format": "table",
-          "rawQuery": true,
-          "rawSql": "SELECT DISTINCT name,  \n'Archive' As Archive,\nEXTRACT(EPOCH FROM (now() - MAX(sample_time))) / 60 as \"last sampled\" \nFROM domestik2.machines_figures \nWHERE sample_time BETWEEN $__timeFrom() AND $__timeTo() \nGROUP BY name",
           "refId": "A",
-          "sql": {
-            "columns": [
-              {
-                "parameters": [],
-                "type": "function"
-              }
-            ],
-            "groupBy": [
-              {
-                "property": {
-                  "type": "string"
-                },
-                "type": "groupBy"
-              }
-            ],
-            "limit": 50
-          }
+          "topic": "Machines/bPI/Load/1"
+        },
+        {
+          "datasource": {
+            "type": "grafana-mqtt-datasource",
+            "uid": "ae2h6ocbbulmod"
+          },
+          "hide": false,
+          "refId": "C",
+          "topic": "Machines/bPI/Load/5"
+        },
+        {
+          "datasource": {
+            "type": "grafana-mqtt-datasource",
+            "uid": "ae2h6ocbbulmod"
+          },
+          "hide": false,
+          "refId": "B",
+          "topic": "Machines/bPI/Load/10"
         }
       ],
-      "title": "Machines",
-      "type": "table"
+      "title": "bPI",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "default": true,
+        "type": "grafana-mqtt-datasource",
+        "uid": "ae2h6ocbbulmod"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 3,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-mqtt-datasource",
+            "uid": "ae2h6ocbbulmod"
+          },
+          "refId": "A",
+          "topic": "Machines/torchwood/Load/1"
+        },
+        {
+          "datasource": {
+            "type": "grafana-mqtt-datasource",
+            "uid": "ae2h6ocbbulmod"
+          },
+          "hide": false,
+          "refId": "B",
+          "topic": "Machines/torchwood/Load/5"
+        },
+        {
+          "datasource": {
+            "type": "grafana-mqtt-datasource",
+            "uid": "ae2h6ocbbulmod"
+          },
+          "hide": false,
+          "refId": "C",
+          "topic": "Machines/torchwood/Load/10"
+        }
+      ],
+      "title": "Torchwood",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "default": true,
+        "type": "grafana-mqtt-datasource",
+        "uid": "ae2h6ocbbulmod"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMin": 0,
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 8
+      },
+      "id": 1,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-mqtt-datasource",
+            "uid": "ae2h6ocbbulmod"
+          },
+          "refId": "A",
+          "topic": "Machines/TestArch/Load/1"
+        },
+        {
+          "datasource": {
+            "type": "grafana-mqtt-datasource",
+            "uid": "ae2h6ocbbulmod"
+          },
+          "hide": false,
+          "refId": "C",
+          "topic": "Machines/TestArch/Load/5"
+        },
+        {
+          "datasource": {
+            "type": "grafana-mqtt-datasource",
+            "uid": "ae2h6ocbbulmod"
+          },
+          "hide": false,
+          "refId": "B",
+          "topic": "Machines/TestArch/Load/10"
+        }
+      ],
+      "title": "TestArch",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "default": true,
+        "type": "grafana-mqtt-datasource",
+        "uid": "ae2h6ocbbulmod"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMin": 0,
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 8
+      },
+      "id": 4,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-mqtt-datasource",
+            "uid": "ae2h6ocbbulmod"
+          },
+          "refId": "A",
+          "topic": "Machines/Galactica/Load/1"
+        },
+        {
+          "datasource": {
+            "type": "grafana-mqtt-datasource",
+            "uid": "ae2h6ocbbulmod"
+          },
+          "hide": false,
+          "refId": "C",
+          "topic": "Machines/Galactica/Load/5"
+        },
+        {
+          "datasource": {
+            "type": "grafana-mqtt-datasource",
+            "uid": "ae2h6ocbbulmod"
+          },
+          "hide": false,
+          "refId": "B",
+          "topic": "Machines/Galactica/Load/10"
+        }
+      ],
+      "title": "Galactica",
+      "type": "timeseries"
     }
   ],
   "refresh": "",
@@ -163,13 +475,13 @@
     "list": []
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-24h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "browser",
   "title": "Machines",
-  "uid": "ceo8vv5i025fkb",
-  "version": 14,
+  "uid": "ae2h82y1nysjkc",
+  "version": 15,
   "weekStart": ""
 }
