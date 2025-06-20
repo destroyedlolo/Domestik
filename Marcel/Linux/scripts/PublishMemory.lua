@@ -25,11 +25,23 @@ function PublishMemory( section_name )
 		end
 	end
 
+	local user = 100 - (100 * (mfree + buffers + cached))/mtotal
 	local topic = 'Machines/' .. Marcel.Hostname() ..'/'
 
 	Marcel.MQTTPublish( topic .. 'memory', mfree ..'/'.. mtotal)
-	Marcel.MQTTPublish( topic .. 'swap', sfree ..'/'.. stotal)
 	Marcel.MQTTPublish( topic .. 'Buffers', buffers)
 	Marcel.MQTTPublish( topic .. 'Cached', cached)
+	Marcel.MQTTPublish( topic .. 'userPRC', user)
+	if mtotal ~= 0 then
+		Marcel.MQTTPublish( topic .. 'memoryPRC', string.format("%.2f", mfree/mtotal) )
+		Marcel.MQTTPublish( topic .. 'BuffersPRC', string.format("%.2f", buffers/mtotal) )
+		Marcel.MQTTPublish( topic .. 'CachedPRC', string.format("%.2f", cached/mtotal) )
+	end
+
+	Marcel.MQTTPublish( topic .. 'swap', sfree ..'/'.. stotal)
+	if stotal ~= 0 then
+		Marcel.MQTTPublish( topic .. 'swapPRC', string.format("%.2f", sfree/stotal) )
+	end
+
 
 end
