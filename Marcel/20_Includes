@@ -2,3 +2,4 @@
 # Here, it's everything regarding a BananaPI-M1
 
 Include=Linux
+Include=bPI
