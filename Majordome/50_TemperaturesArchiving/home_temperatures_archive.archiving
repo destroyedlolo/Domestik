@@ -7,6 +7,8 @@
 -- if not set, takes the filename
 --->> name=toto
 --
+-->> resourceWait=DatabaseProcessing
+--
 -- Remove some tracing messages
 --->> quiet
 --

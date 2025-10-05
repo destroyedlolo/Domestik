@@ -1,5 +1,6 @@
 -->> desc=Machines' figures archiving
 -->> group=Machines
+-->> resourceWait=DatabaseProcessing
 --
 ---------
 -- Misc
