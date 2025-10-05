@@ -2,6 +2,8 @@
 -->> ecom=keep a week
 -->> group=Températures
 --
+-->> resourceWait=DatabaseProcessing
+--
 --------------------
 -- Database related
 --------------------
