@@ -3,6 +3,8 @@
 -- D2 grouping
 -->> group=Températures
 --
+-->> resourceWait=DatabaseProcessing
+--
 -- name of this archiving
 -- if not set, takes the filename
 --->> name=toto
