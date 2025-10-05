@@ -1,6 +1,8 @@
 -- Archive electricity power saving
 -->> group=Electricité.Economie
 --
+-->> resourceWait=DatabaseProcessing
+--
 -- Remove some tracing messages
 --->> quiet
 --

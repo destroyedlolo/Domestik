@@ -1,6 +1,8 @@
 -- Archive electricity counter
 -->> group=Electricité.Puissance
 --
+-->> resourceWait=DatabaseProcessing
+--
 -- Remove some tracing messages
 --->> quiet
 --
