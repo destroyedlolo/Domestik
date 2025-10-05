@@ -2,6 +2,8 @@
 -->> group=Machines
 -->> resourceWait=DatabaseProcessing
 --
+-->> resourceWait=DatabaseProcessing
+--
 ---------
 -- Misc
 ---------
