@@ -1,6 +1,8 @@
 -->> desc=Archive old UPS figures
 -->> group=UPS
 --
+-->> resourceWait=DatabaseProcessing
+--
 -->> when=UPSArchive
 --
 --->> quiet

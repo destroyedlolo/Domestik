@@ -1,6 +1,8 @@
 -->> desc=Purge obsolete UPS data
 -->> group=UPS
 --
+-->> resourceWait=DatabaseProcessing
+--
 -->> Database=domestik2
 -->> table=ups
 -->> Keep=2 days
