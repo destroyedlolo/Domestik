@@ -1,0 +1,7 @@
+-->> desc=Smooths out intensive database access
+-- This resource avoid concurrent heavy maintenance database processing
+--
+-- Specify the number of tasks allowed
+-- Between 1 and 254. 255 means unlimited.
+-- Default is 1.
+-->> limit=1
