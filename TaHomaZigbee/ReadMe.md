@@ -13,3 +13,11 @@ Follow the [TaHomaCtl installation guide](https://github.com/destroyedlolo/TaHom
 - Install **TaHomaCtl**.
 - Enable developer mode on the TaHoma hub, ensuring you apply the bearer code.
 - Discover your gateway.
+
+# Configure Marcel to retrieve the probe's figures
+
+# Create database dedicated tables
+
+# Configure Majordome to feed the database
+
+# Get the result in Grafana
