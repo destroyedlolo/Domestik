@@ -2,7 +2,7 @@ This directory contains comprehensive tutorial use cases demonstrating the funct
 
 ---
 
-To merge it 
+To merge it **UseCases** branch
 ```
 git subtree merge --prefix=UseCases UseCases
 ```
