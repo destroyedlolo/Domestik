@@ -31,6 +31,32 @@ Follow the [TaHomaCtl installation guide](https://github.com/destroyedlolo/TaHom
 
 ## Discovering the probe
 
+```
+$ ./TaHomaCtl -Uv
+*W* SSL chaine not enforced (unsafe mode)
+TaHomaCtl > scan_Devices 
+*I* 15 devices
+TaHomaCtl > Device
+test_air : zigbee://xxxx-xxxx-xxxx/58849/1#1
+test_air : zigbee://xxxx-xxxx-xxxx/58849/1#2
+test_air : zigbee://xxxx-xxxx-xxxx/58849/3
+test_air : zigbee://xxxx-xxxx-xxxx/58849/1#4
+Deco : io://xxxx-xxxx-xxxx/5335270
+Porte_Chat : rts://xxxx-xxxx-xxxx/16774417
+IO_(10069463) : io://xxxx-xxxx-xxxx/10069463
+test_air : zigbee://xxxx-xxxx-xxxx/58849/0
+ZIGBEE_(0/0) : zigbee://xxxx-xxxx-xxxx/0/0
+Boiboite : internal://xxxx-xxxx-xxxx/pod/0
+INTERNAL_(wifi/0) : internal://xxxx-xxxx-xxxx/wifi/0
+test_air : zigbee://xxxx-xxxx-xxxx/58849/1#3
+ZIGBEE_(0/242) : zigbee://xxxx-xxxx-xxxx/0/242
+ZIGBEE_(0/1) : zigbee://xxxx-xxxx-xxxx/0/1
+ZIGBEE_(65535) : zigbee://xxxx-xxxx-xxxx/65535
+```
+
+As shown above, "test_air" is displayed as several devices, with each corresponding
+to a specific sensor (and possibly more). By using the 'Device' or 'Status' commands,
+you can explore further and retrieve the data you are looking for.
 
 # Configure Marcel to retrieve the probe's figures
 
