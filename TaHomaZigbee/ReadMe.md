@@ -109,6 +109,19 @@ TaHomaCtl > States zigbee://2095-0445-1705/58849/1#3 core:CO2ConcentrationState
 455
 ```
 
+# List of figures
+
+Domestik components interact through an MQTT broker; every data point is published
+to its **own unique topic**.
+
+## from the Zigbee probe
+
+| What| Device's URL | State | Topic |
+|-----|--------------|-------|-------|
+| CO2 | zigbee://2095-0445-1705/58849/1#3 | core:CO2ConcentrationState | SensorCalibration/reference/CO2 |
+| Temperature | zigbee://2095-0445-1705/58849/1#1 | core:TemperatureState | SensorCalibration/reference/Temperature |
+| Humidity | zigbee://2095-0445-1705/58849/1#2 | core:RelativeHumidityState | SensorCalibration/reference/RelativeHumidity |
+
 # Configure Marcel to retrieve the probe's figures
 
 # Create database dedicated tables
