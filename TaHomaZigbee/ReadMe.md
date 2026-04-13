@@ -7,6 +7,7 @@ Finally, a graphical comparison will be performed in **Grafana**.
 The first step is to detect and pair the sensor. Please follow the pairing procedure provided in the TaHoma mobile application.
 
 Below are the results of the discovery of my Zigbee multi-sensor, named "Test Air," as displayed within the TaHoma mobile application.
+
 ![Sensor discovered](Images/tel1.jpeg)
 ![Sensor detail](Images/tel2.jpeg)
 
@@ -55,7 +56,7 @@ ZIGBEE_(65535) : zigbee://xxxx-xxxx-xxxx/65535
 ```
 
 As shown above, "test_air" is displayed as several devices, with each corresponding
-to a specific sensor (and possibly more). By using the 'Device' or 'Status' commands,
+to a specific sensor (and possibly more). By using the `Device` or `Status` commands,
 you can explore further and retrieve the data you are looking for.
 
 # Configure Marcel to retrieve the probe's figures
