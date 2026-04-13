@@ -38,26 +38,76 @@ $ ./TaHomaCtl -Uv
 TaHomaCtl > scan_Devices 
 *I* 15 devices
 TaHomaCtl > Device
-test_air : zigbee://xxxx-xxxx-xxxx/58849/1#1
-test_air : zigbee://xxxx-xxxx-xxxx/58849/1#2
-test_air : zigbee://xxxx-xxxx-xxxx/58849/3
-test_air : zigbee://xxxx-xxxx-xxxx/58849/1#4
-Deco : io://xxxx-xxxx-xxxx/5335270
-Porte_Chat : rts://xxxx-xxxx-xxxx/16774417
-IO_(10069463) : io://xxxx-xxxx-xxxx/10069463
-test_air : zigbee://xxxx-xxxx-xxxx/58849/0
-ZIGBEE_(0/0) : zigbee://xxxx-xxxx-xxxx/0/0
-Boiboite : internal://xxxx-xxxx-xxxx/pod/0
-INTERNAL_(wifi/0) : internal://xxxx-xxxx-xxxx/wifi/0
-test_air : zigbee://xxxx-xxxx-xxxx/58849/1#3
-ZIGBEE_(0/242) : zigbee://xxxx-xxxx-xxxx/0/242
-ZIGBEE_(0/1) : zigbee://xxxx-xxxx-xxxx/0/1
-ZIGBEE_(65535) : zigbee://xxxx-xxxx-xxxx/65535
+test_air : zigbee://2095-0445-1705/58849/1#1
+test_air : zigbee://2095-0445-1705/58849/1#2
+test_air : zigbee://2095-0445-1705/58849/3
+test_air : zigbee://2095-0445-1705/58849/1#4
+Deco : io://2095-0445-1705/5335270
+Porte_Chat : rts://2095-0445-1705/16774417
+IO_(10069463) : io://2095-0445-1705/10069463
+test_air : zigbee://2095-0445-1705/58849/0
+ZIGBEE_(0/0) : zigbee://2095-0445-1705/0/0
+Boiboite : internal://2095-0445-1705/pod/0
+INTERNAL_(wifi/0) : internal://2095-0445-1705/wifi/0
+test_air : zigbee://2095-0445-1705/58849/1#3
+ZIGBEE_(0/242) : zigbee://2095-0445-1705/0/242
+ZIGBEE_(0/1) : zigbee://2095-0445-1705/0/1
+ZIGBEE_(65535) : zigbee://2095-0445-1705/65535
 ```
 
-As shown above, "test_air" is displayed as several devices, with each corresponding
+As shown above, "**test_air**" is displayed as several devices, with each corresponding
 to a specific sensor (and possibly more). By using the `Device` or `Status` commands,
-you can explore further and retrieve the data you are looking for.
+you can explore further and retrieve the data you are looking for.  
+This process can be automated by creating a temporary script as follows 
+
+```bash
+echo "scan_Devices" > /tmp/script
+TaHomaCtl -U << eof | grep 'test_air : ' | awk -F' : ' '{print "Device " $2 }' >> /tmp/script
+scan_Devices
+Device
+eof
+```
+
+> [!NOTE]
+> Don't forget to change **test_air : ** with the your probe's name.
+
+Finally, run it :
+
+```bash
+TaHomaCtl -Utvf /tmp/script
+```
+
+The output will provide the known commands and states for each probe. As example
+
+```
+test_air : zigbee://2095-0445-1705/58849/1#3
+	Commands
+		ping (0 arg)
+		advancedRefresh (1 arg)
+		bind (2 args)
+		stopIdentify (0 arg)
+		identify (0 arg)
+		unbind (2 args)
+	States
+		core:StatusState
+		zigbee:PowerSourceState
+		core:ProductModelNameState
+		core:ManufacturerNameState
+		zigbee:ZigbeeUpdateDownloadProgressState
+		core:CO2ConcentrationState
+		zigbee:LinkQualityIndicatorState
+		zigbee:ZigbeeUpdateState
+		core:RSSILevelState
+		core:DiscreteRSSILevelState
+		core:FirmwareRevisionState
+```
+
+Here, we discovered **core:CO2ConcentrationState** on **zigbee://2095-0445-1705/58849/1#3**
+
+```
+TaHomaCtl > States zigbee://2095-0445-1705/58849/1#3 core:CO2ConcentrationState
+455
+```
 
 # Configure Marcel to retrieve the probe's figures
 
