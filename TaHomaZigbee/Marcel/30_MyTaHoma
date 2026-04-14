@@ -19,7 +19,7 @@
 	# Notez_bien : directives are prepended with a 
 	# 'expect_' in order to avoid confusion with top
 	# level ones. Even if the goals are the same.
-	**Expect=CO2
+	**Expect=Ref_CO2
 
 		# Fields to segregate against incoming event
 			# Event's name
@@ -49,13 +49,13 @@
 		# Disable this state if running in simulation mode
 #		expect_DoNotSimulate
 
-	**Expect=Temperature
+	**Expect=Ref_Temperature
 		expect_Event=DeviceStateChangedEvent
 		expect_deviceURL=zigbee://2095-0445-1705/58849/1#1
 		expect_state=core:TemperatureState
 		expect_Topic=SensorCalibration/reference/Temperature
 
-	**Expect=Humidity
+	**Expect=Ref_Humidity
 		expect_Event=DeviceStateChangedEvent
 		expect_deviceURL=zigbee://2095-0445-1705/58849/1#2
 		expect_state=core:RelativeHumidityState

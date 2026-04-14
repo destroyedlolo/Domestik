@@ -1,10 +1,10 @@
-*Probe=Humidity
+*Probe=Ref_Temperature
 	####
 	# settings related to the device itself
 	####
 
 	# Probe settings
-	url=zigbee://2095-0445-1705/58849/1#2
+	url=zigbee://2095-0445-1705/58849/1#1
 
 	# Gateway it belongs to
 	TaHoma=MyTaHoma
@@ -28,6 +28,9 @@
 	# Disable it if running in simulation mode
 	DoNotSimulate
 
+	# D2 documentation
+#	group=Initial value
+
 	####
 	# One of more states from the device.
 	#
@@ -36,7 +39,7 @@
 	# The goal is to minimize the gateway's load.
 	####
 
-**State=core:RelativeHumidityState
+**State=core:TemperatureState
 	# Notez_bien : directives are prepended with a 
 	# 'state_' in order to avoid confusion with top
 	# level ones. Even if the goals are the same.
@@ -48,7 +51,7 @@
 	# state_Func=ValTProbe
 
 	# Topic to publish to.
-	state_Topic=SensorCalibration/reference/RelativeHumidity
+	state_Topic=SensorCalibration/reference/Temperature
 
 	# submitted as retained message
 #	state_Retained
