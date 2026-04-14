@@ -1,3 +1,5 @@
+![Calibration](Images/Illustration.jpg)
+
 The goal of this procedure is to calibrate a 1-wire humidity sensor using data from a Zigbee multi-sensor as a reference.  
 We will use **Marcel** to access the values of the sensor through a **TaHoma gateway**, then store the data in the **PostgreSQL database** using **Majordome**.
 Finally, a graphical comparison will be performed in **Grafana**.
@@ -114,15 +116,33 @@ TaHomaCtl > States zigbee://2095-0445-1705/58849/1#3 core:CO2ConcentrationState
 Domestik components interact through an MQTT broker; every data point is published
 to its **own unique topic**.
 
-## from the Zigbee probe
+## Reference from the Zigbee probe
 
-| What| Device's URL | State | Topic |
+| ❓ What| 🔗 Device's URL | ⚙️ State | 💬 Topic |
 |-----|--------------|-------|-------|
 | CO2 | zigbee://2095-0445-1705/58849/1#3 | core:CO2ConcentrationState | SensorCalibration/reference/CO2 |
 | Temperature | zigbee://2095-0445-1705/58849/1#1 | core:TemperatureState | SensorCalibration/reference/Temperature |
 | Humidity | zigbee://2095-0445-1705/58849/1#2 | core:RelativeHumidityState | SensorCalibration/reference/RelativeHumidity |
 
-# Configure Marcel to retrieve the probe's figures
+## 1-wire probe to qualibrate
+
+# Configure Marcel to publish figures
+
+Time to get that data published !  
+**[Marcel](https://github.com/destroyedlolo/Marcel)** is a lightweight daemon designed to broadcast various metrics to our MQTT bus, including data exposed by TaHoma and the 1-wire network. Configuration is available in the [/Marcel](Marcel) subdirectory.
+
+## Reference's
+
+> [!NOTE]
+> **How Zigbee sensors Work**  
+> In a typical event-driven architecture, you only receive data when a change occurs. This creates a *blind spot* when the daemon starts.
+> `Probes` solve this by performing an active synchronization at launch.
+
+![Reference related](Images/Reference.svg)
+
+- `10_mod_TaHoma` : TaHoma module initialization.
+- `30_MyTaHoma` : Configures the gateway based on TaHomaCtl discovery and defines event filters.
+- `50_*`: Addresses infrequent event updates by implementing `Probes` that broadcast the last known sensor states upon startup.
 
 # Create database dedicated tables
 
