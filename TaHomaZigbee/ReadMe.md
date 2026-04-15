@@ -158,6 +158,23 @@ Time to get that data published !
 - `30_MyTaHoma` : Configures the gateway based on TaHomaCtl discovery and defines event filters.
 - `50_*`: Addresses infrequent event updates by implementing `Probes` that broadcast the last known sensor states upon startup.
 
+## Probe's
+
+![Probe related](Images/1Wire.svg)
+
+- `10_mod_1wire` : 1-Wire module initialization.
+- `50_Probe` : Defines the **Flat File Value** (FFV) for retrieving probe own data. Data is polled at 5-minute intervals.
+
+## First result
+
+Marcel can now be launched using this new configuration. You can track the values by monitoring the SensorCalibration/# hierarchy.
+
+```bash
+Marcel -vf ../Domestik/TaHomaZigbee/Marcel/
+```
+
+Additionally, these values are visualized in the [Raw probe calibration](Grafana/RPCF.json) Grafana report.
+
 # Create database dedicated tables
 
 # Configure Majordome to feed the database
