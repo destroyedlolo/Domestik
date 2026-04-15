@@ -10,6 +10,9 @@
 	# Developer mode token
 	TaHoma_token=@/home/laurent/.tahomatoken
 
+	# delay b/w each poll for event
+	Sample=5.5
+
 	# Don't verify SSL chain
 	DontVerifySSL
 

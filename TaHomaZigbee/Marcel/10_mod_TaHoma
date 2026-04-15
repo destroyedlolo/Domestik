@@ -8,4 +8,4 @@ RandomizeProbes
 
 # Sample value to apply when Sample= is absent (in seconds)
 # default value is 300
-DefaultSampleDelay=5.5
+# DefaultSampleDelay=5.5

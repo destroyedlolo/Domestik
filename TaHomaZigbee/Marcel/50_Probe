@@ -1,0 +1,20 @@
+Needs=mod_1wire
+
+*FFV=Probe Temperature
+	# Where the probe is exposed by OWFS
+	File=/var/lib/owfs/mnt/26.86B36A020000/temperature
+	# Topic to publish to
+	Topic=SensorCalibration/temperature
+	# Add a popup description
+	desc=DS-2438
+	# Don't publish when the probe is not ready
+	Safe85
+	# Publish immediatly
+	Immediate
+
+*FFV=Probe Humidity
+	File=/var/lib/owfs/mnt/26.86B36A020000/HIH4000/humidity
+	Topic=SensorCalibration/humidity
+	desc=DS-2438
+	Safe85
+	Immediate
