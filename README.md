@@ -24,3 +24,8 @@ Our Test Bench:
 - **Processor**: Allwinner A20 (Dual-core ARMv7)
 - **Memory**: 1GB RAM
 - **Storage**: Native SATA (as you know, hosting a database on a SD cart lead to problems)
+
+# This repository
+
+Each component has its own dedicated repository. This main repo acts as the hub for the entire solution,
+featuring comprehensive use cases in the subdirectories to get you started.
