@@ -71,7 +71,7 @@ eof
 ```
 
 > [!NOTE]
-> Don't forget to change **test_air : ** with the your probe's name.
+> Don't forget to change **test_air :** with the your probe's name.
 
 Finally, run it :
 
@@ -125,6 +125,20 @@ to its **own unique topic**.
 | Humidity | zigbee://2095-0445-1705/58849/1#2 | core:RelativeHumidityState | SensorCalibration/reference/RelativeHumidity |
 
 ## 1-wire probe to qualibrate
+
+### Hardware Overview
+
+The sensor probe is a popular DIY design as shared by [Mariusz Białończyk](https://skyboo.net/2017/03/ds2438-based-1-wire-humidity-sensor/). It combines two main components:
+- **HIH-4000-003** : The analog humidity sensor.
+- **DS-2438** : A "*Smart Battery Monitor*" used here as a 1-Wire ADC to digitize the humidity signal.
+
+### Figures
+ While these chips can track voltage and current, we are only interested in **temperature** and **humidity** for this build.
+
+| ❓ What | 🔗 OWFS address | 💬 Topic |
+|----------|----------------|----------|
+| Temperature (°C) | 26.86B36A020000/temperature | SensorCalibration/temperature |
+| Humidity (%) | 26.86B36A020000/HIH4000/humidity | SensorCalibration/humidity |
 
 # Configure Marcel to publish figures
 
