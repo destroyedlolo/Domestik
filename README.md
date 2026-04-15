@@ -14,7 +14,7 @@ The key components of the suite include:
 - **Database** (PostgreSQL): Used to store and historize data
 - **Web-based dashboard** (Grafana): Provides visualization of the collected data
 
-### Targeted hardware
+# Targeted hardware
 
 This project is optimized for **low-resource environments**. You don't need a powerful PC; it’s designed to run perfectly
 on **budget-friendly Single Board Computers** (SBCs).
