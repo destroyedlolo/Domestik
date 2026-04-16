@@ -1,10 +1,15 @@
 ![Calibration](Images/Illustration.jpg)
 
-The goal of this procedure is to calibrate a 1-wire humidity sensor using data from a Zigbee multi-sensor as a reference.  
-We will use **Marcel** to access the values of the sensor through a **TaHoma gateway**, then store the data in the **PostgreSQL database** using **Majordome**.
-Finally, a graphical comparison will be performed in **Grafana**.
+The goal of this procedure is to calibrate a 1-wire humidity sensor using data from a Zigbee multi-sensor as a reference.
 
-# Pair the sensor with the TaHoma
+But all of this is merely a pretext. We will be diving into:
+- **Accessing data from sensors linked to a TaHoma**, whether they use IO, Zigbee, Matter, or any other protocol supported locally by this gateway.
+- **Interfacing with sensor data exposed as Linux files**, with a specific focus on 1-wire probes.
+- **Data storage and lifecycle management**, covering how to save and handle your data over time, using **Majordome**.
+- **Various visualization** methods to display your results.
+
+# Prepare the Zigbee sensor
+## Pair the sensor with the TaHoma
 
 The first step is to detect and pair the sensor. Please follow the pairing procedure provided in the TaHoma mobile application.
 
@@ -13,9 +18,9 @@ Below are the results of the discovery of my Zigbee multi-sensor, named "Test Ai
 ![Sensor discovered](Images/tel1.jpeg)
 ![Sensor detail](Images/tel2.jpeg)
 
-# How the sensor is exposed in the TaHoma
+## How the sensor is exposed in the TaHoma
 
-## Discovering the TaHoma
+### Discovering the TaHoma
 
 Follow the [TaHomaCtl installation guide](https://github.com/destroyedlolo/TaHomaCtl) to:
 
@@ -31,8 +36,7 @@ Follow the [TaHomaCtl installation guide](https://github.com/destroyedlolo/TaHom
 >
 > In my case it will be stored in `/home/laurent/.tahomatoken`
 
-
-## Discovering the probe
+### Discovering the probe
 
 ```
 $ ./TaHomaCtl -Uv
@@ -159,6 +163,11 @@ Time to get that data published !
 - `50_*`: Addresses infrequent event updates by implementing `Probes` that broadcast the last known sensor states upon startup.
 
 ## Probe's
+
+> [!NOTE]
+> While the Linux kernel natively handles a subset of 1-wire probes, I far prefer using [OWFS](https://www.owfs.org/) for its superior versatility
+>  and completeness.
+> Regardless of the method chosen, data can be seamlessly accessed using Marcel's FFV, as detailed below.
 
 ![Probe related](Images/1Wire.svg)
 
