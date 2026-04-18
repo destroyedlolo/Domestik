@@ -1,9 +1,10 @@
 ![Calibration](Images/Illustration.jpg)
 
-The goal of this procedure is to calibrate a 1-wire humidity sensor using data from a Zigbee multi-sensor as a reference.
+Originally, I intended to calibrate a Zigbee multi-sensor against a 1-wire reference probe. However, due to the Zigbee sensor's low sensitivity
+and a highly stable test environment, data updates are too sparse to establish a reliable correlation.
 
-But all of this is merely a pretext. We will be diving into:
-- **Accessing data from sensors linked to a TaHoma**, whether they use IO, Zigbee, Matter, or any other protocol supported locally by this gateway.
+Nonetheless, this remains a useful experiment for:
+- **Accessing data from sensors attached to a TaHoma**, whether they use IO, Zigbee, Matter, or any other protocol supported locally by this gateway.
 - **Interfacing with sensor data exposed as Linux files**, with a specific focus on 1-wire probes.
 - **Data storage and lifecycle management**, covering how to save and handle your data over time, using **Majordome**.
 - **Various visualization** methods to display your results.
@@ -120,13 +121,13 @@ TaHomaCtl > States zigbee://2095-0445-1705/58849/1#3 core:CO2ConcentrationState
 Domestik components interact through an MQTT broker; every data point is published
 to its **own unique topic**.
 
-## Reference from the Zigbee probe
+## from the Zigbee probe
 
 | ❓ What| 🔗 Device's URL | ⚙️ State | 💬 Topic |
 |-----|--------------|-------|-------|
-| CO2 | zigbee://2095-0445-1705/58849/1#3 | core:CO2ConcentrationState | SensorCalibration/reference/CO2 |
-| Temperature | zigbee://2095-0445-1705/58849/1#1 | core:TemperatureState | SensorCalibration/reference/Temperature |
-| Humidity | zigbee://2095-0445-1705/58849/1#2 | core:RelativeHumidityState | SensorCalibration/reference/RelativeHumidity |
+| CO2 | zigbee://2095-0445-1705/58849/1#3 | core:CO2ConcentrationState | SensorCalibration/CO2 |
+| Temperature | zigbee://2095-0445-1705/58849/1#1 | core:TemperatureState | SensorCalibration/Temperature |
+| Humidity | zigbee://2095-0445-1705/58849/1#2 | core:RelativeHumidityState | SensorCalibration/RelativeHumidity |
 
 ## 1-wire probe to qualibrate
 
@@ -141,8 +142,8 @@ The sensor probe is a popular DIY design as shared by [Mariusz Białończyk](htt
 
 | ❓ What | 🔗 OWFS address | 💬 Topic |
 |----------|----------------|----------|
-| Temperature (°C) | 26.86B36A020000/temperature | SensorCalibration/temperature |
-| Humidity (%) | 26.86B36A020000/HIH4000/humidity | SensorCalibration/humidity |
+| Temperature (°C) | 26.86B36A020000/temperature | SensorCalibration/reference/temperature |
+| Humidity (%) | 26.86B36A020000/HIH4000/humidity | SensorCalibration/reference/humidity |
 
 # Configure Marcel to publish figures
 
