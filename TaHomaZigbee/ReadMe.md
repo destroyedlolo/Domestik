@@ -157,7 +157,7 @@ Time to get that data published !
 > In a typical event-driven architecture, you only receive data when a change occurs. This creates a *blind spot* when the daemon starts.
 > `Probes` solve this by performing an active synchronization at launch.
 
-![Reference related](Images/Reference.svg)
+![Zigbee related](Images/Zigbee.svg)
 
 - `10_mod_TaHoma` : TaHoma module initialization.
 - `30_MyTaHoma` : Configures the gateway based on TaHomaCtl discovery and defines event filters.

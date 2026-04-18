@@ -56,10 +56,10 @@
 		expect_Event=DeviceStateChangedEvent
 		expect_deviceURL=zigbee://2095-0445-1705/58849/1#1
 		expect_state=core:TemperatureState
-		expect_Topic=SensorCalibration/reference/Temperature
+		expect_Topic=SensorCalibration/Temperature
 
 	**Expect=Ref_Humidity
 		expect_Event=DeviceStateChangedEvent
 		expect_deviceURL=zigbee://2095-0445-1705/58849/1#2
 		expect_state=core:RelativeHumidityState
-		expect_Topic=SensorCalibration/reference/RelativeHumidity
+		expect_Topic=SensorCalibration/RelativeHumidity

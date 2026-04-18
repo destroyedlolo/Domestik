@@ -51,7 +51,7 @@
 	# state_Func=ValTProbe
 
 	# Topic to publish to.
-	state_Topic=SensorCalibration/reference/Temperature
+	state_Topic=SensorCalibration/Temperature
 
 	# submitted as retained message
 #	state_Retained
