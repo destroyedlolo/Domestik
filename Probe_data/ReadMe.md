@@ -192,7 +192,18 @@ Marcel -vf ../Domestik/TaHomaZigbee/Marcel/
 
 Additionally, these values are visualized in the [Raw probe calibration](Grafana/RPCF.json) Grafana report.
 
-# Create database dedicated tables
+# Historical data storage
+
+> **Note on Architecture:** While a dedicated TSDB (like InfluxDB) is often preferred for time-series data, I opted for **PostgreSQL**.
+> It provides robust performance for my current home automation scale and avoids the overhead of managing multiple database engines.
+
+## Create database dedicated tables
+
+Figures from all probes is stored in the `figures` table, with two indexes specifically designed to speed up reporting.
+
+![figures' table](db/tables.svg)
+
+The [create_figures.sql](db/create_figures.sql) script initializes the table and its associated indexes to ensure optimal query performance.
 
 # Configure Majordome to feed the database
 
