@@ -109,7 +109,7 @@
             "uid": "bfhs9p51ow8owb"
           },
           "refId": "Reference",
-          "topic": "SensorCalibration/reference/Temperature"
+          "topic": "SensorCalibration/reference/temperature"
         },
         {
           "datasource": {
@@ -117,7 +117,7 @@
             "uid": "bfhs9p51ow8owb"
           },
           "refId": "Probe",
-          "topic": "SensorCalibration/temperature"
+          "topic": "SensorCalibration/Temperature"
         }
       ],
       "title": "Temperature",
@@ -212,7 +212,7 @@
             "uid": "bfhs9p51ow8owb"
           },
           "refId": "Reference",
-          "topic": "SensorCalibration/reference/RelativeHumidity"
+          "topic": "SensorCalibration/RelativeHumidity"
         },
         {
           "datasource": {
@@ -220,7 +220,7 @@
             "uid": "bfhs9p51ow8owb"
           },
           "refId": "Probe",
-          "topic": "SensorCalibration/humidity"
+          "topic": "SensorCalibration/reference/humidity"
         }
       ],
       "title": "Humidity",
@@ -315,7 +315,7 @@
             "uid": "bfhs9p51ow8owb"
           },
           "refId": "C",
-          "topic": "SensorCalibration/reference/CO2"
+          "topic": "SensorCalibration/CO2"
         }
       ],
       "title": "CO2",
@@ -336,6 +336,6 @@
   "timezone": "browser",
   "title": "Raw Probe calibration figures",
   "uid": "adrs5k7",
-  "version": 24,
+  "version": 27,
   "weekStart": ""
 }
