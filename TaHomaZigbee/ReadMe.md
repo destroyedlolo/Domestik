@@ -10,8 +10,8 @@ This tutorial demonstrates how to manage probes connected via a local **1-Wire**
 - **Accessing data from sensors attached to a TaHoma**, whether they use IO, Zigbee, Matter, or any other protocol supported locally by this gateway.
 - **Data storage and lifecycle management**, covering how to save and handle your data over time, using **Majordome**.
 - **Various visualization** methods to display your results.
-
-# The 1-wire probe
+# Hardware side
+## The 1-wire probe
 
 > [!Note]
 > This guide assumes a functional 1-Wire network and configured OWFS; the initial Linux-side setup will not be covered here.
@@ -20,11 +20,11 @@ The sensor probe is a popular DIY design as shared by [Mariusz Białończyk](htt
 - **HIH-4000-003** : The analog humidity sensor.
 - **DS-2438** : A "*Smart Battery Monitor*" used here as a 1-Wire ADC to digitize the humidity signal.
 
-# The Zigbee multi-sensor
+## The Zigbee multi-sensor
 
 For this setup, I am utilizing a commercial Zigbee 3.0 multi-sensor that monitors humidity, temperature, and CO2​ levels. A TaHoma gateway serves as the bridge between the Zigbee network and my MQTT broker.
 
-## Pair the sensor with the TaHoma
+### Pair the sensor with the TaHoma
 
 The first step is to detect and pair the sensor. Please follow the pairing procedure provided in the TaHoma mobile application.
 
@@ -33,9 +33,9 @@ Below are the results of the discovery of my Zigbee multi-sensor, named "Test Ai
 ![Sensor discovered](Images/tel1.jpeg)
 ![Sensor detail](Images/tel2.jpeg)
 
-## How the sensor is exposed in the TaHoma ?
+### How the sensor is exposed in the TaHoma ?
 
-### Discovering the TaHoma
+#### Discovering the TaHoma
 
 Follow the [TaHomaCtl installation guide](https://github.com/destroyedlolo/TaHomaCtl) to:
 
@@ -51,7 +51,7 @@ Follow the [TaHomaCtl installation guide](https://github.com/destroyedlolo/TaHom
 >
 > In my case it will be stored in `/home/laurent/.tahomatoken`
 
-### Discovering the probe
+#### Discovering the probe
 
 ```
 $ ./TaHomaCtl -Uv
@@ -130,10 +130,19 @@ TaHomaCtl > States zigbee://2095-0445-1705/58849/1#3 core:CO2ConcentrationState
 455
 ```
 
-# List of figures
+# MQTT data bus side
 
 Domestik components interact through an MQTT broker; every data point is published
 to its **own unique topic**.
+
+## from 1-wire probe
+### Figures
+ While these chips can track voltage and current, we are only interested in **temperature** and **humidity** for this build.
+
+| ❓ What | 🔗 OWFS address | 💬 Topic |
+|----------|----------------|----------|
+| Temperature (°C) | 26.86B36A020000/temperature | SensorCalibration/reference/temperature |
+| Humidity (%) | 26.86B36A020000/HIH4000/humidity | SensorCalibration/reference/humidity |
 
 ## from the Zigbee probe
 
@@ -143,24 +152,24 @@ to its **own unique topic**.
 | Temperature | zigbee://2095-0445-1705/58849/1#1 | core:TemperatureState | SensorCalibration/Temperature |
 | Humidity | zigbee://2095-0445-1705/58849/1#2 | core:RelativeHumidityState | SensorCalibration/RelativeHumidity |
 
-## 1-wire probe to qualibrate
-
-### Hardware Overview
-
-### Figures
- While these chips can track voltage and current, we are only interested in **temperature** and **humidity** for this build.
-
-| ❓ What | 🔗 OWFS address | 💬 Topic |
-|----------|----------------|----------|
-| Temperature (°C) | 26.86B36A020000/temperature | SensorCalibration/reference/temperature |
-| Humidity (%) | 26.86B36A020000/HIH4000/humidity | SensorCalibration/reference/humidity |
-
 # Configure Marcel to publish figures
 
 Time to get that data published !  
 **[Marcel](https://github.com/destroyedlolo/Marcel)** is a lightweight daemon designed to broadcast various metrics to our MQTT bus, including data exposed by TaHoma and the 1-wire network. Configuration is available in the [/Marcel](Marcel) subdirectory.
 
-## Reference's
+## for the 1-wire probe
+
+> [!NOTE]
+> While the Linux kernel natively handles a subset of 1-wire probes, I far prefer using [OWFS](https://www.owfs.org/) for its superior versatility
+>  and completeness.
+> Regardless of the method chosen, data can be seamlessly accessed using Marcel's FFV, as detailed below.
+
+![Probe related](Images/1Wire.svg)
+
+- `10_mod_1wire` : 1-Wire module initialization.
+- `50_Probe` : Defines the **Flat File Value** (FFV) for retrieving probe own data. Data is polled at 5-minute intervals.
+
+## For the Zigbee probe
 
 > [!NOTE]
 > **How Zigbee sensors Work**  
@@ -172,18 +181,6 @@ Time to get that data published !
 - `10_mod_TaHoma` : TaHoma module initialization.
 - `30_MyTaHoma` : Configures the gateway based on TaHomaCtl discovery and defines event filters.
 - `50_*`: Addresses infrequent event updates by implementing `Probes` that broadcast the last known sensor states upon startup.
-
-## Probe's
-
-> [!NOTE]
-> While the Linux kernel natively handles a subset of 1-wire probes, I far prefer using [OWFS](https://www.owfs.org/) for its superior versatility
->  and completeness.
-> Regardless of the method chosen, data can be seamlessly accessed using Marcel's FFV, as detailed below.
-
-![Probe related](Images/1Wire.svg)
-
-- `10_mod_1wire` : 1-Wire module initialization.
-- `50_Probe` : Defines the **Flat File Value** (FFV) for retrieving probe own data. Data is polled at 5-minute intervals.
 
 ## First result
 
