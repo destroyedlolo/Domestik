@@ -1,15 +1,29 @@
 ![Calibration](Images/Illustration.jpg)
 
-Originally, I intended to calibrate a Zigbee multi-sensor against a 1-wire reference probe. However, due to the Zigbee sensor's low sensitivity
-and a highly stable test environment, data updates are too sparse to establish a reliable correlation.
+> [!Note]
+> Originally, I intended to calibrate a Zigbee multi-sensor against a 1-wire reference probe. However, due to the Zigbee sensor's low sensitivity
+> and a highly stable test environment, data updates are too sparse to establish a reliable correlation.
 
-Nonetheless, this remains a useful experiment for:
-- **Accessing data from sensors attached to a TaHoma**, whether they use IO, Zigbee, Matter, or any other protocol supported locally by this gateway.
+This tutorial demonstrates how to manage probes connected via a local **1-Wire** network alongside **Zigbee** devices integrated through a **TaHoma** gateway. We will see how to :
+
 - **Interfacing with sensor data exposed as Linux files**, with a specific focus on 1-wire probes.
+- **Accessing data from sensors attached to a TaHoma**, whether they use IO, Zigbee, Matter, or any other protocol supported locally by this gateway.
 - **Data storage and lifecycle management**, covering how to save and handle your data over time, using **Majordome**.
 - **Various visualization** methods to display your results.
 
-# Prepare the Zigbee sensor
+# The 1-wire probe
+
+> [!Note]
+> This guide assumes a functional 1-Wire network and configured OWFS; the initial Linux-side setup will not be covered here.
+
+The sensor probe is a popular DIY design as shared by [Mariusz Białończyk](https://skyboo.net/2017/03/ds2438-based-1-wire-humidity-sensor/). It combines two main components:
+- **HIH-4000-003** : The analog humidity sensor.
+- **DS-2438** : A "*Smart Battery Monitor*" used here as a 1-Wire ADC to digitize the humidity signal.
+
+# The Zigbee multi-sensor
+
+For this setup, I am utilizing a commercial Zigbee 3.0 multi-sensor that monitors humidity, temperature, and CO2​ levels. A TaHoma gateway serves as the bridge between the Zigbee network and my MQTT broker.
+
 ## Pair the sensor with the TaHoma
 
 The first step is to detect and pair the sensor. Please follow the pairing procedure provided in the TaHoma mobile application.
@@ -19,7 +33,7 @@ Below are the results of the discovery of my Zigbee multi-sensor, named "Test Ai
 ![Sensor discovered](Images/tel1.jpeg)
 ![Sensor detail](Images/tel2.jpeg)
 
-## How the sensor is exposed in the TaHoma
+## How the sensor is exposed in the TaHoma ?
 
 ### Discovering the TaHoma
 
@@ -132,10 +146,6 @@ to its **own unique topic**.
 ## 1-wire probe to qualibrate
 
 ### Hardware Overview
-
-The sensor probe is a popular DIY design as shared by [Mariusz Białończyk](https://skyboo.net/2017/03/ds2438-based-1-wire-humidity-sensor/). It combines two main components:
-- **HIH-4000-003** : The analog humidity sensor.
-- **DS-2438** : A "*Smart Battery Monitor*" used here as a 1-Wire ADC to digitize the humidity signal.
 
 ### Figures
  While these chips can track voltage and current, we are only interested in **temperature** and **humidity** for this build.
