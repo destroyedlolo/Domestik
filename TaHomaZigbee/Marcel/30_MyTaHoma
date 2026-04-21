@@ -11,7 +11,7 @@
 	TaHoma_token=@/home/laurent/.tahomatoken
 
 	# delay b/w each poll for event
-	Sample=5.5
+	Sample=5
 
 	# Don't verify SSL chain
 	DontVerifySSL
@@ -41,7 +41,7 @@
 		# expect_Func=ValTProbe
 
 		# Topic to publish to.
-		expect_Topic=SensorCalibration/reference/CO2
+		expect_Topic=SensorCalibration/CO2
 
 		# submitted as retained message
 #		expect_Retained
