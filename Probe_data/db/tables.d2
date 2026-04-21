@@ -1,0 +1,39 @@
+direction: down
+
+figures : {
+  shape: sql_table
+  
+  # Utilisation de style.bold: true selon tes logs d'erreur
+  sample_time: timestamp with time zone 
+  probe: text {
+    constraint: not_null
+  }
+  figure: text {
+    constraint: not_null
+  }
+  
+  value: real
+  
+}
+
+dmkhtpf: "INDEX: dmkhtpf\n(probe, figure)" {
+  shape: hexagon
+  style: {
+    stroke: "#000000"
+    stroke-dash: 3
+  }
+}
+
+dmkhtfs: "INDEX: dmkhtfs\n(probe, figure, sample_time)" {
+  shape: hexagon
+  style: {
+    stroke: "#000000"
+    stroke-dash: 3
+  }
+}
+
+# Liaisons
+dmkhtpf -> figures
+dmkhtfs -> figures
+
+
