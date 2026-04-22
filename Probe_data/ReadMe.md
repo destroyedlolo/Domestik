@@ -236,6 +236,13 @@ The Gold layer represents the final stage of maturity. It represents the "truth"
 By removing redundant data points and calculating meaningful aggregates (averages, hourly/dailt trends), we transform raw points into actionable insights.
 This layer is what powers dashboards and long-term history, optimized for speed and minimal storage footprint.
 
+> [!Note]
+> **Technical Implementation:** Unlike other solutions that perform transformations "on the fly", the Gold transformation in our architecture is a decoupled, scheduled process.  
+> Managed by Majordome, this task runs on a specific schedule to process data that is at least one week old. By delaying this transformation, we ensure that:
+> * **System Load is Balanced**: High-intensity tasks are spread across distinct time windows to balance the load.
+> * **Data Integrity**: We operate on a stabilized "Silver" dataset, allowing for more reliable deduplication and trend analysis.
+> * **Efficiency**: Majordome handles the heavy lifting only once per data block, keeping the "Gold" tables ultra-lean and ready for fast querying.
+
 ## Create database dedicated tables
 
 Figures from all probes is stored in the `figures` table, with two indexes specifically designed to speed up reporting.
