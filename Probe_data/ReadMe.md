@@ -59,21 +59,14 @@ $ ./TaHomaCtl -Uv
 TaHomaCtl > scan_Devices 
 *I* 15 devices
 TaHomaCtl > Device
+... some other devices here ...
 test_air : zigbee://2095-0445-1705/58849/1#1
 test_air : zigbee://2095-0445-1705/58849/1#2
 test_air : zigbee://2095-0445-1705/58849/3
 test_air : zigbee://2095-0445-1705/58849/1#4
-Deco : io://2095-0445-1705/5335270
-Porte_Chat : rts://2095-0445-1705/16774417
-IO_(10069463) : io://2095-0445-1705/10069463
 test_air : zigbee://2095-0445-1705/58849/0
-ZIGBEE_(0/0) : zigbee://2095-0445-1705/0/0
-Boiboite : internal://2095-0445-1705/pod/0
-INTERNAL_(wifi/0) : internal://2095-0445-1705/wifi/0
 test_air : zigbee://2095-0445-1705/58849/1#3
-ZIGBEE_(0/242) : zigbee://2095-0445-1705/0/242
-ZIGBEE_(0/1) : zigbee://2095-0445-1705/0/1
-ZIGBEE_(65535) : zigbee://2095-0445-1705/65535
+... some other devices here ...
 ```
 
 As shown above, "**test_air**" is displayed as several devices, with each corresponding
