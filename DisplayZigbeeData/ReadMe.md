@@ -1,4 +1,4 @@
-![Calibration](Images/Illustration.jpg)
+![Calibration](Images/Illustration.png)
 
 ## The Zigbee multi-sensor
 
