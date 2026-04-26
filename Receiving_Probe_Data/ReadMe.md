@@ -10,6 +10,37 @@ This tutorial demonstrates how to manage probes connected via a local **1-Wire**
 - **Accessing data from sensors attached to a TaHoma**, whether they use IO, Zigbee, Matter, or any other protocol supported locally by this gateway.
 - **Data storage and lifecycle management**, covering how to save and handle your data over time, using **Majordome**.
 - **Various visualization** methods to display your results.
+
+# Table of Contents
+
+- [Table of Contents](#table-of-contents)
+- [Hardware side](#hardware-side)
+   * [The 1-wire probe](#the-1-wire-probe)
+   * [The Zigbee multi-sensor](#the-zigbee-multi-sensor)
+      + [Pair the sensor with the TaHoma](#pair-the-sensor-with-the-tahoma)
+      + [How the sensor is exposed in the TaHoma ?](#how-the-sensor-is-exposed-in-the-tahoma-)
+         - [Discovering the TaHoma](#discovering-the-tahoma)
+         - [Discovering the probe](#discovering-the-probe)
+- [MQTT data bus side](#mqtt-data-bus-side)
+   * [from 1-wire probe](#from-1-wire-probe)
+      + [Figures](#figures)
+   * [from the Zigbee probe](#from-the-zigbee-probe)
+- [Configure Marcel to publish figures](#configure-marcel-to-publish-figures)
+   * [for the 1-wire probe](#for-the-1-wire-probe)
+   * [For the Zigbee probe](#for-the-zigbee-probe)
+   * [First result](#first-result)
+- [Real time value monitoring](#real-time-value-monitoring)
+   * [Simple MQTT Grafana report](#simple-mqtt-grafana-report)
+   * [Textual LCD screen](#textual-lcd-screen)
+- [Historical data storage](#historical-data-storage)
+   * [A little talk about data maturity : From Raw Sensors to Golden Insights](#a-little-talk-about-data-maturity-from-raw-sensors-to-golden-insights)
+      + [Raw Data (The Landing Zone) : The Bronze Layer](#raw-data-the-landing-zone-the-bronze-layer)
+      + [The Silver Layer: Cleansed & Standardized (The Quality Zone)](#the-silver-layer-cleansed-standardized-the-quality-zone)
+      + [The Gold Layer: Aggregated & Optimized (The Value Zone)](#the-gold-layer-aggregated-optimized-the-value-zone)
+   * [Create database dedicated tables](#create-database-dedicated-tables)
+- [Configure Majordome to feed the database](#configure-majordome-to-feed-the-database)
+- [Get the result in Grafana](#get-the-result-in-grafana)
+
 # Hardware side
 ## The 1-wire probe
 
@@ -183,7 +214,20 @@ Marcel can now be launched using this new configuration. You can track the value
 Marcel -vf ../Domestik/TaHomaZigbee/Marcel/
 ```
 
-Additionally, these values are visualized in the [Raw probe calibration](Grafana/RPCF.json) Grafana report.
+# Real time value monitoring
+
+## Simple MQTT Grafana report
+
+Published raw values can be visualized in the [Raw probe calibration](Grafana/RPCF.json) Grafana report.
+
+## Textual LCD screen
+
+With its **LCD plugin**, [Majordome](https://github.com/destroyedlolo/Majordome/) allows users to conveniently create small 
+dashboards on popular **16x2** or **20x4** **textual I2C LCD screens**.
+
+> [!Note]
+> This tutorial does not cover the installation of the screen, configuration of the I2C stack, or the activation of
+> Majordome's LCD plugin. Please ensure these prerequisites are completed beforehand.
 
 # Historical data storage
 
