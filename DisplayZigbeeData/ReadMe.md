@@ -147,3 +147,12 @@ Following messages are published :
 20260426 15:38:51	TestZigbee/CO2	493
 20260426 15:38:51	TestZigbee/Temperature	15.1
 ```
+
+# Textual LCD screen
+
+With its **LCD plugin**, [Majordome](https://github.com/destroyedlolo/Majordome/) allows users to conveniently create small 
+dashboards on popular **16x2** or **20x4** **textual I2C LCD screens**.
+
+> [!Note]
+> This tutorial does not cover the installation of the screen, configuration of the I2C stack, or the activation of
+> Majordome's LCD plugin. Please ensure these prerequisites are completed beforehand.
