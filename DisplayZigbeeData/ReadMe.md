@@ -156,3 +156,6 @@ dashboards on popular **16x2** or **20x4** **textual I2C LCD screens**.
 > [!Note]
 > This tutorial does not cover the installation of the screen, configuration of the I2C stack, or the activation of
 > Majordome's LCD plugin. Please ensure these prerequisites are completed beforehand.
+
+![RealTime LCD Majordome script](Images/Majordome_LCD.svg)
+![RealTime LCD](Images/LCD.jpg)

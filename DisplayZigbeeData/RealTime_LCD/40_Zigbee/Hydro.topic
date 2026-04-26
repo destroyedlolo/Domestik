@@ -1,0 +1,7 @@
+-->> desc=Hydrometry topic
+--
+-->> topic=TestZigbee/RelativeHumidity
+--
+-- disable this topic
+--->> disabled
+-->> quiet
