@@ -157,5 +157,22 @@ dashboards on popular **16x2** or **20x4** **textual I2C LCD screens**.
 > This tutorial does not cover the installation of the screen, configuration of the I2C stack, or the activation of
 > Majordome's LCD plugin. Please ensure these prerequisites are completed beforehand.
 
+## Majordome's
+
+All configuration files required for Majordome are located in the [RealTime_LCD](./RealTime_LCD) subdirectory.
+The main configuration file is found at its root and must be updated to match your specific infrastructure.
+
 ![RealTime LCD Majordome script](Images/Majordome_LCD.svg)
+
+- `00_Majordome` : all Majordome's own routine, like log rotation
+- `10_LCD` : the screen own configuration
+  - `LCD.LCD` : hardware configuration (to be customized as well)
+  - `LCD.shutdown` : clean shutdown of the screen
+  - `LCD.Decoration` : static screen fixed decorators
+- `20_DefChar` : This display type supports up to 8 custom characters; we will leverage this feature to optimize screen real estate
+- `40_Zigbee` : For each sensor reading, we define the target data and its designated screen position. The associated Lua code snippets demonstrate how the values are formatted for the display
+- `40_Clock` : To include a real-time clock without cluttering the interface, we leverage character redefinition to fit
+the time into just two character slots. By creating custom glyphs for paired digits, we maintain a compact and
+readable timestamp.
+
 ![RealTime LCD](Images/LCD.jpg)
