@@ -9,6 +9,18 @@ This project shows how to retrieve data from a **Zigbee 3.0 multi-sensor** and d
 
 # 📋 Table of Contents
 
+- [📋 Table of Contents](#-table-of-contents)
+- [🔗 The Zigbee multi-sensor](#-the-zigbee-multi-sensor)
+   * [Pair the sensor with the TaHoma](#pair-the-sensor-with-the-tahoma)
+   * [How the sensor is exposed in the TaHoma ?](#how-the-sensor-is-exposed-in-the-tahoma-)
+      + [Discovering the TaHoma](#discovering-the-tahoma)
+      + [Discovering the specific endpoints for your "Test Air" probe](#discovering-the-specific-endpoints-for-your-test-air-probe)
+   * [Exposed multi-sensors figures](#exposed-multi-sensors-figures)
+- [🚀 Configure Marcel to publish figures](#-configure-marcel-to-publish-figures)
+   * [Let's start Marcel](#lets-start-marcel)
+- [📟 Textual LCD screen](#-textual-lcd-screen)
+   * [Majordome's](#majordomes)
+
 # 🔗 The Zigbee multi-sensor
 
 For this setup, we use a commercial Zigbee 3.0 multi-sensor monitoring **Humidity**, **Temperature**,
