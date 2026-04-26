@@ -1,10 +1,16 @@
 ![Calibration](Images/Illustration.png)
 
-## The Zigbee multi-sensor
+Bridging TaHoma with your MQTT broker unlocks immense potential: it allows you to generate cross-referenced analytics,
+leverage Majordome’s powerful automation engine, and—as we will explore here—significantly enhance your data visualization.  
+We will now utilize data from a **Zigbee multi-sensor** (measuring temperature, humidity, and CO2) linked to the TaHoma to
+display its figures on a **16x02 LCD** text screen — a classic, simple, and cost-effective solution widely used
+in the DIY community.
+
+# The Zigbee multi-sensor
 
 For this setup, I am utilizing a commercial Zigbee 3.0 multi-sensor that monitors humidity, temperature, and CO2​ levels. A TaHoma gateway serves as the bridge between the Zigbee network and my MQTT broker.
 
-### Pair the sensor with the TaHoma
+## Pair the sensor with the TaHoma
 
 The first step is to detect and pair the sensor. Please follow the pairing procedure provided in the TaHoma mobile application.
 
@@ -13,9 +19,9 @@ Below are the results of the discovery of my Zigbee multi-sensor, named "Test Ai
 ![Sensor discovered](Images/tel1.jpeg)
 ![Sensor detail](Images/tel2.jpeg)
 
-### How the sensor is exposed in the TaHoma ?
+## How the sensor is exposed in the TaHoma ?
 
-#### Discovering the TaHoma
+### Discovering the TaHoma
 
 Follow the [TaHomaCtl installation guide](https://github.com/destroyedlolo/TaHomaCtl) to:
 
@@ -31,7 +37,7 @@ Follow the [TaHomaCtl installation guide](https://github.com/destroyedlolo/TaHom
 >
 > In my case it will be stored in `/home/laurent/.tahomatoken`
 
-#### Discovering the probe
+### Discovering the probe
 
 ```
 $ ./TaHomaCtl -Uv
