@@ -1,14 +1,18 @@
 ![Calibration](Images/Illustration.png)
 
-Bridging TaHoma with your MQTT broker unlocks immense potential: it allows you to generate cross-referenced analytics,
-leverage Majordome’s powerful automation engine, and—as we will explore here—significantly enhance your data visualization.  
-We will now utilize data from a **Zigbee multi-sensor** (measuring temperature, humidity, and CO2) linked to the TaHoma to
-display its figures on a **16x02 LCD** text screen — a classic, simple, and cost-effective solution widely used
-in the DIY community.
+Bridging your **TaHoma gateway** with an **MQTT broker** unlocks immense potential: it allows you to generate
+cross-referenced analytics, leverage **Majordome**’s powerful automation engine, and—as we will explore here—
+significantly enhance your data visualization using low-cost devices.
 
-# The Zigbee multi-sensor
+This project shows how to retrieve data from a **Zigbee 3.0 multi-sensor** and display it on a classic 
+**16x02 I2C LCD screen**.
 
-For this setup, I am utilizing a commercial Zigbee 3.0 multi-sensor that monitors humidity, temperature, and CO2​ levels. A TaHoma gateway serves as the bridge between the Zigbee network and my MQTT broker.
+# 📋 Table of Contents
+
+# 🔗 The Zigbee multi-sensor
+
+For this setup, we use a commercial Zigbee 3.0 multi-sensor monitoring **Humidity**, **Temperature**,
+and **CO2 levels**. The TaHoma gateway acts as the bridge between the Zigbee mesh and our local MQTT network.
 
 ## Pair the sensor with the TaHoma
 
@@ -27,8 +31,6 @@ Follow the [TaHomaCtl installation guide](https://github.com/destroyedlolo/TaHom
 
 - Enable the **developer mode** in your TaHoma (and get the **bearer code**) 
 - Install **TaHomaCtl**.
-- Enable developer mode on the TaHoma hub, ensuring you apply the bearer code.
-- Discover your gateway.
 
 > [!TIP]
 > Instead of hardcoding the bearer token directly into the configuration, store it in a file and
@@ -37,7 +39,7 @@ Follow the [TaHomaCtl installation guide](https://github.com/destroyedlolo/TaHom
 >
 > In my case it will be stored in `/home/laurent/.tahomatoken`
 
-### Discovering the probe
+### Discovering the specific endpoints for your "Test Air" probe
 
 ```
 $ ./TaHomaCtl -Uv
@@ -117,23 +119,17 @@ TaHomaCtl > States zigbee://2095-0445-1705/58849/1#3 core:CO2ConcentrationState
 | CO2 | zigbee://2095-0445-1705/58849/1#3 | core:CO2ConcentrationState | TestZigbee/CO2 |
 | Temperature | zigbee://2095-0445-1705/58849/1#1 | core:TemperatureState | TestZigbee/Temperature |
 
-# Configure Marcel to publish figures
+# 🚀 Configure Marcel to publish figures
 
-Time to get that data published !  
 **[Marcel](https://github.com/destroyedlolo/Marcel)** is a lightweight daemon 
 designed to broadcast various metrics to our MQTT bus, including data exposed
 by TaHoma. Configuration is available in the [/Marcel](Marcel) subdirectory.
 
 ![Zigbee related](Images/Zigbee.svg)
 
-- `10_mod_TaHoma` : TaHoma module initialization.
-- `30_MyTaHoma` : Configures the gateway based on TaHomaCtl discovery and defines event filters.
-- `50_*`: Addresses infrequent event updates by implementing `Probes` that broadcast the last known sensor states upon startup.
-
-> [!NOTE]
-> **How Zigbee sensors Work**  
-> In a typical event-driven architecture, you only receive data when a change occurs. This creates a *blind spot* when the daemon starts.
-> `Probes` solve this by performing an active synchronization at launch.
+- `10_mod_TaHoma` : Initializes the module.
+- `30_MyTaHoma` : Defines the gateway and event filters.
+- `50_*`: **Crucial Step**. Since Zigbee sensors only send data on change (event-driven), Probes perform an active sync at startup to avoid "blind spots" in your dashboard.
 
 ## Let's start Marcel
 
@@ -141,21 +137,20 @@ by TaHoma. Configuration is available in the [/Marcel](Marcel) subdirectory.
 Marcel -vf DisplayZigbeeData/Marcel/
 ```
 
-Following messages are published :
+Output example :
 ```
 20260426 15:38:51	TestZigbee/RelativeHumidity	70.7
 20260426 15:38:51	TestZigbee/CO2	493
 20260426 15:38:51	TestZigbee/Temperature	15.1
 ```
 
-# Textual LCD screen
+# 📟 Textual LCD screen
 
-With its **LCD plugin**, [Majordome](https://github.com/destroyedlolo/Majordome/) allows users to conveniently create small 
-dashboards on popular **16x2** or **20x4** **textual I2C LCD screens**.
+Finally, we use the **LCD plugin** of [Majordome](https://github.com/destroyedlolo/Majordome/) to display these 
+MQTT topics on a **16x2** or **20x4** **textual I2C LCD screens**.
 
 > [!Note]
-> This tutorial does not cover the installation of the screen, configuration of the I2C stack, or the activation of
-> Majordome's LCD plugin. Please ensure these prerequisites are completed beforehand.
+> **Prerequisites**: Ensure your I2C stack is active and the Majordome LCD plugin is enabled.
 
 ## Majordome's
 
