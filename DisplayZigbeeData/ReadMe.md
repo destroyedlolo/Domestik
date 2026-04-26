@@ -109,3 +109,30 @@ TaHomaCtl > States zigbee://2095-0445-1705/58849/1#3 core:CO2ConcentrationState
 455
 ```
 
+## Exposed multi-sensors figures
+
+| ❓ What| 🔗 Device's URL | ⚙️ State | 💬 MQTT Topic |
+|-----|--------------|-------|-------|
+| Humidity | zigbee://2095-0445-1705/58849/1#2 | core:RelativeHumidityState | TestZigbee/RelativeHumidity |
+| CO2 | zigbee://2095-0445-1705/58849/1#3 | core:CO2ConcentrationState | TestZigbee/CO2 |
+| Temperature | zigbee://2095-0445-1705/58849/1#1 | core:TemperatureState | TestZigbee/Temperature |
+
+# Configure Marcel to publish figures
+
+Time to get that data published !  
+**[Marcel](https://github.com/destroyedlolo/Marcel)** is a lightweight daemon 
+designed to broadcast various metrics to our MQTT bus, including data exposed
+by TaHoma. Configuration is available in the [/Marcel](Marcel) subdirectory.
+
+![Zigbee related](Images/Zigbee.svg)
+
+- `10_mod_TaHoma` : TaHoma module initialization.
+- `30_MyTaHoma` : Configures the gateway based on TaHomaCtl discovery and defines event filters.
+- `50_*`: Addresses infrequent event updates by implementing `Probes` that broadcast the last known sensor states upon startup.
+
+> [!NOTE]
+> **How Zigbee sensors Work**  
+> In a typical event-driven architecture, you only receive data when a change occurs. This creates a *blind spot* when the daemon starts.
+> `Probes` solve this by performing an active synchronization at launch.
+
+
