@@ -135,4 +135,15 @@ by TaHoma. Configuration is available in the [/Marcel](Marcel) subdirectory.
 > In a typical event-driven architecture, you only receive data when a change occurs. This creates a *blind spot* when the daemon starts.
 > `Probes` solve this by performing an active synchronization at launch.
 
+## Let's start Marcel
 
+```
+Marcel -vf DisplayZigbeeData/Marcel/
+```
+
+Following messages are published :
+```
+20260426 15:38:51	TestZigbee/RelativeHumidity	70.7
+20260426 15:38:51	TestZigbee/CO2	493
+20260426 15:38:51	TestZigbee/Temperature	15.1
+```
