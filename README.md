@@ -25,7 +25,8 @@ Our Test Bench:
 - **Memory**: 1GB RAM
 - **Storage**: Native SATA (as you know, hosting a database on a SD cart lead to problems)
 
-# This repository
+# Use-Cases
 
-Each component has its own dedicated repository. This main repo acts as the hub for the entire solution,
-featuring comprehensive use cases in the subdirectories to get you started.
+| Where | What | Keywords | Domestik's components |
+|-------|------|----------|-----------------------|
+| [DisplayZigbeeData/](./DisplayZigbeeData/) | Display measurements from a Zigbee sensor on an inexpensive character LCD display | **TaHoma**, **ZigBee**, **I2C LCD** | [Marcel](https://github.com/destroyedlolo/Marcel), [Majordome](https://github.com/destroyedlolo/Majordome) |
