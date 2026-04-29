@@ -105,4 +105,13 @@ high-granularity data, and a *Gold table* for long-term storage of aggregated da
 The [create_temperatures.sql](db/create_temperatures.sql) and [create_temperatures_archive.sql](db/create_temperatures_archive.sql)
 scripts initializes the table and its associated indexes to ensure optimal query performance.
 
+For instance, a comprehensive small terme temperature report.
+
+![Temperature report](Images/Temperatures.svg)
+
+Despite the modest hardware specifications of the Banana Pi M1, query performance remains exceptional—consistently clocking in
+at **under one second**. By shifting the heavy lifting, such as aggregations and data maturation, to offline batch processes
+rather than performing them on-the-fly, the database serves only **lightweight, pre-processed results** to the frontend.
+This ensures a snappy user experience while preventing system overload during peak reporting periods.
+
 # Implementing the Bronze-Silver-Gold Pipeline using Majordome
