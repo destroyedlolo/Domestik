@@ -1,0 +1,63 @@
+direction: down
+
+home_temperatures : {
+  shape: sql_table
+  
+  sample_time: timestamp with time zone 
+  probe: text {
+    constraint: "not null"
+  }
+  figure: text {
+    constraint: "not null"
+  }
+  
+  value: real
+  
+}
+
+dmkhtpf: "INDEX: dmkhtpf\n(probe, figure)" {
+  shape: hexagon
+  style: {
+    stroke: "#000000"
+    stroke-dash: 3
+  }
+}
+
+dmkhtfs: "INDEX: dmkhtfs\n(probe, figure, sample_time)" {
+  shape: hexagon
+  style: {
+    stroke: "#000000"
+    stroke-dash: 3
+  }
+}
+
+dmkhtpf -> home_temperatures
+dmkhtfs -> home_temperatures
+
+home_temperatures_archive: {
+  shape: sql_table
+  sample_time: "timestamp with time zone"
+  figure: text {constraint: "not null"}
+  minimum: real
+  maximum: real
+  average: real
+}
+
+dmkhtaf: "INDEX: dmkhtaf\n(figure)" {
+  shape: hexagon
+  style: {
+    stroke: "#000000"
+    stroke-dash: 3
+  }
+}
+
+dmkhtafs: "INDEX: dmkhtafs\n(figure, sample_time)" {
+  shape: hexagon
+  style: {
+    stroke: "#000000"
+    stroke-dash: 3
+  }
+}
+
+dmkhtaf -> home_temperatures_archive
+dmkhtafs -> home_temperatures_archive
