@@ -1,7 +1,0 @@
--- Consuption topic
---
--->> topic=SensorCalibration/reference/temperature
---
--- disable this topic
---->> disabled
--->> quiet

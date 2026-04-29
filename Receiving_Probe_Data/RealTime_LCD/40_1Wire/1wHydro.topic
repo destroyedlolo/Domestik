@@ -1,7 +1,0 @@
--- Hydrometry topic
---
--->> topic=SensorCalibration/reference/humidity
---
--- disable this topic
---->> disabled
--->> quiet
