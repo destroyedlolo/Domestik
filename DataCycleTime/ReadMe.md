@@ -80,7 +80,7 @@ The sensor probe is a popular DIY design as shared by [Mariusz Białończyk](htt
 | Temperature (°C) | 26.86B36A020000/temperature | maison/Temperature/Buanderie |
 | Humidity (%) | 26.86B36A020000/HIH4000/humidity | maison/Humidity/Buanderie |
 
-# Configure Marcel to publish figures
+# publishing figures with Marcel
 
 **[Marcel](https://github.com/destroyedlolo/Marcel)** is a lightweight daemon designed to broadcast various metrics to our MQTT bus, 
 including data exposed by TaHoma and the 1-wire network. Configuration is available in the [/Marcel](Marcel) subdirectory.
@@ -93,3 +93,16 @@ including data exposed by TaHoma and the 1-wire network. Configuration is availa
 > [!TIP]
 > While primarily designed for 1-Wire sensors via OWFS, **FFV** is compatible with any value exposed as a flat file
 > in Linux—including local system sensors located in `/sys/class/hwmon/`. Naturally, certain protocol-specific directives will not apply in these cases.
+
+# Database related
+
+The storage strategy is primarily driven by how the data will be consumed. In this case, I chose a *table-per-metric* approach
+to optimize resource usage during report generation. This follows a two-tier structure: a *Silver table* for recent,
+high-granularity data, and a *Gold table* for long-term storage of aggregated data.
+
+![figures' table](db/tables.svg)
+
+The [create_temperatures.sql](db/create_temperatures.sql) and [create_temperatures_archive.sql](db/create_temperatures_archive.sql)
+scripts initializes the table and its associated indexes to ensure optimal query performance.
+
+# Implementing the Bronze-Silver-Gold Pipeline using Majordome
