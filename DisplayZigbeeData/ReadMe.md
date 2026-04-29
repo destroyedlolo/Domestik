@@ -183,3 +183,7 @@ the time into just two character slots. By creating custom glyphs for paired dig
 readable timestamp.
 
 ![RealTime LCD](Images/LCD.jpg)
+
+> [!Tip]
+> The next step could involve historizing the data in a database—to generate Grafana reports, for instance. You can
+> draw inspiration from [DataCycleTime](../DataCycleTime/) for this.
