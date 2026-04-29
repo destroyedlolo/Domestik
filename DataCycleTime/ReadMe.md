@@ -90,6 +90,6 @@ including data exposed by TaHoma and the 1-wire network. Configuration is availa
 - `10_mod_1wire` : 1-Wire module initialization.
 - `50_Probe` : Defines the **Flat File Value** (FFV) for retrieving probe own data. Data is polled at 5-minute intervals.
 
-> [!TIPS]
+> [!TIP]
 > While primarily designed for 1-Wire sensors via OWFS, **FFV** is compatible with any value exposed as a flat file
-> in Linux—including local system sensors located in /sys/class/hwmon/. Naturally, certain protocol-specific directives will not apply in these cases.
+> in Linux—including local system sensors located in `/sys/class/hwmon/`. Naturally, certain protocol-specific directives will not apply in these cases.
