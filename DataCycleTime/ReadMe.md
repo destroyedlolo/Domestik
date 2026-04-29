@@ -107,7 +107,7 @@ scripts initializes the table and its associated indexes to ensure optimal query
 
 For instance, a comprehensive small terme temperature report.
 
-![Temperature report](Images/Temperatures.svg)
+![Temperature report](Images/Temperatures.png)
 
 Despite the modest hardware specifications of the Banana Pi M1, query performance remains exceptional—consistently clocking in
 at **under one second**. By shifting the heavy lifting, such as aggregations and data maturation, to offline batch processes
