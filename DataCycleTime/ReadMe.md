@@ -77,8 +77,8 @@ The sensor probe is a popular DIY design as shared by [Mariusz Białończyk](htt
 
 | ❓ What | 🔗 OWFS address | 💬 Topic |
 |----------|----------------|----------|
-| Temperature (°C) | 26.86B36A020000/temperature | SensorCalibration/reference/temperature |
-| Humidity (%) | 26.86B36A020000/HIH4000/humidity | SensorCalibration/reference/humidity |
+| Temperature (°C) | 26.86B36A020000/temperature | maison/Temperature/Buanderie |
+| Humidity (%) | 26.86B36A020000/HIH4000/humidity | maison/Humidity/Buanderie |
 
 # Configure Marcel to publish figures
 
