@@ -1,7 +1,7 @@
 ![Header](Images/Illustration.png)
 
 This use case demonstrates how to efficiently manage the entire data lifecycle with minimal effort using [Majordom](../../../Majordome/).  
-It covers the ingestion of measurements from a 1‑Wire multi‑sensor probe, their storage in a database, progressive transformation based on data
+It covers the ingestion of measurements from a **1‑Wire multi‑sensor probe**, their storage in a database, progressive transformation based on data
 maturity, and the eventual cleanup of outdated data.
 
 # A little talk about data maturity : From Raw Sensors to Golden Insights
@@ -55,3 +55,41 @@ This layer is what powers dashboards and long-term history, optimized for speed 
 > * **System Load is Balanced**: High-intensity tasks are spread across distinct time windows to balance the load.
 > * **Data Integrity**: We operate on a stabilized "Silver" dataset, allowing for more reliable deduplication and trend analysis.
 > * **Efficiency**: Majordome handles the heavy lifting only once per data block, keeping the "Gold" tables ultra-lean and ready for fast querying.
+
+# The 1-wire probe
+## Hardware
+
+> [!Note]
+> This guide assumes a functional 1-Wire network and configured OWFS; the initial Linux-side setup will not be covered here.
+
+The sensor probe is a popular DIY design as shared by [Mariusz Białończyk](https://skyboo.net/2017/03/ds2438-based-1-wire-humidity-sensor/). It combines two main components:
+- **HIH-4000-003** : The analog humidity sensor.
+- **DS-2438** : A "*Smart Battery Monitor*" used here as a 1-Wire ADC to digitize the humidity signal.
+
+## From OWFS to MQTT topics
+
+> [!NOTE]
+> While the Linux kernel natively handles a subset of 1-wire probes, I far prefer using [OWFS](https://www.owfs.org/) for its superior versatility
+>  and completeness.
+> Regardless of the method chosen, data can be seamlessly accessed using Marcel's FFV, as detailed below.
+
+ While these chips can track voltage and current, we are only interested in **temperature** and **humidity** for this build.
+
+| ❓ What | 🔗 OWFS address | 💬 Topic |
+|----------|----------------|----------|
+| Temperature (°C) | 26.86B36A020000/temperature | SensorCalibration/reference/temperature |
+| Humidity (%) | 26.86B36A020000/HIH4000/humidity | SensorCalibration/reference/humidity |
+
+# Configure Marcel to publish figures
+
+**[Marcel](https://github.com/destroyedlolo/Marcel)** is a lightweight daemon designed to broadcast various metrics to our MQTT bus, 
+including data exposed by TaHoma and the 1-wire network. Configuration is available in the [/Marcel](Marcel) subdirectory.
+
+![Probe related](Images/1Wire.svg)
+
+- `10_mod_1wire` : 1-Wire module initialization.
+- `50_Probe` : Defines the **Flat File Value** (FFV) for retrieving probe own data. Data is polled at 5-minute intervals.
+
+> [!TIPS]
+> While primarily designed for 1-Wire sensors via OWFS, **FFV** is compatible with any value exposed as a flat file
+> in Linux—including local system sensors located in /sys/class/hwmon/. Naturally, certain protocol-specific directives will not apply in these cases.
