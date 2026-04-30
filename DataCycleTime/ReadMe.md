@@ -115,3 +115,5 @@ rather than performing them on-the-fly, the database serves only **lightweight, 
 This ensures a snappy user experience while preventing system overload during peak reporting periods.
 
 # Implementing the Bronze-Silver-Gold Pipeline using Majordome
+
+![TbD](../Images/WIP.png)
