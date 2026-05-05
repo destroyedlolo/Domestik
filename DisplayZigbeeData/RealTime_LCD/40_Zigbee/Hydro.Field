@@ -39,4 +39,4 @@
 --
 -->> listen=Hydro
 
-return string.format("%4.1f", MAJORDOME_PAYLOAD);
+return string.format("%6.1f", MAJORDOME_PAYLOAD);

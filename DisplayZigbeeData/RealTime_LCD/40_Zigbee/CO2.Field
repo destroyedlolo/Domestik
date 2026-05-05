@@ -39,4 +39,4 @@
 --
 -->> listen=CO2
 
-return string.format("%5f", MAJORDOME_PAYLOAD);
+return string.format("%5d", MAJORDOME_PAYLOAD);

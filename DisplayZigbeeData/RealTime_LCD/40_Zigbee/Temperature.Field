@@ -39,4 +39,4 @@
 --
 -->> listen=Temperature
 
-return string.format("%3.1f", MAJORDOME_PAYLOAD);
+return string.format("%5.1f", MAJORDOME_PAYLOAD);
