@@ -13,10 +13,10 @@
 
 ### Counters
 
-- `AutoConsoPower.topic` producer power (VA)
-- `DomestikAvgAutoConsoPower.topic` Topic to publish average producer power
+- `AutoConsoPower.topic` AutoConso power (VA)
+- `DomestikAvgAutoConsoPower.topic` Topic to publish average AutoConso power
 
 ### Injectors
 
-- `AutoConsoPower.minmax` Generates statistics on real time producer power
-- `AutoConsoPowerCollector.namefeed` Collects producer power statistic every 5 minutes
+- `AutoConsoPower.minmax` Generates statistics on real time AutoConso power
+- `AutoConsoPowerCollector.namefeed` Collects AutoConso power statistic every 5 minutes
