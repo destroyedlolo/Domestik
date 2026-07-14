@@ -1,7 +1,7 @@
 ![Domestik's Logo](Images/Domestik.png)
 
 **Domestik** is a complete suite for **smart home automation and data collection**.  
-It consists of a collection of independent, lightweight, and agnostic daemons
+It consists of a constelation of independent, lightweight, and agnostic daemons
 (meaning any of them can be replaced by another tool, as long as they communicate via MQTT) that interact through an MQTT bus.
 The key components of the suite include:
 
