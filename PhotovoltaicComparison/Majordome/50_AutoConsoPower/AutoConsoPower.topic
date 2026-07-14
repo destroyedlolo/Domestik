@@ -1,0 +1,6 @@
+-- Retrieve autoconso power produced
+-->> group=Electricité.Puissance
+--
+-->> topic=TeleInfo/Sonde/PAPP
+-->> store
+-->> quiet

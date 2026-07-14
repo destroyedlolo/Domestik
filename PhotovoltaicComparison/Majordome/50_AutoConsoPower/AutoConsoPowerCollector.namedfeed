@@ -1,0 +1,44 @@
+-- Collect AutoConso power statistics
+-->> group=Electricité.Puissance
+-- - Store in the database the maximum collected
+-- - Publish the average value
+--
+-- Frequency of data collection
+-->> when=5minutes
+--->> when=10s
+--
+--
+-- Database to connect to
+-->> Database=domestik2
+--
+-- Table to feed
+-->> table=electricity_power
+--
+-- Dependancies : objects needed by the code
+-->> need_minmax=AutoConsoPower
+-->> need_topic=DomestikAvgAutoConsoPower
+--
+
+--
+-- Display statistics
+--
+
+if MAJORDOME_VERBOSE then
+	print ""
+	print "AutoConso Power"
+	print "---------------"
+	print( "Number of samples :", AutoConsoPower:getSamplesNumber() )
+	print( "Min value :", AutoConsoPower:getMin() )
+	print( "Max value :", AutoConsoPower:getMax() )
+	print( "Average :", AutoConsoPower:getAverage() )
+	print( "Sum :", AutoConsoPower:getSum() )
+end
+
+-- Publish collected average
+DomestikAvgAutoConsoPower:Publish( AutoConsoPower:getAverage()/12 )
+
+-- Clear the statistics
+local max = AutoConsoPower:getMax()
+AutoConsoPower:Reset()
+
+return "AutoConso", max
