@@ -29,21 +29,29 @@ While the example here focuses on environmental sensors, this framework is unive
 > By maintaining a lean, well-structured database, we ensure that backups are not only faster to execute but also significantly easier to
 >  transport, verify, and restore. In the world of data, "*smaller*" translates directly to "*more resilient*".
 
+---
+
 ### Raw Data (The Landing Zone) : The Bronze Layer
+
+![Raw](Images/raw.jpeg)
 
 This is the entry point for raw sensor telemetry. In the Domestik ecosystem, we do not persist raw data to the database; doing so would be a needless waste of resources.
 Instead, data is intercepted and handled in real-time by Marcel, ensuring the system remains lean from the very first byte.
 
+---
+
 ### The Silver Layer: Cleansed & Standardized (The Quality Zone)
+
+![Silver](Images/silver.jpeg)
 
 At this stage, data is validated and refined. For example, a 1-Wire reading of `85°C` (a classic sign of power failure) is rejected.
 Calibration offsets are applied here to ensure accuracy.
 
-> [!Note]
-> **Technical Implementation:** Marcel performs this sanitization via Lua user functions and publishes the "Silver Data" to the MQTT bus.
-> A Majordome flow then consumes this trustworthy stream for database storage.
+---
 
 ### The Gold Layer: Aggregated & Optimized (The Value Zone)
+
+![Gold](Images/gold.jpeg)
 
 The Gold layer represents the final stage of maturity. It represents the "truth" for the end-user. 
 By removing redundant data points and calculating meaningful aggregates (averages, hourly/daily trends), we transform raw points into actionable insights.
@@ -56,7 +64,12 @@ This layer is what powers dashboards and long-term history, optimized for speed 
 > * **Data Integrity**: We operate on a stabilized "Silver" dataset, allowing for more reliable deduplication and trend analysis.
 > * **Efficiency**: Majordome handles the heavy lifting only once per data block, keeping the "Gold" tables ultra-lean and ready for fast querying.
 
+---
+
 # The 1-wire probe
+
+Below, we will use a simple 1-Wire probe to illustrate how raw data is refined as it flows through Domestik components.
+
 ## Hardware
 
 > [!Note]
@@ -89,6 +102,11 @@ including data exposed by TaHoma and the 1-wire network. Configuration is availa
 
 - `10_mod_1wire` : 1-Wire module initialization.
 - `50_Probe` : Defines the **Flat File Value** (FFV) for retrieving probe own data. Data is polled at 5-minute intervals.
+
+> [!Note]
+> - **Raw data** is read directly from the hardware.
+> - Marcel sanitizes the data using custom Lua functions, then publishes the **Silver Data** to the MQTT bus.
+> - A Majordome flow consumes this trusted stream to persist it in the database.
 
 > [!TIP]
 > While primarily designed for 1-Wire sensors via OWFS, **FFV** is compatible with any value exposed as a flat file
