@@ -48,7 +48,7 @@ To overcome this limitation, I built a homemade monitoring solution called **Fra
 
 ## Automation
 
-![Data Gathering](Images/DataGathering.jpeg)
+![Data Gathering](Images/DataGathering.svg)
 
 ## Result
 
