@@ -52,6 +52,7 @@ To overcome this limitation, I built a homemade monitoring solution called **Fra
 
 Data were collected over several days and under a wide range of meteorological conditions, allowing for improved modeling and prediction of heat-related performance losses.
 
+![Temperature](Images/temperature.png)
 ![Result](Images/result.png)
 
 All photovoltaic panels gradually lose a small fraction of their efficiency over time, typically between 0.5% and 0.8% per year. After 16 years of operation,
