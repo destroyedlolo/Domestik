@@ -1,8 +1,25 @@
 ![Header](Images/Illustration.png)
 
-This use case demonstrates how to efficiently manage the entire data lifecycle with minimal effort using [Majordom](../../../Majordome/).  
+This use case demonstrates how to efficiently manage the entire data lifecycle with minimal effort using [Majordome](../../../Majordome/).  
 It covers the ingestion of measurements from a **1‑Wire multi‑sensor probe**, their storage in a database, progressive transformation based on data
 maturity, and the eventual cleanup of outdated data.
+
+# Table of Content
+
+- [A little talk about data maturity : From Raw Sensors to Golden Insights](#a-little-talk-about-data-maturity---from-raw-sensors-to-golden-insights)
+  * [Storage](#storage)
+  * [Data maturity](#data-maturity)
+    + [Raw Data (The Landing Zone) : The Bronze Layer](#raw-data--the-landing-zone----the-bronze-layer)
+    + [The Silver Layer: Cleansed & Standardized (The Quality Zone)](#the-silver-layer--cleansed---standardized--the-quality-zone-)
+    + [The Gold Layer: Aggregated & Optimized (The Value Zone)](#the-gold-layer--aggregated---optimized--the-value-zone-)
+- [The 1-wire probe](#the-1-wire-probe)
+  * [Hardware](#hardware)
+  * [From OWFS to MQTT topics](#from-owfs-to-mqtt-topics)
+- [publishing figures with Marcel](#publishing-figures-with-marcel)
+- [Database related](#database-related)
+- [Implementing the Bronze-Silver-Gold Pipeline using Majordome](#implementing-the-bronze-silver-gold-pipeline-using-majordome)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
 # A little talk about data maturity : From Raw Sensors to Golden Insights
 
