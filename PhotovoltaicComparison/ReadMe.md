@@ -48,6 +48,8 @@ To overcome this limitation, I built a homemade monitoring solution called **Fra
 
 ## Automation
 
+![Data Gathering](Images/DataGathering.jpeg)
+
 ## Result
 
 Data were collected over several days and under a wide range of meteorological conditions, allowing for improved modeling and prediction of heat-related performance losses.
