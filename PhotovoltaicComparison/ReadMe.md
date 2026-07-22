@@ -46,3 +46,21 @@ To overcome this limitation, I built a homemade monitoring solution called **Fra
 
 ![Calibration](Images/Frankenstein.jpeg)
 
+## Automation
+
+## Result
+
+Data were collected over several days and under a wide range of meteorological conditions, allowing for improved modeling and prediction of heat-related performance losses.
+
+![Result](Images/result.png)
+
+All photovoltaic panels gradually lose a small fraction of their efficiency over time, typically between 0.5% and 0.8% per year. After 16 years of operation,
+the theoretical peak output of my feed-in tariff (OA) installation is therefore estimated to be between 1,650 Wp and 1,710 Wp. In addition, During heatwaves,
+temperatures beneath the roof tiles can exceed 60°C and even reach 70°C, resulting in a theoretical performance loss of approximately 15% to 18%.  
+The measured peak output was **1,310 W**, which is consistent with the model and therefore validates the assumptions used.  
+
+The same conclusions apply to the self-consumption panels, which, due to their much more recent installation, are not yet affected by significant age-related degradation.
+The analysis also takes into account the following factors:
+- The "AutoConso" panels are ground-mounted and are occasionally affected by partial shading.
+- Their orientation is slightly shifted toward the west to optimize production while mitigating these shading constraints.
+
