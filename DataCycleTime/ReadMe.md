@@ -144,6 +144,11 @@ For instance, a comprehensive small terme temperature report.
 
 ![Temperature report](Images/Temperatures.png)
 
+This is where the **Silver Data** resides, cleansed and standardized data. Noise has been removed, data quality issues corrected, and normalization rules applied, including offsets where required.  
+While temperature data may be collected every five minutes, other sources (such as electricity consumption sensors) can produce measurements every second. Storing such a fine-grained level of detail is often unnecessary and costly.
+To address this, a first level of aggregation is applied prior to storage using **Majordome's MinMax** capability. This preserves essential information while reducing storage requirements and improving downstream processing efficiency :
+**Silver Data should be meaningful, trusted, and immediately usable for business analytics.**
+
 Despite the modest hardware specifications of the Banana Pi M1, query performance remains exceptional—consistently clocking in
 at **under one second**. By shifting the heavy lifting, such as aggregations and data maturation, to offline batch processes
 rather than performing them on-the-fly, the database serves only **lightweight, pre-processed results** to the frontend.
