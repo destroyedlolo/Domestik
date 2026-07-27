@@ -1,0 +1,27 @@
+"TaHoma_MyTaHoma": {
+	label: "MyTaHoma"
+	class: TaHoma
+}
+
+Command_FanCooler: {
+	label: "FanCooler"
+	class: Command
+	tooltip: Control BudgetAC's fan
+	ecom: "Enjoy the coolness"
+	ecom.class: Comment
+}
+TaHoma_MyTaHoma -> Command_FanCooler 
+"FFV_Exterieur" : {
+	label: "Exterieur"
+	class: FFV
+}
+"maison/Temperature/Dehors" { class: topic }
+"FFV_Exterieur" -> "maison/Temperature/Dehors" { class: lpublish }
+
+"FFV_Salon" : {
+	label: "Salon"
+	class: FFV
+}
+"maison/Temperature/Salon" { class: topic }
+"FFV_Salon" -> "maison/Temperature/Salon" { class: lpublish }
+

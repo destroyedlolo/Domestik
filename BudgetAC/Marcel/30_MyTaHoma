@@ -1,0 +1,25 @@
+# Create a new TaHoma gateway
+
+*TaHoma=MyTaHoma
+
+	# TaHoma's own
+	TaHoma_host=gateway-2095-0445-1705.local
+	TaHoma_address=192.168.0.24
+	TaHoma_port=8443
+
+	# Developer mode token
+	TaHoma_token=@/home/laurent/.tahomatoken
+
+	# delay b/w each poll for event
+	Sample=5
+
+	# Don't verify SSL chain
+	DontVerifySSL
+
+	#####
+	# Expected events
+	#####
+	# Notez_bien : directives are prepended with a 
+	# 'expect_' in order to avoid confusion with top
+	# level ones. Even if the goals are the same.
+

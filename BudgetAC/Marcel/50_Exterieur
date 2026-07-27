@@ -1,0 +1,13 @@
+# Outside temperature
+
+Needs=mod_1wire
+
+*FFV=Exterieur
+	File=/var/lib/owfs/mnt/28.FF7BF0001502/temperature
+	Topic=maison/Temperature/Dehors
+	Retained
+	Safe85
+	Immediate
+
+# disabled as already part of my main Marcel instance
+	Disabled

@@ -1,0 +1,11 @@
+Needs=mod_1wire
+
+*FFV=Salon
+	File=/var/lib/owfs/mnt/28.FFC5D8001502/temperature
+	Topic=maison/Temperature/Salon
+	Safe85
+	Retained
+
+# disabled as already part of my main Marcel instance
+	Disabled
+
