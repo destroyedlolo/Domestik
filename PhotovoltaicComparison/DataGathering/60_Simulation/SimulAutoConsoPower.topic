@@ -1,0 +1,6 @@
+-- Simulate autoconso power
+-->> group=Electricité.Puissance
+--
+-->> topic=TeleInfo/SimulAutoConso/PAPP
+-->> store
+-->> quiet

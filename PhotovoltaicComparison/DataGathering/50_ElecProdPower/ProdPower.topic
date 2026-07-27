@@ -3,4 +3,5 @@
 --
 -->> topic=TeleInfo/LinkyProduction/SINSTI
 -->> store
+-->> numeric
 -->> quiet

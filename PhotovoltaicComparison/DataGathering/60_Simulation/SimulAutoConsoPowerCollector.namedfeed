@@ -1,0 +1,44 @@
+-- Collect AutoConso simulated power statistics
+-->> group=Electricité.Puissance
+-- - Store in the database the maximum collected
+-- - Publish the average value
+--
+-- Frequency of data collection
+-->> when=5minutes
+--->> when=10s
+--
+--
+-- Database to connect to
+-->> Database=domestik2
+--
+-- Table to feed
+-->> table=electricity_power
+--
+-- Dependancies : objects needed by the code
+-->> need_minmax=SimulAutoConsoPower
+-->> need_topic=DomestikAvgSimulAutoConsoPower
+--
+
+--
+-- Display statistics
+--
+
+if MAJORDOME_VERBOSE then
+	print ""
+	print "Simulated AutoConso Power"
+	print "-------------------------"
+	print( "Number of samples :", SimulAutoConsoPower:getSamplesNumber() )
+	print( "Min value :", SimulAutoConsoPower:getMin() )
+	print( "Max value :", SimulAutoConsoPower:getMax() )
+	print( "Average :", SimulAutoConsoPower:getAverage() )
+	print( "Sum :", SimulAutoConsoPower:getSum() )
+end
+
+-- Publish collected average
+DomestikAvgSimulAutoConsoPower:Publish( SimulAutoConsoPower:getAverage()/12 )
+
+-- Clear the statistics
+local max = SimulAutoConsoPower:getMax()
+SimulAutoConsoPower:Reset()
+
+return "SimulAutoConso", max
