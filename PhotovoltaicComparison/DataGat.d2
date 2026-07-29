@@ -1,0 +1,81 @@
+00_Majordome.TMR_MidnightOrAtLaunch: MidnightOrAtLaunch
+00_Majordome.TMR_MidnightOrAtLaunch.class: Timer
+00_Majordome.TSK_LogToFile <- 00_Majordome.TMR_MidnightOrAtLaunch: when { class: llink }
+00_Majordome.TSK_LogToFile: LogToFile
+00_Majordome.TSK_LogToFile.class: Task
+00_Majordome.TSK_PurgeLog <- 00_Majordome.TMR_MidnightOrAtLaunch: when { class: llink }
+00_Majordome.TSK_PurgeLog: PurgeLog
+00_Majordome.TSK_PurgeLog.tooltip :Delete older logs
+00_Majordome.TSK_PurgeLog.class: Task
+10_Configuration.PGS_domestik2: domestik2
+10_Configuration.PGS_domestik2.class: Database
+10_Utilities.RST_DatabaseProcessing: DatabaseProcessing
+10_Utilities.RST_DatabaseProcessing.tooltip :Smooths out intensive database access
+10_Utilities.RST_DatabaseProcessing.class: Resource
+10_Utilities.TMR_5minutes: 5minutes
+10_Utilities.TMR_5minutes.tooltip :Timer to launch an action every 5 minutes
+10_Utilities.TMR_5minutes.class: Timer
+10_Utilities.TMR_10s: 10s
+10_Utilities.TMR_10s.class: Timer
+Electricité.Puissance.50_AutoConsoPower.TPK_DomestikAvgAutoConsoPower: DomestikAvgAutoConsoPower
+Electricité.Puissance.50_AutoConsoPower.TPK_DomestikAvgAutoConsoPower.tooltip :Moyenne produite sur 5 minutes
+Electricité.Puissance.50_AutoConsoPower.TPK_DomestikAvgAutoConsoPower.comment :VA { class: Comment }
+Electricité.Puissance.50_AutoConsoPower.TPK_DomestikAvgAutoConsoPower.class: Topic
+Electricité.Puissance.50_AutoConsoPower.TPK_AutoConsoPower: AutoConsoPower
+Electricité.Puissance.50_AutoConsoPower.TPK_AutoConsoPower.class: Topic
+Electricité.Puissance.50_AutoConsoPower.MMX_AutoConsoPower <- Electricité.Puissance.50_AutoConsoPower.TPK_AutoConsoPower: listen { class: llink }
+Electricité.Puissance.50_AutoConsoPower.MMX_AutoConsoPower: AutoConsoPower
+Electricité.Puissance.50_AutoConsoPower.MMX_AutoConsoPower.class: MinMax
+Electricité.Puissance.50_AutoConsoPower.NFD_AutoConsoPowerCollector <- 10_Utilities.TMR_5minutes: when { class: llink }
+Electricité.Puissance.50_AutoConsoPower.NFD_AutoConsoPowerCollector <- 10_Configuration.PGS_domestik2: { class: ldatabase }
+Electricité.Puissance.50_AutoConsoPower.NFD_AutoConsoPowerCollector -- Electricité.Puissance.50_AutoConsoPower.MMX_AutoConsoPower: need { class: lneed }
+Electricité.Puissance.50_AutoConsoPower.NFD_AutoConsoPowerCollector -- Electricité.Puissance.50_AutoConsoPower.TPK_DomestikAvgAutoConsoPower: need { class: lneed }
+Electricité.Puissance.50_AutoConsoPower.NFD_AutoConsoPowerCollector: AutoConsoPowerCollector
+Electricité.Puissance.50_AutoConsoPower.NFD_AutoConsoPowerCollector.class: NamedFeed
+Electricité.Puissance.50_ElecConsPower.TPK_ConsPower: ConsPower
+Electricité.Puissance.50_ElecConsPower.TPK_ConsPower.comment :VA { class: Comment }
+Electricité.Puissance.50_ElecConsPower.TPK_ConsPower.class: Topic
+Electricité.Puissance.50_ElecConsPower.TPK_DomestikAvgConsPower: DomestikAvgConsPower
+Electricité.Puissance.50_ElecConsPower.TPK_DomestikAvgConsPower.tooltip :Moyenne consommée sur 5 minutes
+Electricité.Puissance.50_ElecConsPower.TPK_DomestikAvgConsPower.comment :VA { class: Comment }
+Electricité.Puissance.50_ElecConsPower.TPK_DomestikAvgConsPower.class: Topic
+Electricité.Puissance.50_ElecConsPower.MMX_ConsPower <- Electricité.Puissance.50_ElecConsPower.TPK_ConsPower: listen { class: llink }
+Electricité.Puissance.50_ElecConsPower.MMX_ConsPower: ConsPower
+Electricité.Puissance.50_ElecConsPower.MMX_ConsPower.class: MinMax
+Electricité.Puissance.50_ElecConsPower.NFD_ConsPowerCollector <- 10_Utilities.TMR_5minutes: when { class: llink }
+Electricité.Puissance.50_ElecConsPower.NFD_ConsPowerCollector <- 10_Configuration.PGS_domestik2: { class: ldatabase }
+Electricité.Puissance.50_ElecConsPower.NFD_ConsPowerCollector -- Electricité.Puissance.50_ElecConsPower.MMX_ConsPower: need { class: lneed }
+Electricité.Puissance.50_ElecConsPower.NFD_ConsPowerCollector -- Electricité.Puissance.50_ElecConsPower.TPK_DomestikAvgConsPower: need { class: lneed }
+Electricité.Puissance.50_ElecConsPower.NFD_ConsPowerCollector: ConsPowerCollector
+Electricité.Puissance.50_ElecConsPower.NFD_ConsPowerCollector.class: NamedFeed
+Electricité.Puissance.50_ElecProdPower.TPK_DomestikAvgProdPower: DomestikAvgProdPower
+Electricité.Puissance.50_ElecProdPower.TPK_DomestikAvgProdPower.tooltip :Moyenne produite sur 5 minutes
+Electricité.Puissance.50_ElecProdPower.TPK_DomestikAvgProdPower.comment :VA { class: Comment }
+Electricité.Puissance.50_ElecProdPower.TPK_DomestikAvgProdPower.class: Topic
+Electricité.Puissance.50_ElecProdPower.TPK_ProdPower: ProdPower
+Electricité.Puissance.50_ElecProdPower.TPK_ProdPower.class: Topic
+Electricité.Puissance.50_ElecProdPower.MMX_ProdPower <- Electricité.Puissance.50_ElecProdPower.TPK_ProdPower: listen { class: llink }
+Electricité.Puissance.50_ElecProdPower.MMX_ProdPower: ProdPower
+Electricité.Puissance.50_ElecProdPower.MMX_ProdPower.class: MinMax
+Electricité.Puissance.50_ElecProdPower.NFD_ProdPowerCollector <- 10_Utilities.TMR_5minutes: when { class: llink }
+Electricité.Puissance.50_ElecProdPower.NFD_ProdPowerCollector <- 10_Configuration.PGS_domestik2: { class: ldatabase }
+Electricité.Puissance.50_ElecProdPower.NFD_ProdPowerCollector -- Electricité.Puissance.50_ElecProdPower.MMX_ProdPower: need { class: lneed }
+Electricité.Puissance.50_ElecProdPower.NFD_ProdPowerCollector -- Electricité.Puissance.50_ElecProdPower.TPK_DomestikAvgProdPower: need { class: lneed }
+Electricité.Puissance.50_ElecProdPower.NFD_ProdPowerCollector: ProdPowerCollector
+Electricité.Puissance.50_ElecProdPower.NFD_ProdPowerCollector.class: NamedFeed
+Températures.50_TemperaturesGathering.TPK_HomeTemperatures: HomeTemperatures
+Températures.50_TemperaturesGathering.TPK_HomeTemperatures.tooltip :Root of home temperatures topics.
+Températures.50_TemperaturesGathering.TPK_HomeTemperatures.class: Topic
+Températures.50_TemperaturesGathering.TMR_Periode: Periode
+Températures.50_TemperaturesGathering.TMR_Periode.class: Timer
+Températures.50_TemperaturesGathering.NMX_home_temperatures <- Températures.50_TemperaturesGathering.TPK_HomeTemperatures: listen { class: llink }
+Températures.50_TemperaturesGathering.NMX_home_temperatures -- Températures.50_TemperaturesGathering.TPK_HomeTemperatures: need { class: lneed }
+Températures.50_TemperaturesGathering.NMX_home_temperatures: home_temperatures
+Températures.50_TemperaturesGathering.NMX_home_temperatures.tooltip :Aggregate values to save disc space.
+Températures.50_TemperaturesGathering.NMX_home_temperatures.class: NamedMinMax
+Températures.50_TemperaturesGathering.AFD_home_temperatures <- Températures.50_TemperaturesGathering.TMR_Periode: when { class: llink }
+Températures.50_TemperaturesGathering.AFD_home_temperatures <- Températures.50_TemperaturesGathering.NMX_home_temperatures: from { class: llink }
+Températures.50_TemperaturesGathering.AFD_home_temperatures <- 10_Configuration.PGS_domestik2: { class: ldatabase }
+Températures.50_TemperaturesGathering.AFD_home_temperatures: home_temperatures
+Températures.50_TemperaturesGathering.AFD_home_temperatures.tooltip :Store home temperatures
+Températures.50_TemperaturesGathering.AFD_home_temperatures.class: AggregatedFeed
