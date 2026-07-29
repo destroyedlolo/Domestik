@@ -1,0 +1,21 @@
+-- Monitor the living room temperature
+--
+-- Temperature to monitor
+-->> listen=TSalon
+-->> require_topic=TExterieur
+--
+-- Testing : start in checking mode
+-->> activated
+--->> start=DebutSurveillance
+--
+-- When we have to stop the monitoring
+--->> stop=ItsOver
+-->> statustopic=%ClientID%/FanTemperatureChecking/status
+
+print("TSalon", MAJORDOME_PAYLOAD, "TExt", TExterieur:getVal(), tonumber(MAJORDOME_PAYLOAD) > TExterieur:getVal()+1)
+
+if tonumber(MAJORDOME_PAYLOAD) > TExterieur:getVal()+1 then
+	SelLog.Log('I', "We can freshen up the living room")
+	MAJORDOME_Myself:setStatus("DONE")
+end
+
