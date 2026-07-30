@@ -1,6 +1,6 @@
 -- We have to start the fan
 --
--->> whenDone=SurveillanceSalon
+-->> whenDone=MonitoringLivingStart
 -->> need_topic=CmdFan
 
 CmdFan:Publish("on")

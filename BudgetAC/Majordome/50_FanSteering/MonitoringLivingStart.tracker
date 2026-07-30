@@ -9,12 +9,12 @@
 --->> start=DebutSurveillance
 --
 -- When we have to stop the monitoring
---->> stop=ItsOver
+-->> stop=EndMonitoringLiving
 -->> statustopic=%ClientID%/FanTemperatureChecking/status
 
-print("TSalon", MAJORDOME_PAYLOAD, "TExt", TExterieur:getVal(), tonumber(MAJORDOME_PAYLOAD) > TExterieur:getVal()+1)
+print("TSalon", MAJORDOME_PAYLOAD, "TExt", TExterieur:getVal(), tonumber(MAJORDOME_PAYLOAD) > TExterieur:getVal()+.5)
 
-if tonumber(MAJORDOME_PAYLOAD) > TExterieur:getVal()+1 then
+if tonumber(MAJORDOME_PAYLOAD) > TExterieur:getVal()+.5 then
 	SelLog.Log('I', "We can freshen up the living room")
 	MAJORDOME_Myself:setStatus("DONE")
 end
