@@ -57,6 +57,10 @@ local dateTable = os.date("!*t") -- UTC
 end
 
 local function CalculateSimulAutoConso(pOA, tComble, lat, lon)
+	if MAJORDOME_DEBUG then
+		SelLog.Log('I', "Prod :".. pOA)
+	end
+
     if pOA <= 0 then
         return 0.0
     end
@@ -69,7 +73,7 @@ local function CalculateSimulAutoConso(pOA, tComble, lat, lon)
 
     -- C. Facteur d'ombrage lissé basé sur l'azimut du soleil (creux à 98.5°)
     -- 98.5° correspond à la direction exacte du masque physique sur le toit
-    local kOmbre = 1.0 - 0.60 * math.exp(-0.5 * math.pow((azimuth - 98.5) / 6.8, 2))
+    local kOmbre = 1.0 - 0.60 * math.exp(-0.5 * ((azimuth - 98.5) / 6.8)^ 2)
 
     -- D. Puissance simulée finale
     local simulPower = pOA * ratioTemp * kOmbre
@@ -79,6 +83,8 @@ end
 
 local PTheoretical = CalculateSimulAutoConso(ProdPower:getVal(), CombleTemperature:getVal(), LATITUDE, LONGITUDE)
 
--- print("Theorique :", PTheoretical)
+if MAJORDOME_VERBOSE then
+	SelLog.Log('I', "Theorique :".. PTheoretical)
+end
 
 SimulAutoConsoPower:Publish(PTheoretical)
