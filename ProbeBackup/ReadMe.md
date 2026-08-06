@@ -1,4 +1,4 @@
-![ProbeBackup](Images/Illustration.png)
+![ProbeBackup](Images/illustration.png)
 
 # "Quick & Dirty" Hotfix: Temporarily Replacing a Dead 1-Wire Sensor with Zigbee
 
