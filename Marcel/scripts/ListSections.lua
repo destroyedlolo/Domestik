@@ -8,25 +8,27 @@ print "----------------"
 -- print(Marcel.SendAlertsCounter())
 
 for s in Marcel.Sections()
-do 
-	print('"' .. s:getName() .. '"', s:getKind(), s:isEnabled() )
+do
+	if type(s) ~= "userdata" then
+		print('"' .. s:getName() .. '"', s:getKind(), s:isEnabled() )
 
-	local cust = s:getCustomFigures()
-	if cust then
-		for k,v in pairs(cust) do
-			if type(v) == 'table' then
-				for _, vv in pairs(v)
-				do
-					print('\t\t', vv)
+		local cust = s:getCustomFigures()
+		if cust then
+			for k,v in pairs(cust) do
+				if type(v) == 'table' then
+					for _, vv in pairs(v)
+					do
+						print('\t\t', vv)
+					end
+				else
+					print('\t', k .. ':', v)
 				end
-			else
-				print('\t', k .. ':', v)
 			end
 		end
-	end
 
-	if s.inError then
-		print("\tinError()", s:inError())
+		if s.inError then
+			print("\tinError()", s:inError())
+		end
 	end
 end
 
