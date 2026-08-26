@@ -2,22 +2,22 @@
   "apiVersion": "dashboard.grafana.app/v2",
   "kind": "Dashboard",
   "metadata": {
-    "name": "feoust22li6tcf",
+    "name": "adssdsd",
     "namespace": "default",
-    "uid": "yMDpe96XfS63LXTkXJr9KZXSKclwzFeHxizjPIczsXcX",
-    "resourceVersion": "1787784756002985",
-    "generation": 4,
-    "creationTimestamp": "2025-06-18T23:20:56Z",
+    "uid": "4d95b30a-945b-4c9c-8338-8242b8a78f1f",
+    "resourceVersion": "1787784659675002",
+    "generation": 3,
+    "creationTimestamp": "2026-08-26T22:41:59Z",
     "labels": {
-      "grafana.app/deprecatedInternalID": "24"
+      "grafana.app/deprecatedInternalID": "3074165946277888"
     },
     "annotations": {
       "grafana.app/createdBy": "user:de1ol2hr0kkcgc",
       "grafana.app/folder": "feftygn8v18g0e",
-      "grafana.app/message": "Force ordering",
+      "grafana.app/message": "Correct ordering",
       "grafana.app/saved-from-ui": "Grafana v13.1.0 (b309c9bb3b)",
       "grafana.app/updatedBy": "user:de1ol2hr0kkcgc",
-      "grafana.app/updatedTimestamp": "2026-08-26T22:52:35Z",
+      "grafana.app/updatedTimestamp": "2026-08-26T22:50:59Z",
       "grafana.app/folderTitle": "Test (Torchwood)",
       "grafana.app/folderUrl": "/dashboards/f/feftygn8v18g0e/test-torchwood"
     }
@@ -72,7 +72,7 @@
                         "editorMode": "code",
                         "format": "table",
                         "rawQuery": true,
-                        "rawSql": "SELECT\n  sample_time,\n  minimum, average, maximum\nFROM ups \nWHERE \n  figure = '$figure'\n  AND sample_time BETWEEN $__timeFrom() AND $__timeTo() \nORDER BY sample_time ASC ",
+                        "rawSql": "SELECT\n  sample_time,\n  minimum, average, maximum\nFROM ups_archive \nWHERE \n  figure = '$figure'\n  AND sample_time BETWEEN $__timeFrom() AND $__timeTo()\nORDER BY sample_time ASC ",
                         "sql": {
                           "columns": [
                             {
@@ -264,7 +264,7 @@
     "tags": [],
     "timeSettings": {
       "timezone": "browser",
-      "from": "now-6h",
+      "from": "now-7d",
       "to": "now",
       "autoRefresh": "",
       "autoRefreshIntervals": [
@@ -282,7 +282,7 @@
       "hideTimepicker": false,
       "fiscalYearStartMonth": 0
     },
-    "title": "UPS",
+    "title": "UPS Archives",
     "variables": [
       {
         "kind": "QueryVariable",
