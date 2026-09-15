@@ -1,0 +1,4 @@
+-->> desc=Root of humidity topics
+--
+-->> group=Humidité
+-->> topic=maison/Humidity/#
