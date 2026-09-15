@@ -1,11 +1,13 @@
 -->> desc=Aggregate Humidity value
 --
 -->> group=Humidité
--->> listen=Humidity
+-->> listen=HomeHumidity
+-->> need_topic=HomeHumidity
 -->> quiet
 
 -- Extract probe name
-local _, nlevel=HomeTemperatures:getTopic():gsub("/","")	-- amount of level
+
+local _, nlevel=HomeHumidity:getTopic():gsub("/","")	-- amount of level
 
 MAJORDOME_TOPIC = MAJORDOME_TOPIC ..'/'
 local tbl =  {MAJORDOME_TOPIC:match((MAJORDOME_TOPIC:gsub("[^/]*/", "([^/]*)/")))}
