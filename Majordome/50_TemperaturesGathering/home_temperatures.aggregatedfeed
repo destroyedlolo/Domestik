@@ -2,7 +2,7 @@
 -->> group=Températures
 --
 -- Samples periode
--->> when=Periode
+-->> when=10mins
 --
 -- Where data come
 -->> from NamedMinMax=home_temperatures
