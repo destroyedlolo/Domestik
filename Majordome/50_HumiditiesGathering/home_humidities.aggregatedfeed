@@ -5,7 +5,7 @@
 -->> when=10mins
 --
 -- Where data come
--->> from NamedMinMax=home_humidity
+-->> from NamedMinMax=home_humidities
 --
 -- The figure to store
 -- can be 'Average' (default), 'Min', 'Max' or 'Sum'
