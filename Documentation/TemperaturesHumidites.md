@@ -1,6 +1,6 @@
-# Gestion des Temperatures
+# Gestion des Temperatures et des Humidités
 
-![Diagramme de gestion des températures](Temperatures.svg)
+![Diagramme de gestion des températures](TemperaturesHumidites.svg)
 
 Les températures arrivent par la hiérarchie de topics `maison/Temperature/#` à une fréquence prévue pour mon tableau de bord.
 
