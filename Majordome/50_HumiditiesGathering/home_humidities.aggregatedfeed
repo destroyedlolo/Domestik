@@ -1,5 +1,5 @@
--->> desc=Store home temperatures
--->> group=Humidité
+-->> desc=Store home humidities
+-->> group=Humidités
 --
 -- Samples periode
 -->> when=10mins

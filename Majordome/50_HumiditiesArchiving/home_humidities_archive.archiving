@@ -1,7 +1,7 @@
--->> desc=Archive temperatures
+-->> desc=Archive Humidities
 --
 -- D2 grouping
--->> group=Températures
+-->> group=Humidités
 --
 -->> resourceWait=DatabaseProcessing
 --
@@ -23,7 +23,7 @@
 -->> Database=domestik2
 --
 -- The source table
--->> source=home_temperatures
+-->> source=home_humidities
 --
 -- The table where data will be inserted
 -- if not set, the same as "name"
@@ -62,12 +62,12 @@
 -- Launching
 ------------
 --
--->> when=Time2ArchiveTemperatures
+-->> when=Time2ArchiveHumidities
 --
 ---------------
 -- Notification
 ---------------
 --
--->> SuccessRDV=ht_archiving_Done
+-->> SuccessRDV=hh_archiving_Done
 --->> FailRDV=ArchivingFailed
 

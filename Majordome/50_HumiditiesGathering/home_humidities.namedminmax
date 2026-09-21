@@ -1,6 +1,6 @@
 -->> desc=Aggregate Humidity value
 --
--->> group=Humidité
+-->> group=Humidités
 -->> listen=HomeHumidity
 -->> need_topic=HomeHumidity
 -->> quiet

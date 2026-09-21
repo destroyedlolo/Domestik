@@ -1,0 +1,6 @@
+-- Rendez-vous when the archiving is done
+--
+-->> group=Températures
+--
+-- disable this rendezvous
+--->> disabled
