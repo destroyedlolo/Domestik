@@ -1,11 +1,11 @@
--->> desc=Store home temperatures
--->> group=Températures
+-->> desc=Store home humidities
+-->> group=Humidités
 --
 -- Samples periode
 -->> when=10mins
 --
 -- Where data come
--->> from NamedMinMax=home_temperatures
+-->> from NamedMinMax=home_humidities
 --
 -- The figure to store
 -- can be 'Average' (default), 'Min', 'Max' or 'Sum'

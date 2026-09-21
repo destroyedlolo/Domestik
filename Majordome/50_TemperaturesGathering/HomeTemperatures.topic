@@ -3,3 +3,4 @@
 -->> group=Températures
 -->> topic=maison/Temperature/#
 --->> store
+--->> disabled
