@@ -1,0 +1,10 @@
+-- Publish average AutoConso power
+-->> group=Electricité.Puissance
+-->> ecom=VA
+-->> desc=Moyenne AutoConso sur 5 minutes
+--
+-->> topic=%ClientID%/AutoConsoPower
+-->> store
+--
+-- Ensure it is cleared before a new arrival
+-->> ttl=2

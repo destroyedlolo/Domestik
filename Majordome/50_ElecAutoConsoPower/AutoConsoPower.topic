@@ -1,0 +1,7 @@
+-- Retrieve AutoConso power production
+-->> group=Electricité.Puissance
+-->> ecom=VA
+--
+-->> topic=TeleInfo/AutoConso/PAPP
+--->> store
+-->> quiet
