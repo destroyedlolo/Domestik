@@ -1,4 +1,4 @@
-# Store Consumption counter
+# Store Production counter
 
 > [!WARNING]  
 > Use this code only as example.<br>
