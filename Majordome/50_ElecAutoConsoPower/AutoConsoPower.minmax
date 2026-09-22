@@ -1,0 +1,4 @@
+-- Generate statistics on real time AutoConso power
+-->> group=Electricité.Puissance
+--
+-->> listen=AutoConsoPower

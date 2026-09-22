@@ -1,0 +1,27 @@
+-- Store counter for AutoConso production in Domestik's database
+-->> group=Electricité.Compteurs
+--
+-->> when=5minutes
+--->> when=10s
+--
+-->> require_topic=AutoConsoCounter
+-->> Database=domestik2
+--
+-->> table=electricity_counter
+-->> desc=electricity_counter
+--
+-- Avoid the "data rejected" message (as we are always rejecting)
+-->> quiet
+
+if SelSharedVar.Get('AutoConsoCounter') ~= SelSharedVar.Get('ansAutoConsoCounter') then
+	-- Build the request
+	local req = "INSERT INTO ".. MAJORDOME_Myself:getDatabase():EscapeIdentifier(MAJORDOME_Myself:getTable())  .." VALUES (now(), 'AutoConso', 'BASE', ".. SelSharedVar.Get('AutoConsoCounter') .." );"
+
+	MAJORDOME_Myself:getDatabase():doSQL(req)
+end
+
+	-- Store previous value
+SelSharedVar.Set('ansAutoConsoCounter', SelSharedVar.Get('AutoConsoCounter'))
+
+-- Already stored
+return false

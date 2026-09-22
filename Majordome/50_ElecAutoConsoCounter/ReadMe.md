@@ -1,4 +1,4 @@
-# Store Consumption counter
+# Store AutoConso counter
 
 > [!WARNING]  
 > Use this code only as example.<br>
@@ -13,8 +13,8 @@
 
 ### Counters
 
-- `ProdCounter.topic` Production counter
+- `AutoConsoCounter.topic` Production counter
 
 ### Injectors
 
-- `ProdCounter.namedfeed`
+- `AutoConsoCounter.namedfeed`
