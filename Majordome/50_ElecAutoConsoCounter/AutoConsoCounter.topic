@@ -1,0 +1,7 @@
+-- AutoConso Production counter
+-->> group=Electricité.Compteurs
+-->> ecom=Wh
+--
+-->> topic=TeleInfo/AutoConso/BASE
+-->> store
+-->> quiet
