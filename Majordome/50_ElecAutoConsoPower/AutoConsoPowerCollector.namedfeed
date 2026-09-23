@@ -40,4 +40,4 @@ DomestikAvgAutoConsoPower:Publish( AutoConsoPower:getAverage()/12 )
 local max = AutoConsoPower:getMax()
 AutoConsoPower:Reset()
 
-return "AutoCOnso", max
+return "AutoConso", max
