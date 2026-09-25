@@ -10,6 +10,7 @@
 -- The figure to store
 -- can be 'Average' (default), 'Min', 'Max' or 'Sum'
 -->> figure=Average
+-->> ignore empty
 --
 -- Where to store
 -->> Database=domestik2
