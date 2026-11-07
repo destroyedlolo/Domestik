@@ -31,7 +31,7 @@ function PublishMemory( section_name )
 	Marcel.MQTTPublish( topic .. 'memory', mfree ..'/'.. mtotal)
 	Marcel.MQTTPublish( topic .. 'Buffers', buffers)
 	Marcel.MQTTPublish( topic .. 'Cached', cached)
-	Marcel.MQTTPublish( topic .. 'userPRC', user)
+	Marcel.MQTTPublish( topic .. 'userPRC', string.format("%.2f", user) )
 	if mtotal ~= 0 then
 		Marcel.MQTTPublish( topic .. 'memoryPRC', string.format("%.2f", 100 * (1 - mfree/mtotal)) )
 		Marcel.MQTTPublish( topic .. 'BuffersPRC', string.format("%.2f", 100 * buffers/mtotal) )
